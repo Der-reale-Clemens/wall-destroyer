@@ -1,12 +1,14 @@
 import {Typography} from "@material-ui/core";
 import React from "react";
 import {store} from "../redux/store";
-import {addUpgrade, decreaseBricks, decreaseMoney} from "../redux/GameSlice";
+import {decreaseBricks, decreaseMoney} from "../redux/GameSlice";
 import magicMiningImg from "../images/upgrades/magicMining.png";
 import paddedGlovesImg from "../images/upgrades/punchUpg1.png";
 import {Dispatch} from "@reduxjs/toolkit";
+import {addUpgrade} from "../redux/UpgradeSlice";
 
 export interface Upgrade {
+    isVisible: () => boolean;
     isBuyable: () => boolean;
     buy: (_:Dispatch<any>) => void;
     text: JSX.Element;
@@ -28,6 +30,7 @@ interface UpgradesType {
 
 export const upgrades: UpgradesType = {
     paddedGloves: {
+        isVisible: () => store.getState().buildings.puncher >= 1,
         isBuyable: () => store.getState().game.money >= 100,
         buy: (dispatch) => dispatch(decreaseMoney(100)),
         text: <>
@@ -40,6 +43,7 @@ export const upgrades: UpgradesType = {
         img: paddedGlovesImg
     },
     magicMining: {
+        isVisible: () => store.getState().game.wall >= 10,
         isBuyable: () => {
             const state = store.getState();
             const bricks = state.game.bricks;

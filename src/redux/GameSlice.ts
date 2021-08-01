@@ -1,6 +1,5 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {walls} from "../constants/walls";
-import {UpgradeKeys} from "../constants/upgrades";
 
 const initialState = {
     money: 0,
@@ -8,7 +7,7 @@ const initialState = {
     bricks: 11,
     wall: 0,
     knowledge: 0,
-    upgrades: [] as UpgradeKeys[]
+
 };
 
 const gameSlice = createSlice({
@@ -43,9 +42,6 @@ const gameSlice = createSlice({
                 state.wall++;
             }
         },
-        addUpgrade: (state, {payload: upgrade}: PayloadAction<UpgradeKeys>) => {
-            state.upgrades.push(upgrade);
-        }
     }
 })
 
@@ -56,5 +52,4 @@ export const {
     decreaseMoney,
     decreaseBricks,
     tryDestroyWall,
-    addUpgrade
 } = gameSlice.actions

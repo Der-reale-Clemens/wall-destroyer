@@ -18,3 +18,6 @@ const notation = (num: number): string => {
     base = parseFloat(base).toPrecision(3);
     return base + "e" + power;
 }
+
+export const simpleArrayEquals = <T>(a: T[], b: T[]) => (a.length === b.length
+    && a.every((val, index) => val === b[index]))
