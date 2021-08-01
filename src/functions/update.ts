@@ -1,5 +1,5 @@
 import {store} from "../redux/store";
-import {setLastUpdate, systemReducer} from "../redux/SystemSlice";
+import {setLastUpdate} from "../redux/SystemSlice";
 import {BuildingKeys, buildings} from "../constants/buildings";
 import {Dispatch} from "@reduxjs/toolkit";
 import {updateUnlockedUpgrades} from "../redux/UpgradeSlice";

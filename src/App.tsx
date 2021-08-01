@@ -9,7 +9,6 @@ import {Upgrades} from "./components/Upgrades";
 import {update} from "./functions/update";
 import {setLastUpdate} from "./redux/SystemSlice";
 import destroyWall from './images/destroyWall.png'
-import {BuildingTooltip} from "./components/BuildingTooltip";
 
 const useStyles = makeStyles((theme) =>
     createStyles({
@@ -52,7 +51,7 @@ function App() {
                     <Grid container spacing={1}>
                         <Grid item xs={6}>
                             <Paper className={classes.paper}>
-                                <img src={destroyWall}/>
+                                <img alt="Wall" src={destroyWall}/>
                                 <Button variant="contained" onClick={() => dispatch(increaseMoney(10))}>Punch Wall</Button>
                             </Paper>
                         </Grid>

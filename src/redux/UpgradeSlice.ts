@@ -1,4 +1,4 @@
-import {UpgradeKeys, upgrades} from "../constants/upgrades";
+import {UpgradeKeys} from "../constants/upgrades";
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {simpleArrayEquals} from "../constants";
 
