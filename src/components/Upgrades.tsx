@@ -1,5 +1,5 @@
 import React, {FC} from "react";
-import {createStyles, Divider, makeStyles, Paper} from "@material-ui/core";
+import {createStyles, Divider, Grid, makeStyles, Paper} from "@material-ui/core";
 import {Upgrade} from "./Upgrade";
 import {useSelector} from "react-redux";
 import {AppState} from "../redux/store";
@@ -15,7 +15,6 @@ const useStyles = makeStyles((theme) =>
 );
 
 export const Upgrades: FC = () => {
-    //const update = useSelector((state:AppState)=> state.system.lastUpdate);
     const boughtUpgrades = useSelector((state: AppState) => state.upgrades.boughtUpgrades);
     const unlockedUpgrades = useSelector((state: AppState) => state.upgrades.unlockedUpgrades);
     const classes = useStyles();
@@ -24,10 +23,22 @@ export const Upgrades: FC = () => {
         <Paper className={classes.paper}>
             Upgrades:
             <Divider style={{marginBottom: "5px"}}/>
-            {unlockedUpgrades.map(u => <Upgrade name={u}/>)}
+            <Grid container>
+                {unlockedUpgrades.map(u => (
+                    <Grid item xs={2}>
+                        <Upgrade name={u}/>
+                    </Grid>
+                    ))}
+            </Grid>
 
             <Divider style={{marginBottom: "5px"}}/>
-            {boughtUpgrades.map(u => <Upgrade name={u} disabled={true}/>)}
+            <Grid container>
+                {boughtUpgrades.map(u => (
+                    <Grid item xs={2}>
+                        <Upgrade name={u} disabled={true}/>
+                    </Grid>
+                ))}
+            </Grid>
         </Paper>
     )
 }
