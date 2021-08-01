@@ -26,12 +26,6 @@ export const buyUpgrade = (upgrade: UpgradeKeys, dispatch: Dispatch<any>) => {
     }
 }
 
-
-
-interface UpgradesType {
-    [key: string]: Upgrade;
-}
-
 export const upgrades: {[key: string]: Upgrade} = {
     gloves: {
         isVisible: () => store.getState().buildings.puncher >= 1,

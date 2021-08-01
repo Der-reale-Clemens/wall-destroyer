@@ -1,5 +1,8 @@
 import React, {FC} from "react";
-import {createStyles, Divider, makeStyles, Paper} from "@material-ui/core";
+import {createStyles, Divider, Grid, makeStyles, Paper} from "@material-ui/core";
+import {useSelector} from "react-redux";
+import {AppState} from "../redux/store";
+import {Achievement} from "./Achievement";
 
 const useStyles = makeStyles((theme) =>
     createStyles({
@@ -12,12 +15,20 @@ const useStyles = makeStyles((theme) =>
 );
 
 export const Achievements: FC = () => {
+    const achievements = useSelector((state: AppState) => state.achievements.achievements);
     const classes = useStyles();
 
     return (
         <Paper className={classes.paper}>
             Achievements
-            <Divider/>
+            <Divider style={{marginBottom: "5px"}}/>
+            <Grid container spacing={7}>
+                {achievements.map(a => (
+                    <Grid item xs={1}>
+                        <Achievement name={a}/>
+                    </Grid>
+                ))}
+            </Grid>
         </Paper>
     )
 }

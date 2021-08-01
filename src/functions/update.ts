@@ -4,6 +4,8 @@ import {BuildingKeys, buildings} from "../constants/buildings";
 import {Dispatch} from "@reduxjs/toolkit";
 import {updateUnlockedUpgrades} from "../redux/UpgradeSlice";
 import {upgrades} from "../constants/upgrades";
+import {achievements} from "../constants/achievements";
+import {updateAchievements} from "../redux/AchievementSlice";
 
 export const update = (dispatch: Dispatch<any>) => {
     const state = store.getState();
@@ -29,6 +31,11 @@ export const update = (dispatch: Dispatch<any>) => {
         .filter(u => upgrades[u].isVisible())
         .filter(u => !boughtUpgrades.includes(u));
     dispatch(updateUnlockedUpgrades(visible));
+
+    //Handle achievements
+    const wonAchievements = Object.keys(achievements)
+        .filter(a => achievements[a].isUnlocked())
+    dispatch(updateAchievements(wonAchievements));
 
     return damage;
 }

@@ -23,7 +23,7 @@ const UpgradeImg: FC<Props> = ({name, disabled}) => {
     const upgrade = upgrades[name];
     const style = upgrade.isBuyable() ? {filter: "grayscale(0%)"} : {filter: "grayscale(100%)"};
     if(disabled === true) {
-        return <img src={upgrade.img} alt="Magic Mining"/>
+        return <img src={upgrade.img} alt="U"/>
     }
-    return <img onClick={() => buyUpgrade(name, dispatch)} style={style} src={upgrade.img} alt="Magic Mining"/>
+    return <img onClick={() => buyUpgrade(name, dispatch)} style={style} src={upgrade.img} alt="U"/>
 }
