@@ -8,11 +8,11 @@ export const buyBuilding = (name: BuildingKeys) => {
     const state = store.getState()
 
     const nextCost = calculateNextBuildingCost(state.buildings[name], buildings[name].cost);
-    //if(state.game.money >= nextCost) {
+    if(state.game.money >= nextCost) {
         return (dispatch: any) => {
             dispatch(increaseBuilding(name));
-            //dispatch(decreaseMoney(nextCost));
+            dispatch(decreaseMoney(nextCost));
         }
-    //}
-    //return (dispatch: any) => {};
+    }
+    return (dispatch: any) => {};
 }

@@ -1,7 +1,8 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 
 const initialState = {
-    lastUpdate:0
+    lastUpdate:0,
+    format: "scientific"
 };
 
 export const systemSlice = createSlice({
