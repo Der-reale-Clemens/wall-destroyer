@@ -13,6 +13,7 @@ interface Props {
 }
 
 export const BuildingButton: FC<Props> = ({text, img, name}) => {
+    const _ = useSelector((state: AppState) => state.system.format);
     const amount = useSelector((state:AppState) => state.buildings[name])
     const dispatch = useDispatch();
 

@@ -1,17 +1,12 @@
 import React, {FC} from "react";
 import {createStyles, IconButton, makeStyles, Popover, Typography} from "@material-ui/core";
 import SettingsIcon from "@material-ui/icons/Settings";
+import {Settings} from "./Settings";
 
-const useStyles = makeStyles((theme) =>
-    createStyles({
-        typography: {
-            padding: theme.spacing(2),
-        },
-    }),
-);
+
 
 export const SettingsButton: FC = () => {
-    const classes = useStyles();
+
     const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null);
     const open = Boolean(anchorEl);
 
@@ -33,8 +28,7 @@ export const SettingsButton: FC = () => {
                 horizontal: 'center',
             }}
         >
-            <Typography className={classes.typography}>Settings</Typography>
-            v.0.1
+            <Settings/>
         </Popover>
         </>)
 }
