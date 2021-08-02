@@ -9,6 +9,8 @@ import {Upgrades} from "./components/Upgrades";
 import {update} from "./functions/update";
 import {setLastUpdate} from "./redux/SystemSlice";
 import destroyWall from './images/destroyWall.png'
+import {SettingsButton} from "./components/SettingsButton";
+import {save} from "./functions/save";
 
 const useStyles = makeStyles((theme) =>
     createStyles({
@@ -39,8 +41,17 @@ function App() {
         return () => clearInterval(interval);
     },[])
 
+    useEffect(() => {
+        const interval = setInterval(() => {
+            save();
+        }, 5000);
+
+        return () => clearInterval(interval);
+    })
+
     return (
         <div className={classes.root}>
+            <SettingsButton/>
             <Grid container spacing={2}>
                 <Grid item xs={3}>
                     <Paper className={classes.paper}>
