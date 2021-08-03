@@ -1,5 +1,5 @@
 import React, {FC} from "react";
-import {createStyles, IconButton, makeStyles, Popover, Typography} from "@material-ui/core";
+import {IconButton, Popover} from "@material-ui/core";
 import SettingsIcon from "@material-ui/icons/Settings";
 import {Settings} from "./Settings";
 
@@ -15,6 +15,7 @@ export const SettingsButton: FC = () => {
             <SettingsIcon/>
         </IconButton>
         <Popover
+            style={{marginLeft: "10px"}}
             id={open ? 'simple-popover' : undefined}
             open={open}
             anchorEl={anchorEl}

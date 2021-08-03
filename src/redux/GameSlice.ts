@@ -4,10 +4,9 @@ import {walls} from "../constants/walls";
 const initialState = {
     money: 0,
     damage: 0,
-    bricks: 11,
+    bricks: 0,
     wall: 0,
     knowledge: 0,
-
 };
 
 const gameSlice = createSlice({
