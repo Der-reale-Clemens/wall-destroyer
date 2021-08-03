@@ -7,6 +7,7 @@ const initialState = {
     bricks: 0,
     wall: 0,
     knowledge: 0,
+    dps: 1,
 };
 
 const gameSlice = createSlice({
@@ -41,6 +42,9 @@ const gameSlice = createSlice({
                 state.wall++;
             }
         },
+        updateDps: (state, {payload: amount}: PayloadAction<number>) => {
+            state.dps = amount;
+        }
     }
 })
 
@@ -51,4 +55,5 @@ export const {
     decreaseMoney,
     decreaseBricks,
     tryDestroyWall,
+    updateDps,
 } = gameSlice.actions

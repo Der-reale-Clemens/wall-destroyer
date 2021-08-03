@@ -8,14 +8,20 @@ import paddedGlovesImg from "../images/upgrades/punchUpg2.png";
 import steelPlatedGloves from "../images/upgrades/punchUpg3.png";
 import {Dispatch} from "@reduxjs/toolkit";
 import {addUpgrade} from "../redux/UpgradeSlice";
+import {BuildingKeys} from "./buildings";
 
 export type UpgradeKeys = keyof typeof upgrades;
+
+type Effect = {
+    [key in BuildingKeys]?: number;
+};
 
 export interface Upgrade {
     isVisible: () => boolean;
     isBuyable: () => boolean;
     buy: (_:Dispatch<any>) => void;
     text: JSX.Element;
+    effect: Effect;
     img: string;
 }
 
@@ -31,6 +37,7 @@ export const upgrades: {[key: string]: Upgrade} = {
         isVisible: () => store.getState().buildings.puncher >= 1,
         isBuyable: () => store.getState().game.money >= 100,
         buy: (dispatch) => dispatch(decreaseMoney(100)),
+        effect: { puncher: 1.5},
         text: <>
             <Typography color="inherit">Gloves</Typography>
             Hand punches do <b>1</b> more damage.
@@ -44,6 +51,7 @@ export const upgrades: {[key: string]: Upgrade} = {
         isVisible: () => store.getState().buildings.puncher >= 5,
         isBuyable: () => store.getState().game.money >= 400,
         buy: (dispatch) => dispatch(decreaseMoney(400)),
+        effect: {puncher: 2},
         text: <>
             <Typography color="inherit">Padded Gloves</Typography>
             Punchers and hand punches do <b>twice</b> as much damage.
@@ -56,6 +64,7 @@ export const upgrades: {[key: string]: Upgrade} = {
         isVisible: () => store.getState().buildings.puncher >= 25,
         isBuyable: () => store.getState().game.money >= 10_000,
         buy: (dispatch) => dispatch(decreaseMoney(10_000)),
+        effect: {puncher: 2},
         text: <>
             <Typography color="inherit">Steel Plated Gloves </Typography>
             Punchers and hand punches do <b>twice</b> as much damage.
@@ -71,6 +80,7 @@ export const upgrades: {[key: string]: Upgrade} = {
             const bricks = state.game.bricks;
             return bricks >= 10;
         },
+        effect: {},
         buy: (dispatch) => dispatch(decreaseBricks(1)),
         text: <>
             <Typography color="inherit">Magic Mining</Typography>
@@ -81,6 +91,7 @@ export const upgrades: {[key: string]: Upgrade} = {
     }
 }
 
+const effectsAllBuildings = (power: number) => {
 
-
+}
 

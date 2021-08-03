@@ -16,6 +16,7 @@ import {setFormat} from "../redux/SystemSlice";
 import DeleteIcon from "@material-ui/icons/Delete";
 import {hardReset} from "../functions/hardReset";
 import {Changelog} from "./Changelog";
+import {version} from "../environment";
 
 const useStyles = makeStyles((theme) =>
     createStyles({
@@ -50,7 +51,7 @@ export const Settings: FC = () => {
         </Select>
         <br/>
         <HardResetButton/>
-        <br/>v.0.1   -<Changelog/>
+        <br/>v.{version} -<Changelog/>
         </>)
 }
 

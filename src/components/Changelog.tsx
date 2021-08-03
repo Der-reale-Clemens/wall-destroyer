@@ -51,15 +51,18 @@ export const Changelog: FC = () => {
             <DialogTitle id="alert-dialog-title">Changelog</DialogTitle>
             <DialogContent>
                 <DialogContentText id="alert-dialog-description">
+                    v.0.2 - Upgrades
+                    <hr/>
+                    Made upgrades actually do something, should be a solid system to add a lot more upgrades in the future.
+                    Also added money/s display.
+                    <hr/>
                     v.0.1 - Initial prototype
                     <hr/>
-                    The first release of the game. Contains the 8 original buildings, a destroyable first wall, a punch
-                    wall
-                    button and the resources money, damage and bricks. Also includes a prototype upgrade system with
-                    3(4) test
-                    upgrades that do not function yet as well as a prototype achievement system with 3 achievements.
-                    There
-                    also is a simple settings menu with a notation change option, a hard reset button and this
+                    The first release of the game. Contains the 8 original buildings, a destroyable first wall, a punch wall
+                    button and the resources money, damage and bricks.
+                    Also includes a prototype upgrade system with 3(4) test upgrades that do not function yet as well
+                    as a prototype achievement system with 3 achievements.
+                    There also is a simple settings menu with a notation change option, a hard reset button and this
                     changelog.
                 </DialogContentText>
             </DialogContent>
