@@ -51,6 +51,11 @@ export const Changelog: FC = () => {
             <DialogTitle id="alert-dialog-title">Changelog</DialogTitle>
             <DialogContent>
                 <DialogContentText id="alert-dialog-description">
+                    v.0.3 - The first content
+                    <hr/>
+                    Added the rest of the original walls and achievements for them. Also added added puncher upgrades
+                    till 200, yay. Oh yeah also added different wall images for the higher walls.
+                    <hr/>
                     v.0.2.1 - Bug Fixes
                     <hr/>
                     Fixed critical production bug that prevented page from loading at all. Cause was the number formatting

@@ -24,11 +24,12 @@ export const Upgrades: FC = () => {
             Upgrades:
             <Divider style={{marginBottom: "5px"}}/>
             <Grid container>
-                {unlockedUpgrades.map(u => (
-                    <Grid item xs={2}>
+                {unlockedUpgrades.map(u => {
+                    console.log(u);
+                    return <Grid item xs={2}>
                         <Upgrade name={u}/>
                     </Grid>
-                    ))}
+                })}
             </Grid>
 
             <Divider style={{marginBottom: "5px"}}/>

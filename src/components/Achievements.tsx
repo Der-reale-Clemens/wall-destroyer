@@ -22,9 +22,9 @@ export const Achievements: FC = () => {
         <Paper className={classes.paper}>
             Achievements
             <Divider style={{marginBottom: "5px"}}/>
-            <Grid container spacing={7}>
+            <Grid container>
                 {achievements.map(a => (
-                    <Grid item xs={1}>
+                    <Grid item xs={2}>
                         <Achievement name={a}/>
                     </Grid>
                 ))}

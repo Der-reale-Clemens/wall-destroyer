@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import {Button, createStyles, Grid, makeStyles, Paper} from "@material-ui/core";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {increaseMoney} from "./redux/GameSlice";
 import {BuildingTable} from "./components/BuildingTable";
 import {Resources} from "./components/Resources";
@@ -8,9 +8,11 @@ import {Achievements} from "./components/Achievements";
 import {Upgrades} from "./components/Upgrades";
 import {update} from "./functions/update";
 import {setLastUpdate} from "./redux/SystemSlice";
-import destroyWall from './images/destroyWall.png'
+import destroyWall from './images/walls/destroyWall.png'
 import {SettingsButton} from "./components/SettingsButton";
 import {save} from "./functions/save";
+import {AppState} from "./redux/store";
+import {walls} from "./constants/walls";
 
 const useStyles = makeStyles((theme) =>
     createStyles({
@@ -26,6 +28,7 @@ const useStyles = makeStyles((theme) =>
 );
 
 function App() {
+    const wall = useSelector((state: AppState) => state.game.wall);
     const dispatch = useDispatch();
     const classes = useStyles();
 
@@ -62,7 +65,7 @@ function App() {
                     <Grid container spacing={1}>
                         <Grid item xs={6}>
                             <Paper className={classes.paper}>
-                                <img alt="Wall" src={destroyWall}/>
+                                <img alt="Wall" src={walls[wall].img}/>
                                 <Button variant="contained" onClick={() => dispatch(increaseMoney(10))}>Punch Wall</Button>
                             </Paper>
                         </Grid>

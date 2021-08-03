@@ -5,7 +5,12 @@ import {decreaseBricks, decreaseMoney} from "../redux/GameSlice";
 import magicMiningImg from "../images/upgrades/magicMining.png";
 import glovesImg from "../images/upgrades/punchUpg1.png";
 import paddedGlovesImg from "../images/upgrades/punchUpg2.png";
-import steelPlatedGloves from "../images/upgrades/punchUpg3.png";
+import steelPlatedGlovesImg from "../images/upgrades/punchUpg3.png";
+import brassKnucklesImg from "../images/upgrades/punchUpg4.png";
+import titaniumKnucklesImg from "../images/upgrades/punchUpg5.png";
+import diamonKnucklesImg from "../images/upgrades/punchUpg6.png";
+import adamantiumKnucklesImg from "../images/upgrades/punchUpg7.png";
+import redactedGlovesImg from "../images/upgrades/punchUpg8.png";
 import {Dispatch} from "@reduxjs/toolkit";
 import {addUpgrade} from "../redux/UpgradeSlice";
 import {BuildingKeys} from "./buildings";
@@ -66,12 +71,81 @@ export const upgrades: {[key: string]: Upgrade} = {
         buy: (dispatch) => dispatch(decreaseMoney(10_000)),
         effect: {puncher: 2},
         text: <>
-            <Typography color="inherit">Steel Plated Gloves </Typography>
+            <Typography color="inherit">Steel Plated Gloves</Typography>
             Punchers and hand punches do <b>twice</b> as much damage.
             <br/><em>A brilliant plan.</em>
             <br/>Costs <b>10,000</b> Cash
         </>,
-        img: steelPlatedGloves
+        img: steelPlatedGlovesImg
+    },
+    brassKnuckles: {
+        isVisible: () => store.getState().buildings.puncher >= 50,
+        isBuyable: () => store.getState().game.money >= 100_000,
+        buy: (dispatch) => dispatch(decreaseMoney(100_000)),
+        effect: {puncher: 2},
+        text: <>
+            <Typography color="inherit">Brass Knuckles</Typography>
+            Punchers and hand punches do <b>twice</b> as much damage.
+            <br/><i>That's on top of the steel plated gloves. Hell yes.</i>
+            <br/>Costs <b>100,000</b> Cash
+        </>,
+        img: brassKnucklesImg
+    },
+    titaniumKnuckles: {
+        isVisible: () => store.getState().buildings.puncher >= 75,
+        isBuyable: () => store.getState().game.money >= 1_000_000,
+        buy: (dispatch) => dispatch(decreaseMoney(1_000_000)),
+        effect: {puncher: 2},
+        text: <>
+            <Typography color="inherit">Titanium Knuckles</Typography>
+            Punchers and hand punches do <b>twice</b> as much damage.
+            <br/><i>Clearly better, because anything made of titanium does way more damage.</i>
+            <br/>Costs <b>1,000,000</b> Cash
+        </>,
+        img: titaniumKnucklesImg
+    },
+    diamondKnuckles: {
+        isVisible: () => store.getState().buildings.puncher >= 100,
+        isBuyable: () => store.getState().game.money >= 2e7,
+        buy: (dispatch) => dispatch(decreaseMoney(2e7)),
+        effect: {puncher: 3},
+        text: <>
+            <Typography color="inherit">Diamond Knuckles</Typography>
+            Punchers do <b>three times</b> as much damage.
+            <br/>Hand punches do <b>twice</b> as much damage.
+            <br/><i>The only real substance that can make things do more damage than titanium.</i>
+            <br/>Costs <b>20,000,000</b> Cash
+        </>,
+        img: diamonKnucklesImg
+    },
+    adamantiumKnuckles: {
+        isVisible: () => store.getState().buildings.puncher >= 150,
+        isBuyable: () => store.getState().game.money >= 2e9,
+        buy: (dispatch) => dispatch(decreaseMoney(2e9)),
+        effect: {puncher: 3},
+        text: <>
+            <Typography color="inherit">Adamantium Knuckles</Typography>
+            Punchers do <b>three times</b> as much damage.
+            <br/>Hand punches do <b>50%</b> more damage.
+            <br/><i>Wolverine claws optional.</i>
+            <br/>Costs <b>2,000,000,000</b> Cash
+        </>,
+        img: adamantiumKnucklesImg
+    },
+    redactedGloves: {
+        isVisible: () => store.getState().buildings.puncher >= 200,
+        isBuyable: () => store.getState().game.money >= 2e11,
+        buy: (dispatch) => dispatch(decreaseMoney(2e11)),
+        effect: {puncher: 4},
+        text: <>
+            <Typography color="inherit">[REDACTED] Gloves</Typography>
+            Punchers do <b>four times</b> as much damage.
+            <br/>Hand punches do <b>50%</b> more damage.
+            <br/><i>We brought back an old experiment to make gloves made out of [REDACTED].
+            <br/>CHIEF OF R&D EDIT: that's top secret, you idiot.</i>
+            <br/>Costs <b>200,000,000,000</b> Cash
+        </>,
+        img: redactedGlovesImg
     },
     magicMining: {
         isVisible: () => store.getState().game.wall >= 10,
