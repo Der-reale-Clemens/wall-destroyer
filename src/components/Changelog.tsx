@@ -51,6 +51,12 @@ export const Changelog: FC = () => {
             <DialogTitle id="alert-dialog-title">Changelog</DialogTitle>
             <DialogContent>
                 <DialogContentText id="alert-dialog-description">
+                    v.0.2.1 - Bug Fixes
+                    <hr/>
+                    Fixed critical production bug that prevented page from loading at all. Cause was the number formatting
+                    library. The bug disappeared after changing some code and then changing it back, programming is
+                    black magic sometimes.
+                    <hr/>
                     v.0.2 - Upgrades
                     <hr/>
                     Made upgrades actually do something, should be a solid system to add a lot more upgrades in the future.
