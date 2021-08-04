@@ -14,6 +14,7 @@ import redactedGlovesImg from "../images/upgrades/punchUpg8.png";
 import {Dispatch} from "@reduxjs/toolkit";
 import {addUpgrade} from "../redux/UpgradeSlice";
 import {BuildingKeys} from "./buildings";
+import {prettify} from "../constants";
 
 export type UpgradeKeys = keyof typeof upgrades;
 
@@ -49,7 +50,7 @@ export const upgrades: {[key: string]: Upgrade} = {
             Hand punches do <b>1</b> more damage.
             Punchers do <b>50%</b> more damage.
             <br/><em>A little padding.</em>
-            <br/>Costs <b>100</b> Cash
+            <br/>Costs <b>{prettify(100)}</b> Cash
         </>,
         img: glovesImg
     },
@@ -62,7 +63,7 @@ export const upgrades: {[key: string]: Upgrade} = {
             <Typography color="inherit">Padded Gloves</Typography>
             Punchers and hand punches do <b>twice</b> as much damage.
             <br/><em>Actually significant padding.</em>
-            <br/>Costs <b>400</b> Cash
+            <br/>Costs <b>{prettify(400)}</b> Cash
         </>,
         img: paddedGlovesImg
     },
@@ -75,7 +76,7 @@ export const upgrades: {[key: string]: Upgrade} = {
             <Typography color="inherit">Steel Plated Gloves</Typography>
             Punchers and hand punches do <b>twice</b> as much damage.
             <br/><em>A brilliant plan.</em>
-            <br/>Costs <b>10,000</b> Cash
+            <br/>Costs <b>{prettify(10_000)}</b> Cash
         </>,
         img: steelPlatedGlovesImg
     },
@@ -88,7 +89,7 @@ export const upgrades: {[key: string]: Upgrade} = {
             <Typography color="inherit">Brass Knuckles</Typography>
             Punchers and hand punches do <b>twice</b> as much damage.
             <br/><i>That's on top of the steel plated gloves. Hell yes.</i>
-            <br/>Costs <b>100,000</b> Cash
+            <br/>Costs <b>{prettify(100_000)}</b> Cash
         </>,
         img: brassKnucklesImg
     },
@@ -101,7 +102,7 @@ export const upgrades: {[key: string]: Upgrade} = {
             <Typography color="inherit">Titanium Knuckles</Typography>
             Punchers and hand punches do <b>twice</b> as much damage.
             <br/><i>Clearly better, because anything made of titanium does way more damage.</i>
-            <br/>Costs <b>1,000,000</b> Cash
+            <br/>Costs <b>{prettify(1_000_000)}</b> Cash
         </>,
         img: titaniumKnucklesImg
     },
@@ -115,7 +116,7 @@ export const upgrades: {[key: string]: Upgrade} = {
             Punchers do <b>three times</b> as much damage.
             <br/>Hand punches do <b>twice</b> as much damage.
             <br/><i>The only real substance that can make things do more damage than titanium.</i>
-            <br/>Costs <b>20,000,000</b> Cash
+            <br/>Costs <b>{prettify(2e7)}</b> Cash
         </>,
         img: diamonKnucklesImg
     },
@@ -129,7 +130,7 @@ export const upgrades: {[key: string]: Upgrade} = {
             Punchers do <b>three times</b> as much damage.
             <br/>Hand punches do <b>50%</b> more damage.
             <br/><i>Wolverine claws optional.</i>
-            <br/>Costs <b>2,000,000,000</b> Cash
+            <br/>Costs <b>{prettify(2e9)}</b> Cash
         </>,
         img: adamantiumKnucklesImg
     },
@@ -144,7 +145,7 @@ export const upgrades: {[key: string]: Upgrade} = {
             <br/>Hand punches do <b>50%</b> more damage.
             <br/><i>We brought back an old experiment to make gloves made out of [REDACTED].
             <br/>CHIEF OF R&D EDIT: that's top secret, you idiot.</i>
-            <br/>Costs <b>200,000,000,000</b> Cash
+            <br/>Costs <b>{prettify(2e11)}</b> Cash
         </>,
         img: redactedGlovesImg
     },
@@ -154,9 +155,11 @@ export const upgrades: {[key: string]: Upgrade} = {
         buy: (dispatch) => dispatch(decreaseMoney(2e15)),
         effect: {puncher: 5},
         text: <>
-            <Typography color="inherit">Antimatter Gauntlets
-            </Typography>
-            Punchers do <b>five times</b> as much damage.<br/>Hand punches do <b>50%</b> more damage.<br/><i>The RUC is not responsible for any deaths/implosions caused by the Antimatter Gauntlets(TM).</i>
+            <Typography color="inherit">Antimatter Gauntlets</Typography>
+            Punchers do <b>five times</b> as much damage.
+            <br/>Hand punches do <b>50%</b> more damage.
+            <br/><i>The RUC is not responsible for any deaths/implosions caused by the Antimatter Gauntlets(TM).</i>
+            <br/>Costs <b>{prettify(2e15)}</b> Cash
         </>,
         img: "http://i.imgur.com/GfoMaz4.png"
     },
@@ -169,6 +172,7 @@ export const upgrades: {[key: string]: Upgrade} = {
             <Typography color="inherit">Better Clubs</Typography>
             Clubbers do <b>50%</b> more damage.
             <br/><i>Simply feels better to hold.</i>
+            <br/>Costs <b>{prettify(750)}</b> Cash
         </>,
         img: "http://i.imgur.com/k6W8MW9.png"
     },
@@ -181,6 +185,7 @@ export const upgrades: {[key: string]: Upgrade} = {
             <Typography color="inherit">Iron Clubs</Typography>
             Clubbers do <b>twice</b> as much damage.
             <br/><i>Wood is old school.</i>
+            <br/>Costs <b>{prettify(7.5e3)}</b> Cash
         </>,
         img: "http://i.imgur.com/LRhDWi7.png"
     },
@@ -193,6 +198,7 @@ export const upgrades: {[key: string]: Upgrade} = {
             <Typography color="inherit">Titanium Clubs</Typography>
             Clubbers do <b>twice</b> as much damage.
             <br/><i>Heavier, but actually does damage.</i>
+            <br/>Costs <b>{prettify(7.5e4)}</b> Cash
         </>,
         img: "http://i.imgur.com/tIHqvj8.png"
     },
@@ -205,6 +211,7 @@ export const upgrades: {[key: string]: Upgrade} = {
             <Typography color="inherit">Spiked Clubs</Typography>
             Clubbers do <b>twice</b> as much damage.
             <br/><i>Titanium spikes, of course.</i>
+            <br/>Costs <b>{prettify(7.5e5)}</b> Cash
         </>,
         img: "http://i.imgur.com/zIFpGEb.png"
     },
@@ -217,6 +224,7 @@ export const upgrades: {[key: string]: Upgrade} = {
             <Typography color="inherit">Bigger Clubs</Typography>
             Clubbers do <b>twice</b> as much damage.
             <br/><i>I'm surprised we didn't get these sooner.</i>
+            <br/>Costs <b>{prettify(7.5e6)}</b> Cash
         </>,
         img: "http://i.imgur.com/5rYYXJ1.png"
     },
@@ -229,6 +237,7 @@ export const upgrades: {[key: string]: Upgrade} = {
             <Typography color="inherit">Bomb Clubs</Typography>
             Clubbers do <b>three times</b> as much damage.
             <br/><i>Just attach some bombs to the clubs. An excellent plan.</i>
+            <br/>Costs <b>{prettify(7.5e7)}</b> Cash
         </>,
         img: "http://i.imgur.com/8rGt4hi.png"
     },
@@ -241,6 +250,7 @@ export const upgrades: {[key: string]: Upgrade} = {
             <Typography color="inherit">Plasma Coated Clubs</Typography>
             Clubbers do <b>three times</b> as much damage.
             <br/><i>Melts through the wall. Be careful!</i>
+            <br/>Costs <b>{prettify(3.75e9)}</b> Cash
         </>,
         img: "http://i.imgur.com/2Kpfgha.png"
     },
@@ -248,11 +258,13 @@ export const upgrades: {[key: string]: Upgrade} = {
         isVisible: () => store.getState().buildings.clubber >= 200,
         isBuyable: () => store.getState().game.money >= 3.75e+11,
         buy: (dispatch) => dispatch(decreaseMoney(3.75e+11)),
-        effect: {clubber: 4},
+        effect: {},
         text: <>
-            <Typography color="inherit">Nuke Clubs</Typography>
+            <Typography color="inherit">Nuke Clubs
+            </Typography>
             Clubbers do <b>four times</b> as much damage.
             <br/><i>Like bomb clubs, but waaaay more dangerous.</i>
+            <br/>Costs <b>{prettify(375000000000)}</b> Cash
         </>,
         img: "http://i.imgur.com/sqh5GGD.png"
     },

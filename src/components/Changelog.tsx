@@ -51,6 +51,12 @@ export const Changelog: FC = () => {
             <DialogTitle id="alert-dialog-title">Changelog</DialogTitle>
             <DialogContent>
                 <DialogContentText id="alert-dialog-description">
+                    v.0.4.1 - Prices are back
+                    <hr/>
+                    Forgot to add a price display to upgrades, now you can see again how much an upgrade costs and also
+                    added this to the converter script. Also changed number of significant figures from 5 to 4, might
+                    change back though.
+                    <hr/>
                     v.0.4 - Club Upgrades
                     <hr/>
                     Thanks to some cool converter script I wrote upgrades can be created a lot faster now. Therefore

@@ -15,7 +15,7 @@ export const prettify = (num: number): string => {
     const format = store.getState().system.format;
     //const format = "standard";
     //return (Math.round(num*1000)/1000).toString();
-    return numberformat.format(num, {format});
+    return numberformat.format(num, {format, sigfigs: 4});
 };
 
 export const simpleArrayEquals = <T>(a: T[], b: T[]) => (a.length === b.length

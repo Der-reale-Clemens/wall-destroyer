@@ -13,11 +13,12 @@ const constructFromFrame = (name, building, amount, cost, effect, text, img) => 
     return s;
 }
 
-const constructText = (name, body) => {
-    body = String(body).replaceAll('<br>', '<br/>')
+const constructText = (name, body, cost) => {
+    body = String(body).replaceAll('<br>', '\n<br/>')
     return `<>
         <Typography color="inherit">${name}</Typography>
         ${body}
+        <br/>Costs <b>{prettify(${cost})}</b> Cash
     </>`
 }
 
@@ -34,7 +35,7 @@ const convert = (text, name) => {
     const pictureUrl = g(text, /-picture : ([^\s]+)/g);
     const effect = "{}";
 
-    return constructFromFrame(name, building, amount, cost, effect, constructText(textName, textBody), pictureUrl);
+    return constructFromFrame(name, building, amount, cost, effect, constructText(textName, textBody, Number(cost)), pictureUrl);
 }
 
 fs.readFile("input.txt", (e, data) => {
