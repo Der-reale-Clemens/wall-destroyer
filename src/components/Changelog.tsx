@@ -51,6 +51,11 @@ export const Changelog: FC = () => {
             <DialogTitle id="alert-dialog-title">Changelog</DialogTitle>
             <DialogContent>
                 <DialogContentText id="alert-dialog-description">
+                    v.0.4 - Club Upgrades
+                    <hr/>
+                    Thanks to some cool converter script I wrote upgrades can be created a lot faster now. Therefore
+                    we now have 8 new club upgrades and an increase in development speed.
+                    <hr/>
                     v.0.3 - The first content
                     <hr/>
                     Added the rest of the original walls and achievements for them. Also added added puncher upgrades
