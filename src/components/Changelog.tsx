@@ -51,6 +51,12 @@ export const Changelog: FC = () => {
             <DialogTitle id="alert-dialog-title">Changelog</DialogTitle>
             <DialogContent>
                 <DialogContentText id="alert-dialog-description">
+                    v.0.6 - Did someone say upgrades?
+                    <hr/>
+                    Added the first 8 upgrades for every building, that should make it fairly feasible to destroy the
+                    first wall. Also made a few more changes to the UI, including a background colour, sharper boxes
+                    and making the app fixed size.
+                    <hr/>
                     v.0.5 - New UI
                     <hr/>
                     Overhauled the UI pretty significantly, to put the wall more into the focus and make the app feel

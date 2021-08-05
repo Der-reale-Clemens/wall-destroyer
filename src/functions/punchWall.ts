@@ -1,12 +1,12 @@
 import {Dispatch} from "@reduxjs/toolkit";
 import {store} from "../redux/store";
 import {upgrades} from "../constants/upgrades";
-import {increaseMoney} from "../redux/GameSlice";
+import {increaseHandDamage, increaseMoney} from "../redux/GameSlice";
 
 export const punchWall = (dispatch: Dispatch<any>) => {
     const state = store.getState();
 
-    let damage = 1;
+    let damage = 1e20;
 
     //Cause Gloves add damage instead of multiplying
     if(state.upgrades.boughtUpgrades.includes("gloves"))
@@ -20,4 +20,5 @@ export const punchWall = (dispatch: Dispatch<any>) => {
     })
 
     dispatch(increaseMoney(damage));
+    dispatch(increaseHandDamage(damage));
 }

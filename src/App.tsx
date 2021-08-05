@@ -59,17 +59,16 @@ function App() {
     return (
         <div className={classes.root}>
             <SettingsButton/>
-            <Grid container spacing={2}>
+            <Grid container spacing={1}>
                 <Grid item xs={3}>
-                    <Paper className={classes.paper}>
-
+                    <Paper className={classes.paper}  style={{maxHeight: '93vh', minHeight: "93vh", overflow: 'auto'}} variant="outlined">
                         <BuildingTable/>
                     </Paper>
                 </Grid>
                 <Grid item xs={5}>
                     <Grid container spacing={1}>
                         <Grid item xs={12}>
-                            <Paper className={classes.paper}>
+                            <Paper className={classes.paper} variant="outlined">
                                 <DestroyWall/>
                                 <PunchWallButton/>
                             </Paper>
@@ -80,7 +79,7 @@ function App() {
                     </Grid>
                 </Grid>
                 <Grid item xs={4}>
-                    <Paper className={classes.paper}>
+                    <Paper className={classes.paper} style={{maxHeight: '93vh', minHeight: "93vh", overflow: 'auto'}} variant="outlined">
                         <UpgradeAndAchievementTable/>
                     </Paper>
                 </Grid>

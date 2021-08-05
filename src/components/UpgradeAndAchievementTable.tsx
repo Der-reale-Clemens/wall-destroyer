@@ -5,7 +5,7 @@ import {Achievements} from "./Achievements";
 
 export const UpgradeAndAchievementTable: FC = () => {
     const classes = useStyles();
-    const [value, setValue] = useState(1);
+    const [value, setValue] = useState(0);
 
     const handleChange = (event: React.ChangeEvent<{}>, newValue: number) =>
         setValue(newValue);

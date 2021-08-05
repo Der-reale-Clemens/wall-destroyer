@@ -79,6 +79,6 @@ export const walls: Wall[] = [
         text: <>
             There are no more walls left, this is the end of the current universe.
         </>,
-        img: wallBossImg,
+        img: "http://i.imgur.com/W1iILrI.png",
     }
 ]

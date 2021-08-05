@@ -48,8 +48,10 @@ export const update = (dispatch: Dispatch<any>) => {
     let overallDamage = Object.values(damages).reduce((sum, d) => sum+d);
 
     //Set Dps
-    dispatch(updateDps(overallDamage*(1000/deltaTime)))
+    dispatch(updateDps(overallDamage*(1000/deltaTime)));
 
+    //const a = Object.keys(upgrades).filter(u => upgrades[u] === undefined);
+    //console.log(a);
     //Handle displayed upgrades
     const boughtUpgrades = state.upgrades.boughtUpgrades
     const visible = Object.keys(upgrades)

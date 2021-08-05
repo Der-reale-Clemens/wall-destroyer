@@ -1,5 +1,5 @@
 import React, {FC} from "react";
-import {createStyles, List, makeStyles, Typography} from "@material-ui/core";
+import {createStyles, Divider, List, makeStyles, Typography} from "@material-ui/core";
 import {BuildingButton} from "./BuildingButton";
 import {DestroyWall} from "./DestroyWall";
 import {BuildingKeys, buildings} from "../constants/buildings";
@@ -47,6 +47,7 @@ export const BuildingTable: FC = () => {
     return (
         <div className={classes.root}>
         <List component="nav">
+            <Divider/>
             {createBuilding("puncher")}
             {createBuilding("clubber")}
             {createBuilding("swordsman")}

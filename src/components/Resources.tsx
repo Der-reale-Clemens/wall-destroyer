@@ -19,7 +19,7 @@ export const Resources: FC = () => {
     const classes = useStyles();
 
     return (
-        <Paper className={classes.paper}>
+        <Paper className={classes.paper} variant="outlined">
             <label>Resources</label>
             <Divider/>
             <label>Money: {prettify(money)}(+{prettify(dps)}/s)</label>
