@@ -19,7 +19,7 @@ import {prettify} from "../constants";
 export type UpgradeKeys = keyof typeof upgrades;
 
 type Effect = {
-    [key in BuildingKeys]?: number;
+    [key in BuildingKeys | "hand"]?: number;
 };
 
 export interface Upgrade {
@@ -58,7 +58,7 @@ export const upgrades: {[key: string]: Upgrade} = {
         isVisible: () => store.getState().buildings.puncher >= 5,
         isBuyable: () => store.getState().game.money >= 400,
         buy: (dispatch) => dispatch(decreaseMoney(400)),
-        effect: {puncher: 2},
+        effect: {hand:2, puncher: 2},
         text: <>
             <Typography color="inherit">Padded Gloves</Typography>
             Punchers and hand punches do <b>twice</b> as much damage.
@@ -71,7 +71,7 @@ export const upgrades: {[key: string]: Upgrade} = {
         isVisible: () => store.getState().buildings.puncher >= 25,
         isBuyable: () => store.getState().game.money >= 10_000,
         buy: (dispatch) => dispatch(decreaseMoney(10_000)),
-        effect: {puncher: 2},
+        effect: {hand: 2, puncher: 2},
         text: <>
             <Typography color="inherit">Steel Plated Gloves</Typography>
             Punchers and hand punches do <b>twice</b> as much damage.
@@ -84,7 +84,7 @@ export const upgrades: {[key: string]: Upgrade} = {
         isVisible: () => store.getState().buildings.puncher >= 50,
         isBuyable: () => store.getState().game.money >= 100_000,
         buy: (dispatch) => dispatch(decreaseMoney(100_000)),
-        effect: {puncher: 2},
+        effect: {hand: 2, puncher: 2},
         text: <>
             <Typography color="inherit">Brass Knuckles</Typography>
             Punchers and hand punches do <b>twice</b> as much damage.
@@ -97,7 +97,7 @@ export const upgrades: {[key: string]: Upgrade} = {
         isVisible: () => store.getState().buildings.puncher >= 75,
         isBuyable: () => store.getState().game.money >= 1_000_000,
         buy: (dispatch) => dispatch(decreaseMoney(1_000_000)),
-        effect: {puncher: 2},
+        effect: {hand:2, puncher: 2},
         text: <>
             <Typography color="inherit">Titanium Knuckles</Typography>
             Punchers and hand punches do <b>twice</b> as much damage.
@@ -110,7 +110,7 @@ export const upgrades: {[key: string]: Upgrade} = {
         isVisible: () => store.getState().buildings.puncher >= 100,
         isBuyable: () => store.getState().game.money >= 2e7,
         buy: (dispatch) => dispatch(decreaseMoney(2e7)),
-        effect: {puncher: 3},
+        effect: {hand:2, puncher: 3},
         text: <>
             <Typography color="inherit">Diamond Knuckles</Typography>
             Punchers do <b>three times</b> as much damage.
@@ -124,7 +124,7 @@ export const upgrades: {[key: string]: Upgrade} = {
         isVisible: () => store.getState().buildings.puncher >= 150,
         isBuyable: () => store.getState().game.money >= 2e9,
         buy: (dispatch) => dispatch(decreaseMoney(2e9)),
-        effect: {puncher: 3},
+        effect: {hand: 1.5, puncher: 3},
         text: <>
             <Typography color="inherit">Adamantium Knuckles</Typography>
             Punchers do <b>three times</b> as much damage.
@@ -138,7 +138,7 @@ export const upgrades: {[key: string]: Upgrade} = {
         isVisible: () => store.getState().buildings.puncher >= 200,
         isBuyable: () => store.getState().game.money >= 2e11,
         buy: (dispatch) => dispatch(decreaseMoney(2e11)),
-        effect: {puncher: 4},
+        effect: {hand: 1.5, puncher: 4},
         text: <>
             <Typography color="inherit">[REDACTED] Gloves</Typography>
             Punchers do <b>four times</b> as much damage.
@@ -153,7 +153,7 @@ export const upgrades: {[key: string]: Upgrade} = {
         isVisible: () => store.getState().buildings.puncher >= 300,
         isBuyable: () => store.getState().game.money >= 2e15,
         buy: (dispatch) => dispatch(decreaseMoney(2e15)),
-        effect: {puncher: 5},
+        effect: {hand: 1.5, puncher: 5},
         text: <>
             <Typography color="inherit">Antimatter Gauntlets</Typography>
             Punchers do <b>five times</b> as much damage.
@@ -258,7 +258,7 @@ export const upgrades: {[key: string]: Upgrade} = {
         isVisible: () => store.getState().buildings.clubber >= 200,
         isBuyable: () => store.getState().game.money >= 3.75e+11,
         buy: (dispatch) => dispatch(decreaseMoney(3.75e+11)),
-        effect: {},
+        effect: {clubber: 4},
         text: <>
             <Typography color="inherit">Nuke Clubs
             </Typography>

@@ -19,10 +19,7 @@ export const Upgrades: FC = () => {
     const unlockedUpgrades = useSelector((state: AppState) => state.upgrades.unlockedUpgrades);
     const classes = useStyles();
 
-    return (
-        <Paper className={classes.paper}>
-            Upgrades:
-            <Divider style={{marginBottom: "5px"}}/>
+    return (<>
             <Grid container>
                 {unlockedUpgrades.map(u => {
                     console.log(u);
@@ -40,6 +37,6 @@ export const Upgrades: FC = () => {
                     </Grid>
                 ))}
             </Grid>
-        </Paper>
+        </>
     )
 }

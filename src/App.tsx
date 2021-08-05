@@ -13,6 +13,10 @@ import {SettingsButton} from "./components/SettingsButton";
 import {save} from "./functions/save";
 import {AppState} from "./redux/store";
 import {walls} from "./constants/walls";
+import {DestroyWall} from "./components/DestroyWall";
+import {DestroyWallProgress} from "./components/DestroyWallProgress";
+import {UpgradeAndAchievementTable} from "./components/UpgradeAndAchievementTable";
+import {PunchWallButton} from "./components/PunchWallButton";
 
 const useStyles = makeStyles((theme) =>
     createStyles({
@@ -58,27 +62,27 @@ function App() {
             <Grid container spacing={2}>
                 <Grid item xs={3}>
                     <Paper className={classes.paper}>
+
                         <BuildingTable/>
                     </Paper>
                 </Grid>
                 <Grid item xs={5}>
                     <Grid container spacing={1}>
-                        <Grid item xs={6}>
+                        <Grid item xs={12}>
                             <Paper className={classes.paper}>
-                                <img alt="Wall" src={walls[wall].img}/>
-                                <Button variant="contained" onClick={() => dispatch(increaseMoney(10))}>Punch Wall</Button>
+                                <DestroyWall/>
+                                <PunchWallButton/>
                             </Paper>
                         </Grid>
-                        <Grid item xs={6}>
-                            <Resources/>
-                        </Grid>
                         <Grid item xs={12}>
-                            <Achievements/>
+                            <Resources/>
                         </Grid>
                     </Grid>
                 </Grid>
                 <Grid item xs={4}>
-                    <Upgrades/>
+                    <Paper className={classes.paper}>
+                        <UpgradeAndAchievementTable/>
+                    </Paper>
                 </Grid>
             </Grid>
         </div>

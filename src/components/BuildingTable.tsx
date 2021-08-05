@@ -47,7 +47,6 @@ export const BuildingTable: FC = () => {
     return (
         <div className={classes.root}>
         <List component="nav">
-            <DestroyWall/>
             {createBuilding("puncher")}
             {createBuilding("clubber")}
             {createBuilding("swordsman")}

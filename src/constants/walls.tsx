@@ -22,7 +22,7 @@ export const walls: Wall[] = [
             <br/>Awards <b>250,000,000,000</b> cash.
             <br/>Worth <b>1</b> cosmic knowledge.
         </>,
-        img: wallImg
+        img: "http://i.imgur.com/KfG2xNP.png"
     },
     {
         cost: 100_000_000_000_000,
@@ -34,7 +34,7 @@ export const walls: Wall[] = [
             <br/>Awards <b>25,000,000,000,000</b> cash.
             <br/>Worth <b>1</b> cosmic knowledge.
         </>,
-        img: wallImg,
+        img: "http://i.imgur.com/KfG2xNP.png"
     },
     {
         cost: 10_000_000_000_000_000,
@@ -46,7 +46,7 @@ export const walls: Wall[] = [
             <br/>Awards <b>2,500,000,000,000,000</b> cash.
             <br/>Worth <b>1</b> cosmic knowledge.
         </>,
-        img: wallImg,
+        img:"http://i.imgur.com/KfG2xNP.png"
     },
     {
         cost: 1_000_000_000_000_000_000,
@@ -69,6 +69,15 @@ export const walls: Wall[] = [
             <br/>Gives <b>10,000,000</b> bricks.
             <br/>Awards <b>25,000,000,000,000,000,000</b> cash; <b>1</b> boss brick.
             <br/>Worth <b>5</b> cosmic knowledge.
+        </>,
+        img: wallBossImg,
+    },
+    {
+        cost: Infinity,
+        bricks: 0,
+        knowledge: 0,
+        text: <>
+            There are no more walls left, this is the end of the current universe.
         </>,
         img: wallBossImg,
     }

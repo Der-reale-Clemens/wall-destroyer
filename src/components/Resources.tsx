@@ -15,15 +15,16 @@ const useStyles = makeStyles((theme) =>
 );
 
 export const Resources: FC = () => {
-    const {money, bricks, dps} = useSelector((state: AppState) => state.game);
+    const {damage, money, bricks, dps} = useSelector((state: AppState) => state.game);
     const classes = useStyles();
 
     return (
         <Paper className={classes.paper}>
             <label>Resources</label>
             <Divider/>
-            <label>Money: {prettify(money)}
-                (+{prettify(dps)}/s)</label>
+            <label>Money: {prettify(money)}(+{prettify(dps)}/s)</label>
+            <br/>
+            <label>Damage: {prettify(damage)}(+{prettify(dps)}/s)</label>
             <br/>
             <label>Bricks: {bricks}</label>
         </Paper>);

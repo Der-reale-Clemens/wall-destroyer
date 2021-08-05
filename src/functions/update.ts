@@ -37,8 +37,11 @@ export const update = (dispatch: Dispatch<any>) => {
     state.upgrades.boughtUpgrades.forEach((u) => {
         const effects = upgrades[u].effect;
         for(const effectKey in effects) {
-            //@ts-ignore
-            damages[effectKey] *= effects[effectKey];
+
+            if(effectKey !== "hand") {
+                //@ts-ignore
+                damages[effectKey] *= effects[effectKey];
+            }
         }
     })
 

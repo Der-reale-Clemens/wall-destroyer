@@ -51,6 +51,12 @@ export const Changelog: FC = () => {
             <DialogTitle id="alert-dialog-title">Changelog</DialogTitle>
             <DialogContent>
                 <DialogContentText id="alert-dialog-description">
+                    v.0.5 - New UI
+                    <hr/>
+                    Overhauled the UI pretty significantly, to put the wall more into the focus and make the app feel
+                    a bit more modern, the overall damage is also being displayed now. Also made upgrades effect hand
+                    punches now and fixed a crash when you defeat all walls.
+                    <hr/>
                     v.0.4.1 - Prices are back
                     <hr/>
                     Forgot to add a price display to upgrades, now you can see again how much an upgrade costs and also

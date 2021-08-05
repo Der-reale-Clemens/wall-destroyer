@@ -19,9 +19,6 @@ export const Achievements: FC = () => {
     const classes = useStyles();
 
     return (
-        <Paper className={classes.paper}>
-            Achievements
-            <Divider style={{marginBottom: "5px"}}/>
             <Grid container>
                 {achievements.map(a => (
                     <Grid item xs={2}>
@@ -29,6 +26,5 @@ export const Achievements: FC = () => {
                     </Grid>
                 ))}
             </Grid>
-        </Paper>
     )
 }

@@ -1,33 +1,50 @@
 import {FC} from "react";
-import {Button, Divider, LinearProgress} from "@material-ui/core";
+import {Divider, LinearProgress} from "@material-ui/core";
 import {useDispatch, useSelector} from "react-redux";
 import {AppState} from "../redux/store";
 import {HtmlTooltip} from "./HtmlTooltip";
 import {walls} from "../constants/walls";
-import {prettify} from "../constants";
 import {tryDestroyWall} from "../redux/GameSlice";
+import {prettify} from "../constants";
 
 export const DestroyWall: FC = () => {
-    const wall = useSelector((state:AppState)=> state.game.wall);
-
+    const wall = useSelector((state: AppState) => state.game.wall);
     const dispatch = useDispatch();
 
+    const styles = {
+        container: {
+            position: "relative",
+            textAlign: "center",
+        } as React.CSSProperties,
+        text: {
+            position: "absolute",
+            top: "2px",
+            left: "56px",
+            color: "black",
+            fontSize: "larger",
+        } as React.CSSProperties,
+    };
 
-    return (
-        <>
+    return (<>
+        <DestroyWallProgress/>
+        <HtmlTooltip text={walls[wall].text}>
+            <div onClick={() => dispatch(tryDestroyWall())} style={styles.container}>
+                <b style={styles.text}>Destroy Wall</b>
+                <img src={walls[wall].img} style={{width: "80%"}} alt="Wall"/>
+            </div>
+        </HtmlTooltip>
+        <Divider/>
+    </>)
+}
+
+const DestroyWallProgress: FC = () => {
+    const wall = useSelector((state:AppState)=> state.game.wall);
+
+    return (<>
             <ProgressBar cost={walls[wall].cost}/>
             <WallText cost={walls[wall].cost}/>
-            <br/>
-            <HtmlTooltip text={walls[wall].text}>
-                <Button style={{marginTop:"10px", marginBottom:"10px"}}
-                        variant="contained" onClick={() => dispatch(tryDestroyWall())}
-                >
-                    Destroy Wall
-                </Button>
-            </HtmlTooltip>
-
-            <Divider/>
-    </>)
+        </>
+    )
 }
 
 interface Props {
