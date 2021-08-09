@@ -19,9 +19,9 @@ export const DestroyWall: FC = () => {
         text: {
             position: "absolute",
             top: "2px",
-            left: "56px",
+            left: "13%",
             color: "black",
-            fontSize: "larger",
+            fontSize: "large",
         } as React.CSSProperties,
     };
 
@@ -62,5 +62,5 @@ const ProgressBar: FC<Props> = ({cost}) => {
     const {damage} = useSelector((state: AppState) => state.game);
     const progress = Math.min(damage/cost*100, 100);
 
-    return <LinearProgress  variant="determinate" value={progress}/>
+    return <LinearProgress variant="determinate" value={progress}/>
 }

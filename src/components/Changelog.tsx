@@ -5,7 +5,7 @@ import {
     DialogActions,
     DialogContent,
     DialogContentText,
-    DialogTitle,
+    DialogTitle, Divider,
     makeStyles
 } from "@material-ui/core";
 
@@ -51,47 +51,64 @@ export const Changelog: FC = () => {
             <DialogTitle id="alert-dialog-title">Changelog</DialogTitle>
             <DialogContent>
                 <DialogContentText id="alert-dialog-description">
+                    v.0.9 - Achievements
+                    <Divider/>
+                    Added almost all achievements and added a small info text about the game. Plus some other smaller
+                    changes that I can't entirely remember, we are getting closer to 1.0 though, very exciting, I'll
+                    wonder who will actually read any of these notes after release.
+                    <Divider/>
+                    v.0.8 - Toast
+                    <Divider/>
+                    Add toasts for achievements, upgrade unlocks and saving. What is a toast? It's a little notification
+                    in the bottom left corner of the screen. Also changed autosaving interval to 60 seconds.
+                    <Divider/>
+                    v.0.7 - Themes
+                    <Divider/>
+                    Since everyone hates light mode these days I added a dark mode that is easier on the eyes and since
+                    I was already on it there also is an original theme, which is meant to mimic the look of the original
+                    Wall Destroyer. Also added tiny borders to upgrades and achievements.
+                    <Divider/>
                     v.0.6 - Did someone say upgrades?
-                    <hr/>
+                    <Divider/>
                     Added the first 8 upgrades for every building, that should make it fairly feasible to destroy the
                     first wall. Also made a few more changes to the UI, including a background colour, sharper boxes
                     and making the app fixed size.
-                    <hr/>
+                    <Divider/>
                     v.0.5 - New UI
-                    <hr/>
+                    <Divider/>
                     Overhauled the UI pretty significantly, to put the wall more into the focus and make the app feel
                     a bit more modern, the overall damage is also being displayed now. Also made upgrades effect hand
                     punches now and fixed a crash when you defeat all walls.
-                    <hr/>
+                    <Divider/>
                     v.0.4.1 - Prices are back
-                    <hr/>
+                    <Divider/>
                     Forgot to add a price display to upgrades, now you can see again how much an upgrade costs and also
                     added this to the converter script. Also changed number of significant figures from 5 to 4, might
                     change back though.
-                    <hr/>
+                    <Divider/>
                     v.0.4 - Club Upgrades
-                    <hr/>
+                    <Divider/>
                     Thanks to some cool converter script I wrote upgrades can be created a lot faster now. Therefore
                     we now have 8 new club upgrades and an increase in development speed.
-                    <hr/>
+                    <Divider/>
                     v.0.3 - The first content
-                    <hr/>
+                    <Divider/>
                     Added the rest of the original walls and achievements for them. Also added added puncher upgrades
                     till 200, yay. Oh yeah also added different wall images for the higher walls.
-                    <hr/>
+                    <Divider/>
                     v.0.2.1 - Bug Fixes
-                    <hr/>
+                    <Divider/>
                     Fixed critical production bug that prevented page from loading at all. Cause was the number formatting
                     library. The bug disappeared after changing some code and then changing it back, programming is
                     black magic sometimes.
-                    <hr/>
+                    <Divider/>
                     v.0.2 - Upgrades
-                    <hr/>
+                    <Divider/>
                     Made upgrades actually do something, should be a solid system to add a lot more upgrades in the future.
                     Also added money/s display.
-                    <hr/>
+                    <Divider/>
                     v.0.1 - Initial prototype
-                    <hr/>
+                    <Divider/>
                     The first release of the game. Contains the 8 original buildings, a destroyable first wall, a punch wall
                     button and the resources money, damage and bricks.
                     Also includes a prototype upgrade system with 3(4) test upgrades that do not function yet as well

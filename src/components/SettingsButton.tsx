@@ -15,7 +15,7 @@ export const SettingsButton: FC = () => {
             <SettingsIcon/>
         </IconButton>
         <Popover
-            style={{marginLeft: "10px"}}
+            style={{marginLeft: "10px", alignItems: "center"}}
             id={open ? 'simple-popover' : undefined}
             open={open}
             anchorEl={anchorEl}
@@ -25,11 +25,13 @@ export const SettingsButton: FC = () => {
                 horizontal: 'center',
             }}
             transformOrigin={{
-                vertical: 'top',
+                vertical: 'center',
                 horizontal: 'center',
             }}
         >
-            <Settings/>
+            <div style={{textAlign: "center"}}>
+                <Settings/>
+            </div>
         </Popover>
         </>)
 }

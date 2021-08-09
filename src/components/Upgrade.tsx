@@ -19,11 +19,18 @@ const UpgradeImg: FC<Props> = ({name, disabled}) => {
     //Hooking into redux to force re-renders
     const _ = useSelector((state: AppState) => state.system.lastUpdate);
     const dispatch = useDispatch();
-
     const upgrade = upgrades[name];
-    const style = upgrade.isBuyable() ? {filter: "grayscale(0%)"} : {filter: "grayscale(100%)"};
-    if(disabled === true) {
-        return <img src={upgrade.img} alt="U"/>
+
+    const style = {
+        filter: (upgrade.isBuyable() || disabled) ? "grayscale(0%)" : "grayscale(100%)",
+        borderStyle: "solid",
+        borderWidth: "1px",
+        borderColor: "black",
     }
+
+
+    //if(disabled === true) {
+    //    return <img src={upgrade.img} alt="U"/>
+    //}
     return <img onClick={() => buyUpgrade(name, dispatch)} style={style} src={upgrade.img} alt="U"/>
 }

@@ -3,7 +3,8 @@ import {AchievementKeys} from "../constants/achievements";
 import {simpleArrayEquals} from "../constants";
 
 const initialState = {
-    achievements: [] as AchievementKeys[]
+    achievements: [] as AchievementKeys[],
+    notifications: [] as AchievementKeys[]
 }
 
 const achievementSlice = createSlice({
@@ -12,8 +13,13 @@ const achievementSlice = createSlice({
     reducers: {
         updateAchievements: (state, {payload: achievements}: PayloadAction<AchievementKeys[]>) => {
             if(!simpleArrayEquals(state.achievements, achievements)) {
+                const newAchievements = achievements.filter(a => !state.achievements.includes(a));
+                newAchievements.forEach(a => state.notifications.push(a));
                 state.achievements = achievements;
             }
+        },
+        clearNotifications: (state) => {
+            state.notifications = [];
         }
     }
 });
@@ -21,5 +27,6 @@ const achievementSlice = createSlice({
 export const achievementReducer = achievementSlice.reducer;
 
 export const {
-    updateAchievements
+    updateAchievements,
+    clearNotifications
 } = achievementSlice.actions;

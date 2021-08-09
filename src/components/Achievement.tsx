@@ -6,7 +6,14 @@ interface Props {
     name: AchievementKeys
 }
 
-export const Achievement: FC<Props> = ({name}) => (
-    <HtmlTooltip text={achievements[name].text}>
-        <img src={achievements[name].img} alt="A"/>
+export const Achievement: FC<Props> = ({name}) => {
+    const style = {
+        borderStyle: "solid",
+        borderWidth: "1px",
+        borderColor: "black"
+    }
+
+    return(<HtmlTooltip text={achievements[name].text}>
+        <img style={style} src={achievements[name].img} alt="A"/>
     </HtmlTooltip>)
+}
