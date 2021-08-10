@@ -1,6 +1,7 @@
 import {Typography} from "@material-ui/core";
 import {store} from "../../redux/store";
 import {Achievement} from "../achievements";
+import {prettify} from "../../constants";
 
 const achievements: {[key: string]: Achievement} = {
     hiredHelp: {
@@ -84,16 +85,15 @@ const achievements: {[key: string]: Achievement} = {
         </>,
         img: "http://i.imgur.com/PhxmHqr.png"
     },
-    //
-    // noSuchThingAsAFreePunch: {
-    //     isUnlocked: () => store.getState().game.puncherDamage >= 1000000000,
-    //     text: <>
-    //         <Typography color="inherit">No Such Thing as a Free Punch
-    //         </Typography>
-    //         Deal <b>1,000,000,000</b> damage to the wall with your punchers.
-    //     </>,
-    //     img: "http://i.imgur.com/tzwF920.png"
-    // },
+    noSuchThingAsAFreePunch: {
+        isUnlocked: () => store.getState().stats.puncher >= 1000000000,
+        text: <>
+            <Typography color="inherit">No Such Thing as a Free Punch
+            </Typography>
+            Deal <b>{prettify(1000000000)}</b> damage to the wall with your punchers.
+        </>,
+        img: "http://i.imgur.com/tzwF920.png"
+    },
 }
 
 export const {
@@ -107,4 +107,5 @@ export const {
     theWorldPunchedToPieces,
     thanksAPunch,
     aSockInThePark,
+    noSuchThingAsAFreePunch
 } = achievements;

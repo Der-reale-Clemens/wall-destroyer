@@ -1,5 +1,6 @@
 import {store} from "../../redux/store";
 import {Typography} from "@material-ui/core";
+import {prettify} from "../../constants";
 
 const achievements = {
     clubstep:{
@@ -85,20 +86,19 @@ const achievements = {
     club:{
         isUnlocked: () => store.getState().buildings.clubber >= 700,
         text: <>
-            <Typography color="inherit">Club</Typography>
+            <Typography color="inherit">Club-Niggurath</Typography>
             Hire <b>700</b> clubbers.
         </>,
         img: "http://i.imgur.com/20i38CD.png"
     },
-    // namePls:{
-    //     isUnlocked: () => store.getState().game.clubberDamage >= 10000000000,
-    //     text: <>
-    //         <Typography color="inherit">Clubbed to Death
-    //         </Typography>
-    //         Deal <b>10,000,000,000</b> damage to the wall with your clubbers.
-    //     </>,
-    //     img: "http://i.imgur.com/k6W8MW9.png"
-    // },
+    clubbedToDeath:{
+        isUnlocked: () => store.getState().stats.clubber >= 10000000000,
+        text: <>
+            <Typography color="inherit">Clubbed to Death</Typography>
+            Deal <b>{prettify(10000000000)}</b> damage to the wall with your clubbers.
+        </>,
+        img: "http://i.imgur.com/k6W8MW9.png"
+    },
 
 }
 
@@ -112,5 +112,6 @@ export const {
     clubReality,
     clubToInfinity,
     beelzeclub,
-    club
+    club,
+    clubbedToDeath,
 } = achievements;

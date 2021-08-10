@@ -87,15 +87,14 @@ const achievements: {[key: string]: Achievement} = {
         img: "http://i.imgur.com/WljzKK3.png"
     },
 
-    // namePls: {
-    //     isUnlocked: () => store.getState().buildings.swordsmanDamage >= 100000000000,
-    //     text: <>
-    //         <Typography color="inherit">Castle Crashers
-    //         </Typography>
-    //         Deal <b>100,000,000,000</b> damage to the wall with your swordsmen.
-    //     </>,
-    //     img: "http://i.imgur.com/U0XqNYE.png"
-    // },
+    castleCrashers: {
+        isUnlocked: () => store.getState().stats.swordsman >= 100000000000,
+        text: <>
+            <Typography color="inherit">Castle Crashers</Typography>
+            Deal <b>100,000,000,000</b> damage to the wall with your swordsmen.
+        </>,
+        img: "http://i.imgur.com/U0XqNYE.png"
+    },
 }
 
 export const {
@@ -109,4 +108,5 @@ export const {
     allTheKing,
     theConquerorsOfTheWorld,
     tyrannoswordusRex,
+    castleCrashers,
 } = achievements;

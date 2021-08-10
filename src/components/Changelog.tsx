@@ -51,6 +51,11 @@ export const Changelog: FC = () => {
             <DialogTitle id="alert-dialog-title">Changelog</DialogTitle>
             <DialogContent>
                 <DialogContentText id="alert-dialog-description">
+                    v.0.10 - Stats
+                    <Divider/>
+                    There now exists a stats page where you can see all the damage a building did and it's current dps, so
+                    now you can tell what building produces the most. Also some achievements for building damage.
+                    <Divider/>
                     v.0.9 - Achievements
                     <Divider/>
                     Added almost all achievements and added a small info text about the game. Plus some other smaller

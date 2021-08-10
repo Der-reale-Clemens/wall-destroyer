@@ -130,3 +130,21 @@ const achievements: { [key: string]: Achievement } = {
         img: "http://i.imgur.com/0WGwFSJ.png"
     },
 }
+
+export const {
+    puncher,
+    boxer,
+    brawler,
+    blood,
+    karateMaster,
+    doingGodsWork,
+    theHeroGothamDeserves,
+    theGrandmaster,
+    theChampionOfTheWorld,
+    theChosenOne,
+    theWinner,
+    agentOfTheDevil,
+    beyondReality,
+    theHarbinger,
+    missionaryOfTheDivine,
+} = achievements;

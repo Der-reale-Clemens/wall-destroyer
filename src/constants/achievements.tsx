@@ -2,12 +2,12 @@ import {
     armadaOfPunches, aSockInThePark,
     getTheFistOfIt,
     hiredHelp,
-    legionOfFists,
+    legionOfFists, noSuchThingAsAFreePunch,
     punchCity, punchNation, thanksAPunch, theWorldPunchedToPieces,
     unarmedArmy
 } from "./achievements/puncher";
 import {
-    beelzeclub, club,
+    beelzeclub, club, clubbedToDeath,
     clubParty,
     clubReality,
     clubstep,
@@ -19,7 +19,7 @@ import {
 import {
     allTheKing,
     bladeBattalion,
-    bladeRunner,
+    bladeRunner, castleCrashers,
     hackNSlash,
     smorgasword,
     theCavalry, theConquerorsOfTheWorld,
@@ -31,12 +31,12 @@ import {
     armamentArmada,
     blastBattalion,
     firingSquad, goodGun, gunWithTheWind,
-    shooterOfGuns,
+    shooterOfGuns, swissCheese,
     theMilitary,
     theOldWest, whenAllIsSaidAndGun
 } from "./achievements/gunshooter";
 import {
-    bombTheWorld, divineBombedy, grenadeAchievement,
+    bombTheWorld, divineBombedy, endlessWar, grenadeAchievement,
     grenadeGale,
     manWithGrenades,
     nadeBarricade, NadeItThrough,
@@ -47,12 +47,12 @@ import {
 import {
     ballBusters,
     deconstructionArmy,
-    deconstructionTeam,
+    deconstructionTeam, getWrecked,
     ImGonnaWreckIt, realityWreck, roundThisWreck, theWreckoning, wreckIsLove,
     wreckRepublic, wrecktacular
 } from "./achievements/wreckingBall";
 import {
-    bullshit,
+    bullshit, crackNSmash,
     dozesAreRed,
     levelTheCity, levelTheCountry, overdoze,
     stopAndSmellTheDozes,
@@ -64,7 +64,7 @@ import {
     calamityCalling,
     callingTheShots,
     callOfNature,
-    crushTheWorld, godsOnTheOtherLine, itsCallOverNow, takeAStrike,
+    crushTheWorld, deathCalled, godsOnTheOtherLine, itsCallOverNow, takeAStrike,
     theStrikedown,
     theStrikes
 } from "./achievements/airstrikeCaller";
@@ -87,6 +87,17 @@ import {
     theArmada, theKing,
     theMenagerie
 } from "./achievements/buildings";
+import {
+    agentOfTheDevil, beyondReality,
+    blood,
+    boxer,
+    brawler,
+    doingGodsWork,
+    karateMaster, missionaryOfTheDivine,
+    puncher, theChampionOfTheWorld, theChosenOne,
+    theGrandmaster, theHarbinger,
+    theHeroGothamDeserves, theWinner
+} from "./achievements/hand";
 
 export interface Achievement {
     isUnlocked: () => boolean;
@@ -115,6 +126,25 @@ export const achievements: {[key: string]: Achievement} = {
     youreAWinner,
 
     //--------------
+    //Hand Achievements
+    //--------------
+    puncher,
+    boxer,
+    brawler,
+    blood,
+    karateMaster,
+    doingGodsWork,
+    theHeroGothamDeserves,
+    theGrandmaster,
+    theChampionOfTheWorld,
+    theChosenOne,
+    theWinner,
+    agentOfTheDevil,
+    beyondReality,
+    theHarbinger,
+    missionaryOfTheDivine,
+
+    //--------------
     //Puncher Achievements
     //--------------
     hiredHelp,
@@ -127,6 +157,7 @@ export const achievements: {[key: string]: Achievement} = {
     theWorldPunchedToPieces,
     thanksAPunch,
     aSockInThePark,
+    noSuchThingAsAFreePunch,
 
     //--------------
     //Clubber Achievements
@@ -141,6 +172,7 @@ export const achievements: {[key: string]: Achievement} = {
     clubToInfinity,
     beelzeclub,
     club,
+    clubbedToDeath,
 
     //--------------
     //Swordsman Achievements
@@ -155,6 +187,7 @@ export const achievements: {[key: string]: Achievement} = {
     allTheKing,
     theConquerorsOfTheWorld,
     tyrannoswordusRex,
+    castleCrashers,
 
     //--------------
     //Gunshooter Achievements
@@ -169,6 +202,7 @@ export const achievements: {[key: string]: Achievement} = {
     goodGun,
     whenAllIsSaidAndGun,
     allAreGun,
+    swissCheese,
 
     //--------------
     //Grenademan Achievements
@@ -183,6 +217,7 @@ export const achievements: {[key: string]: Achievement} = {
     NadeItThrough,
     divineBombedy,
     grenadeAchievement,
+    endlessWar,
 
     //--------------
     //Wrecking Ball Achievements
@@ -197,6 +232,7 @@ export const achievements: {[key: string]: Achievement} = {
     wreckIsLove,
     realityWreck,
     roundThisWreck,
+    getWrecked,
 
     //--------------
     //Bulldozer Achievements
@@ -211,6 +247,7 @@ export const achievements: {[key: string]: Achievement} = {
     dozesAreRed,
     overdoze,
     bullshit,
+    crackNSmash,
 
     //--------------
     //Airstrike Caller Achievements
@@ -224,6 +261,7 @@ export const achievements: {[key: string]: Achievement} = {
     takeAStrike,
     itsCallOverNow,
     godsOnTheOtherLine,
+    deathCalled,
 
     //--------------
     //All Buildings Achievements

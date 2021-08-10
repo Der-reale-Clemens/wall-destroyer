@@ -1,9 +1,6 @@
 import {Achievement} from "../achievements";
-import {store} from "../../redux/store";
 import {Typography} from "@material-ui/core";
-
-const allBuildings = (): number => Object.values(store.getState().buildings)
-    .reduce((acc, b) => acc + b);
+import {allBuildings} from "../../constants";
 
 
 const achievements: {[key: string]: Achievement} = {

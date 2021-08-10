@@ -1,6 +1,7 @@
 import {Achievement} from "../achievements";
 import {store} from "../../redux/store";
 import {Typography} from "@material-ui/core";
+import {prettify} from "../../constants";
 
 const achievements: { [key: string]: Achievement } = {
     theDozeKnows: {
@@ -85,15 +86,14 @@ const achievements: { [key: string]: Achievement } = {
         </>,
         img: "http://i.imgur.com/taZMkYw.png"
     },
-    // namePls: {
-    //     isUnlocked: () => store.getState().buildings.bulldozerDamage >= 200000000000000,
-    //     text: <>
-    //         <Typography color="inherit">Crack n Smash
-    //         </Typography>
-    //         Deal <b>200,000,000,000,000</b> damage to the wall with your bulldozers.
-    //     </>,
-    //     img: "http://i.imgur.com/q1QrnCW.png"
-    // },
+    crackNSmash: {
+        isUnlocked: () => store.getState().stats.bulldozer >= 200000000000000,
+        text: <>
+            <Typography color="inherit">Crack n Smash</Typography>
+            Deal <b>{prettify(200000000000000)}</b> damage to the wall with your bulldozers.
+        </>,
+        img: "http://i.imgur.com/q1QrnCW.png"
+    },
 
 }
 
@@ -108,4 +108,5 @@ export const {
     dozesAreRed,
     overdoze,
     bullshit,
+    crackNSmash,
 } = achievements;

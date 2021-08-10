@@ -3,6 +3,7 @@ import {createStyles, Divider, makeStyles, Paper} from "@material-ui/core";
 import {useSelector} from "react-redux";
 import {AppState} from "../redux/store";
 import {prettify} from "../constants";
+import {Stats} from "./Stats";
 
 const useStyles = makeStyles((theme) =>
     createStyles({
@@ -27,5 +28,6 @@ export const Resources: FC = () => {
             <label>Damage: {prettify(damage)}(+{prettify(dps)}/s)</label>
             <br/>
             <label>Bricks: {bricks}</label>
+            <Stats/>
         </Paper>);
 }

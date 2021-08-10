@@ -1,6 +1,7 @@
 import {Achievement} from "../achievements";
 import {store} from "../../redux/store";
 import {Typography} from "@material-ui/core";
+import {prettify} from "../../constants";
 
 const achievements: { [key: string]: Achievement } = {
     ImGonnaWreckIt: {
@@ -87,15 +88,14 @@ const achievements: { [key: string]: Achievement } = {
         </>,
         img: "http://i.imgur.com/LmISELN.png"
     },
-    // namePls: {
-    //     isUnlocked: () => store.getState().buildings.wreckingBallDamage >= 100000000000000,
-    //     text: <>
-    //         <Typography color="inherit">Get Wrecked
-    //         </Typography>
-    //         Deal <b>100,000,000,000,000</b> damage to the wall with your wrecking balls.
-    //     </>,
-    //     img: "http://i.imgur.com/yM8TEHL.png"
-    // },
+    getWrecked: {
+        isUnlocked: () => store.getState().stats.wreckingBall >= 100000000000000,
+        text: <>
+            <Typography color="inherit">Get Wrecked</Typography>
+            Deal <b>{prettify(100000000000000)}</b> damage to the wall with your wrecking balls.
+        </>,
+        img: "http://i.imgur.com/yM8TEHL.png"
+    },
 }
 
 export const {
@@ -109,4 +109,5 @@ export const {
     wreckIsLove,
     realityWreck,
     roundThisWreck,
+    getWrecked,
 } = achievements;

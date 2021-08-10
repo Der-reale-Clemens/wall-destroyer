@@ -7,6 +7,7 @@ import {upgrades} from "../constants/upgrades";
 import {achievements} from "../constants/achievements";
 import {updateAchievements} from "../redux/AchievementSlice";
 import {updateDps} from "../redux/GameSlice";
+import {increaseBuildingDamage, updateBuildingDps} from "../redux/StatSlice";
 
 export const update = (dispatch: Dispatch<any>) => {
     const state = store.getState();
@@ -44,6 +45,11 @@ export const update = (dispatch: Dispatch<any>) => {
             }
         }
     })
+
+    //@ts-ignore - Update stats
+    Object.keys(damages).forEach(k => dispatch(increaseBuildingDamage({building: k, amount: damages[k]})));
+    //@ts-ignore
+    Object.keys(damages).forEach(k => dispatch(updateBuildingDps({building: k, amount: damages[k]*(1000/deltaTime)})));
 
     let overallDamage = Object.values(damages).reduce((sum, d) => sum+d);
 

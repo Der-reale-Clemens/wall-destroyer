@@ -1,6 +1,7 @@
 import {store} from "../../redux/store";
 import {Typography} from "@material-ui/core";
 import {Achievement} from "../achievements";
+import {prettify} from "../../constants";
 
 const achievements: {[key: string]: Achievement} = {
     manWithGrenades: {
@@ -85,15 +86,14 @@ const achievements: {[key: string]: Achievement} = {
         </>,
         img: "http://i.imgur.com/8EFEm0M.png"
     },
-    // namePls: {
-    //     isUnlocked: () => store.getState().buildings.grenadeDamage >= 10000000000000,
-    //     text: <>
-    //         <Typography color="inherit">Endless War
-    //         </Typography>
-    //         Deal <b>10,000,000,000,000</b> damage to the wall with your grenademen.
-    //     </>,
-    //     img: "http://i.imgur.com/IiBqHel.png"
-    // },
+    endlessWar: {
+        isUnlocked: () => store.getState().stats.grenademan >= 10000000000000,
+        text: <>
+            <Typography color="inherit">Endless War</Typography>
+            Deal <b>{prettify(10000000000000)}</b> damage to the wall with your grenademen.
+        </>,
+        img: "http://i.imgur.com/IiBqHel.png"
+    },
 }
 
 export const {
@@ -107,4 +107,5 @@ export const {
     NadeItThrough,
     divineBombedy,
     grenadeAchievement,
+    endlessWar,
 } = achievements;

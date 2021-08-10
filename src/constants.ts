@@ -9,8 +9,8 @@ export const calculateNextBuildingCost = (amount: number, baseCost: number): num
 
 
 export const prettify = (num: number): string => {
-    if(num <= 100) {
-        return (Math.round(num*1000)/1000).toString();
+    if (num <= 100) {
+        return (Math.round(num * 1000) / 1000).toString();
     }
     const format = store.getState().system.format;
     //const format = "standard";
@@ -20,3 +20,6 @@ export const prettify = (num: number): string => {
 
 export const simpleArrayEquals = <T>(a: T[], b: T[]) => (a.length === b.length
     && a.every((val, index) => val === b[index]))
+
+export const allBuildings = (): number => Object.values(store.getState().buildings)
+    .reduce((acc, b) => acc + b);

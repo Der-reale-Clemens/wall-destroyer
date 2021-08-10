@@ -1,6 +1,7 @@
 import {Achievement} from "../achievements";
 import {store} from "../../redux/store";
 import {Typography} from "@material-ui/core";
+import {prettify} from "../../constants";
 
 const achievements: { [key: string]: Achievement } = {
     callingTheShots:{
@@ -77,15 +78,14 @@ const achievements: { [key: string]: Achievement } = {
         </>,
         img: "http://i.imgur.com/KqdTHwt.png"
     },
-    // namePls:{
-    //     isUnlocked: () => store.getState().buildings.airstrikeDamage >= 2000000000000000,
-    //     text: <>
-    //         <Typography color="inherit">Death Called
-    //         </Typography>
-    //         Deal <b>2,000,000,000,000,000</b> damage to the wall with your airstrike callers.
-    //     </>,
-    //     img: "http://i.imgur.com/ziKked6.png"
-    // },
+    deathCalled:{
+        isUnlocked: () => store.getState().stats.airstrikeCaller >= 2000000000000000,
+        text: <>
+            <Typography color="inherit">Death Called</Typography>
+            Deal <b>{prettify(2_000_000_000_000_000)}</b> damage to the wall with your airstrike callers.
+        </>,
+        img: "http://i.imgur.com/ziKked6.png"
+    },
 }
 
 export const {
@@ -98,4 +98,5 @@ export const {
     takeAStrike,
     itsCallOverNow,
     godsOnTheOtherLine,
+    deathCalled,
 } = achievements;

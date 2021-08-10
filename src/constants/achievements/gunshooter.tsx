@@ -1,6 +1,7 @@
 import {Achievement} from "../achievements";
 import {Typography} from "@material-ui/core";
 import {store} from "../../redux/store";
+import {prettify} from "../../constants";
 
 const achievements: { [key: string]: Achievement } = {
     shooterOfGuns: {
@@ -86,15 +87,14 @@ const achievements: { [key: string]: Achievement } = {
         </>,
         img: "http://i.imgur.com/zZXuikn.png"
     },
-    // namePls: {
-    //     isUnlocked: () => store.getState().buildings.gunnerDamage >= 1000000000000,
-    //     text: <>
-    //         <Typography color="inherit">Swiss Cheese
-    //         </Typography>
-    //         Deal <b>1,000,000,000,000</b> damage to the wall with your gunshooters.
-    //     </>,
-    //     img: "http://i.imgur.com/d6qPAe1.png"
-    // },
+    swissCheese: {
+        isUnlocked: () => store.getState().stats.gunshooter >= 1000000000000,
+        text: <>
+            <Typography color="inherit">Swiss Cheese</Typography>
+            Deal <b>{prettify(1000000000000)}</b> damage to the wall with your gunshooters.
+        </>,
+        img: "http://i.imgur.com/d6qPAe1.png"
+    },
 
 }
 
@@ -109,4 +109,5 @@ export const {
     goodGun,
     whenAllIsSaidAndGun,
     allAreGun,
+    swissCheese,
 } = achievements;
