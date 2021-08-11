@@ -51,6 +51,11 @@ export const Changelog: FC = () => {
             <DialogTitle id="alert-dialog-title">Changelog</DialogTitle>
             <DialogContent>
                 <DialogContentText id="alert-dialog-description">
+                    v.0.12 - Modern save features
+                    <Divider/>
+                    Added the option to import and export your save in the settings. We now have basic functionality that
+                    literally every other game in this genre has as well, quality stuff right here
+                    <Divider/>
                     v.0.11.1 - No more infinite upgrades
                     <Divider/>
                     Fix for the infinite upgrades bug. I literally just accidentally commented out the bit to prevent that.
