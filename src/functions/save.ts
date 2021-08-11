@@ -2,6 +2,16 @@ import {store} from "../redux/store";
 import {version} from "../environment";
 
 export const save = () => {
+    const encodedSave = constructSave();
+    localStorage.setItem("save", encodedSave);
+}
+
+export const importSave = (save: string) => {
+    localStorage.setItem("save", save);
+    window.location.reload(true);
+}
+
+export const constructSave = () => {
     const state = store.getState();
     const saveObject = {
         version: version,
@@ -9,26 +19,39 @@ export const save = () => {
     };
 
     const saveString = JSON.stringify(saveObject);
-    localStorage.setItem("save", saveString);
+    return btoa(saveString);
 }
 
-export const load = () => {
+export const loadFromLocal = () => {
     const saveString = localStorage.getItem("save");
     if(!saveString)
         return {};
-    const saveObject = JSON.parse(saveString);
-    if(!saveObject.state){
-        console.log("No state");
-        console.log(saveObject);
-        return {};
+    return load(saveString);
+}
+
+
+const load = (saveString: string) => {
+    let saveObject;
+    try {
+        //Succeeds for saves in the old format
+        saveObject = JSON.parse(saveString);
+    } catch (e) {
+        //For saves in the new format
+        try {
+            saveString = atob(saveString);
+            saveObject = JSON.parse(saveString);
+        } catch(e) {
+            //For invalid new saves
+            console.error("Save data is corrupted. Proceeding with new save");
+            return {};
+        }
     }
-
-
-    //Object.keys(saveObject.state.stats).forEach(k=> saveObject.state.stats[k] = 0);
-    console.log(saveObject);
 
     return saveObject.state;
 }
+
+
+
 
 const emptySave = {
     version: "",
@@ -76,6 +99,16 @@ const emptySave = {
             "wreckingBall": 0,
             "bulldozer": 0,
             "airstrikeCaller": 0,
+            "dps": {
+                "puncherDps": 0,
+                "clubberDps": 0,
+                "swordsmanDps": 0,
+                "gunshooterDps": 0,
+                "grenademanDps": 0,
+                "wreckingBallDps": 0,
+                "bulldozerDps": 0,
+                "airstrikeCallerDps": 0,
+            }
         }
     }
 };

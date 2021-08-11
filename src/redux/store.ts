@@ -4,12 +4,12 @@ import {buildingReducer} from "./BuildingSlice";
 import {systemReducer} from "./SystemSlice";
 import {upgradeReducer} from "./UpgradeSlice";
 import {achievementReducer} from "./AchievementSlice";
-import {load} from "../functions/save";
+import {loadFromLocal} from "../functions/save";
 import {statsReducer} from "./StatSlice";
 
 export type AppState = ReturnType<typeof store.getState>
 
-const preloadedState = load();
+const preloadedState = loadFromLocal();
 
 // const loadSave = {
 //     reducer: {

@@ -6,7 +6,7 @@ import {BuildingTable} from "./components/BuildingTable";
 import {Resources} from "./components/Resources";
 import {update} from "./functions/update";
 import {addNotification, setLastUpdate} from "./redux/SystemSlice";
-import {SettingsButton} from "./components/SettingsButton";
+import {SettingsButton} from "./components/settings/SettingsButton";
 import {save} from "./functions/save";
 import {DestroyWall} from "./components/DestroyWall";
 import {UpgradeAndAchievementTable} from "./components/UpgradeAndAchievementTable";
