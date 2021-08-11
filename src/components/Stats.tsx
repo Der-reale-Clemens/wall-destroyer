@@ -40,7 +40,7 @@ export const Stats: FC = () => {
             Grenademan damage: {prettify(grenademan)}(+{prettify(grenademanDps)}/s)<br/>
             Wrecking Ball damage: {prettify(wreckingBall)}(+{prettify(wreckingBallDps)}/s)<br/>
             Bulldozer damage: {prettify(bulldozer)}(+{prettify(bulldozerDps)}/s)<br/>
-            Airstrike Caller damage{prettify(airstrikeCaller)}(+{prettify(airstrikeCallerDps)}/s)<br/>
+            Airstrike Caller damage: {prettify(airstrikeCaller)}(+{prettify(airstrikeCallerDps)}/s)<br/>
         </div>
     </>)
 }

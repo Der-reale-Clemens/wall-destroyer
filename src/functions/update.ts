@@ -35,14 +35,24 @@ export const update = (dispatch: Dispatch<any>) => {
     //@ts-ignore no idea how to make this typesafe, impossible to iterate over BuildingKeys
     Object.keys(buildings).forEach(k => damages[k] = calculateBuilding(k));
 
+    //Alright so basicly we go through all bought upgrades and then for every building that gets effected by the upgrade
+    //we multiply the damage by the effect.
+    //But we dont do hand upgrades here so the get ignored
+    //The fun bit is that effects can either be numbers for static multipliers or thunks in case they depend on other factors
+    //The reason they're not all thunks is that numbers are a fair bit more efficient (i think) and I only realized
+    //in the middle of development that thunks are needed for dynamic multipliers
     state.upgrades.boughtUpgrades.forEach((u) => {
         const effects = upgrades[u].effect;
         for(const effectKey in effects) {
 
-            if(effectKey !== "hand") {
-                //@ts-ignore
-                damages[effectKey] *= effects[effectKey];
+            if(effectKey === "hand") {
+                continue;
             }
+            // @ts-ignore
+            const effect = effects[effectKey];
+
+            //@ts-ignore
+            damages[effectKey] *= (effect instanceof Function) ? effect() : effect;
         }
     })
 

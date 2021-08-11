@@ -51,6 +51,16 @@ export const Changelog: FC = () => {
             <DialogTitle id="alert-dialog-title">Changelog</DialogTitle>
             <DialogContent>
                 <DialogContentText id="alert-dialog-description">
+                    v.0.11.1 - No more infinite upgrades
+                    <Divider/>
+                    Fix for the infinite upgrades bug. I literally just accidentally commented out the bit to prevent that.
+                    Im kinda dumb sometimes.
+                    <Divider/>
+                    v.0.11 - Synergies
+                    <Divider/>
+                    All the other games got cool synergy upgrades so we have them too now, gotta go with the trend afterall.
+                    Added synergy upgrades for all the buildings, there are so many.
+                    <Divider/>
                     v.0.10 - Stats
                     <Divider/>
                     There now exists a stats page where you can see all the damage a building did and it's current dps, so

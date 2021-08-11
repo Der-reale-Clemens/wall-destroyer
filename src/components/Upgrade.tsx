@@ -29,8 +29,8 @@ const UpgradeImg: FC<Props> = ({name, disabled}) => {
     }
 
 
-    //if(disabled === true) {
-    //    return <img src={upgrade.img} alt="U"/>
-    //}
+    if(disabled === true) {
+        return <img style={style} src={upgrade.img} alt="U"/>
+    }
     return <img onClick={() => buyUpgrade(name, dispatch)} style={style} src={upgrade.img} alt="U"/>
 }

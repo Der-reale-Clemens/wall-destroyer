@@ -82,6 +82,43 @@ import {
     statues,
     supersonicJets
 } from "./upgrades/airstrikeCaller";
+import {
+    bulldozerStrike,
+    bulletPunch,
+    clubKnuckles,
+    comeTogether, energyDraining,
+    finalTeamUp, fistGrenades, skydiving,
+    standingOvation, swordKnuckles,
+    teamUp,
+    theChallenge,
+    ultraTeamUp, wreckingBallPunch
+} from "./upgrades/synergyHandPuncher";
+import {
+    bayonets,
+    clubsCoveredInSwords, kingHyzemBlades,
+    rotatingChainsawSwordClubs,
+    swordClubs, theArenaOfSgapang,
+    thePerfectCombination
+} from "./upgrades/synergyClubberPuncher";
+import {
+    giantGunGrenades,
+    grenadeGuns,
+    grenadeThatShoots,
+    gunnades,
+    gunThatShootsGrenades, inspirationalWarFilms, theTurretsOfBextic
+} from "./upgrades/synergyGunGrenade";
+import {
+    coordinatedWrecking, literalWreckingBallFists, thePuekingFill,
+    ultimateFistBalls,
+    wreckingBallFists,
+    wreckingBallRiders, wreckingFists
+} from "./upgrades/synergyPuncherWreckingball";
+import {
+    bulldozerDrop, bulldozerPlanes,
+    enhancedBulldozerDrop, epicBulldozerDrop,
+    precisionStrikes, theDarkBindings,
+    ultimateBulldozerDrop
+} from "./upgrades/synergyBulldozerAirstrike";
 
 export interface Upgrade {
     isVisible: () => boolean;
@@ -95,7 +132,7 @@ export interface Upgrade {
 export type UpgradeKeys = keyof typeof upgrades;
 
 type Effect = {
-    [key in BuildingKeys | "hand"]?: number;
+    [key in BuildingKeys | "hand"]?: number | (() => number);
 };
 
 
@@ -107,6 +144,24 @@ export const buyUpgrade = (upgrade: UpgradeKeys, dispatch: Dispatch<any>) => {
 }
 
 export const upgrades: { [key: string]: Upgrade } = {
+    //--------------
+    //Hand Synergy Upgrades
+    //--------------
+    teamUp,
+    comeTogether,
+    standingOvation,
+    theChallenge,
+    finalTeamUp,
+    ultraTeamUp,
+    energyDraining,
+
+    clubKnuckles,
+    swordKnuckles,
+    bulletPunch,
+    fistGrenades,
+    wreckingBallPunch,
+    bulldozerStrike,
+    skydiving,
 
     //--------------
     //Hand Upgrades
@@ -158,6 +213,17 @@ export const upgrades: { [key: string]: Upgrade } = {
     lightsabers,
 
     //--------------
+    //Clubber & Swordsman Synergy Upgrades
+    //--------------
+    swordClubs,
+    clubsCoveredInSwords,
+    rotatingChainsawSwordClubs,
+    thePerfectCombination,
+    bayonets,
+    kingHyzemBlades,
+    theArenaOfSgapang,
+
+    //--------------
     //GunshooterUpgrades
     //--------------
     laserSights,
@@ -182,6 +248,17 @@ export const upgrades: { [key: string]: Upgrade } = {
     unobtaniumShrapnel,
 
     //--------------
+    //Gunshooter & Grenademan Synergy Upgrades
+    //--------------
+    gunThatShootsGrenades,
+    grenadeThatShoots,
+    giantGunGrenades,
+    grenadeGuns,
+    gunnades,
+    theTurretsOfBextic,
+    inspirationalWarFilms,
+
+    //--------------
     //Wrecking Ball Upgrades
     //--------------
     biggerBalls,
@@ -192,6 +269,17 @@ export const upgrades: { [key: string]: Upgrade } = {
     diamondBalls,
     triBalls,
     neutronBalls,
+
+    //--------------
+    //Puncher & Wrecking Ball Synergy Upgrades
+    //--------------
+    wreckingBallFists,
+    coordinatedWrecking,
+    wreckingBallRiders,
+    ultimateFistBalls,
+    literalWreckingBallFists,
+    wreckingFists,
+    thePuekingFill,
 
     //--------------
     //Bulldozer Upgrades
@@ -216,6 +304,18 @@ export const upgrades: { [key: string]: Upgrade } = {
     anvilShapedBombs,
     missiles,
     nukes,
+
+    //--------------
+    //Bulldozer & Airstrike Caller Synergy Upgrades
+    //--------------
+    precisionStrikes,
+    bulldozerDrop,
+    enhancedBulldozerDrop,
+    ultimateBulldozerDrop,
+    epicBulldozerDrop,
+    bulldozerPlanes,
+    theDarkBindings,
+
 
     magicMining: {
         isVisible: () => store.getState().game.wall >= 10,

@@ -2,6 +2,7 @@ import {Dispatch} from "@reduxjs/toolkit";
 import {store} from "../redux/store";
 import {upgrades} from "../constants/upgrades";
 import {increaseHandDamage, increaseMoney} from "../redux/GameSlice";
+import {prettify} from "../constants";
 
 export const punchWall = (dispatch: Dispatch<any>) => {
     const state = store.getState();
@@ -15,9 +16,12 @@ export const punchWall = (dispatch: Dispatch<any>) => {
     state.upgrades.boughtUpgrades.forEach((u) => {
         const handEffect = upgrades[u].effect.hand;
         if(handEffect) {
-            damage *= handEffect;
+            //Look at the update function as for why this is a thing
+            damage *= (handEffect instanceof Function) ? handEffect() : handEffect;
         }
     })
+
+    //console.log(prettify(damage));
 
     dispatch(increaseMoney(damage));
     dispatch(increaseHandDamage(damage));
