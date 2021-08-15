@@ -51,6 +51,13 @@ export const Changelog: FC = () => {
             <DialogTitle id="alert-dialog-title">Changelog</DialogTitle>
             <DialogContent>
                 <DialogContentText id="alert-dialog-description">
+                    v.0.13 - Story?
+                    <Divider/>
+                    There are now a few little story popups in the game triggered at specific points. This is first bit
+                    where I'm actually deviating from the original game, therefore I'm sorry if the quality of this is
+                    lower compared to the rest. I'm open to all feedback though and would love some suggestions on how
+                    to improve this.
+                    <Divider/>
                     v.0.12 - Modern save features
                     <Divider/>
                     Added the option to import and export your save in the settings. We now have basic functionality that

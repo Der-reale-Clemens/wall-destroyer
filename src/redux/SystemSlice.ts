@@ -1,10 +1,12 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {StoryKeys} from "../constants/stories";
 
 const initialState = {
     lastUpdate: 0,
     format: "standard",
     theme: "original",
     notifications: [] as Notification[],
+    seenStories: [] as StoryKeys[],
 };
 
 interface Notification {
@@ -31,6 +33,13 @@ export const systemSlice = createSlice({
             addNotification: (state, {payload}: PayloadAction<Notification>) => {
                 state.notifications.push(payload);
             },
+            addSeenStories: (state, {payload}: PayloadAction<StoryKeys[]>) => {
+                const changed = !payload.every(s => state.seenStories.includes(s));
+                if(changed) {
+                    console.log("changed:" + payload.toString())
+                    state.seenStories.push(...payload);
+                }
+            },
         }
     })
 ;
@@ -43,4 +52,5 @@ export const {
     setTheme,
     clearNotifications,
     addNotification,
+    addSeenStories,
 } = systemSlice.actions

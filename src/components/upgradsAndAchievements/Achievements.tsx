@@ -1,7 +1,7 @@
 import React, {FC} from "react";
 import {createStyles, Divider, Grid, makeStyles, Paper} from "@material-ui/core";
 import {useSelector} from "react-redux";
-import {AppState} from "../redux/store";
+import {AppState} from "../../redux/store";
 import {Achievement} from "./Achievement";
 
 const useStyles = makeStyles((theme) =>

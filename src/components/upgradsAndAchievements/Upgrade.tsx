@@ -1,9 +1,9 @@
 import React, {FC} from "react";
-import {HtmlTooltip} from "./HtmlTooltip";
-import {buyUpgrade, upgrades} from "../constants/upgrades";
+import {HtmlTooltip} from "../HtmlTooltip";
+import {buyUpgrade, upgrades} from "../../constants/upgrades";
 import {useDispatch, useSelector} from "react-redux";
-import {UpgradeKeys} from "../constants/upgrades";
-import {AppState} from "../redux/store";
+import {UpgradeKeys} from "../../constants/upgrades";
+import {AppState} from "../../redux/store";
 
 interface Props {
     name: UpgradeKeys;

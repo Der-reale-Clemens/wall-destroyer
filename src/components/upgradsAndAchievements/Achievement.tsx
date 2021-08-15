@@ -1,6 +1,6 @@
 import {FC} from "react";
-import {AchievementKeys, achievements} from "../constants/achievements";
-import {HtmlTooltip} from "./HtmlTooltip";
+import {AchievementKeys, achievements} from "../../constants/achievements";
+import {HtmlTooltip} from "../HtmlTooltip";
 
 interface Props {
     name: AchievementKeys

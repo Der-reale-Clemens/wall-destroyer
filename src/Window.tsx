@@ -9,8 +9,9 @@ import {addNotification, setLastUpdate} from "./redux/SystemSlice";
 import {SettingsButton} from "./components/settings/SettingsButton";
 import {save} from "./functions/save";
 import {DestroyWall} from "./components/DestroyWall";
-import {UpgradeAndAchievementTable} from "./components/UpgradeAndAchievementTable";
+import {UpgradeAndAchievementTable} from "./components/upgradsAndAchievements/UpgradeAndAchievementTable";
 import {PunchWallButton} from "./components/PunchWallButton";
+import {StoryDisplay} from "./components/StoryDisplay";
 
 const useStyles = makeStyles((theme) =>
     createStyles({
@@ -52,6 +53,7 @@ export const Window: FC = () => {
 
     return (
         <div className={classes.root}>
+            <StoryDisplay/>
             <SettingsButton/>
             <Grid container spacing={1}>
                 <Grid item xs={3}>

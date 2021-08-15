@@ -1,5 +1,5 @@
 import {store} from "../redux/store";
-import {setLastUpdate} from "../redux/SystemSlice";
+import {addSeenStories, setLastUpdate} from "../redux/SystemSlice";
 import {BuildingKeys, buildings} from "../constants/buildings";
 import {Dispatch} from "@reduxjs/toolkit";
 import {updateUnlockedUpgrades} from "../redux/UpgradeSlice";
@@ -8,6 +8,7 @@ import {achievements} from "../constants/achievements";
 import {updateAchievements} from "../redux/AchievementSlice";
 import {updateDps} from "../redux/GameSlice";
 import {increaseBuildingDamage, updateBuildingDps} from "../redux/StatSlice";
+import {stories} from "../constants/stories";
 
 export const update = (dispatch: Dispatch<any>) => {
     const state = store.getState();
@@ -35,7 +36,7 @@ export const update = (dispatch: Dispatch<any>) => {
     //@ts-ignore no idea how to make this typesafe, impossible to iterate over BuildingKeys
     Object.keys(buildings).forEach(k => damages[k] = calculateBuilding(k));
 
-    //Alright so basicly we go through all bought upgrades and then for every building that gets effected by the upgrade
+    //Alright so basically we go through all bought upgrades and then for every building that gets effected by the upgrade
     //we multiply the damage by the effect.
     //But we dont do hand upgrades here so the get ignored
     //The fun bit is that effects can either be numbers for static multipliers or thunks in case they depend on other factors
@@ -80,6 +81,12 @@ export const update = (dispatch: Dispatch<any>) => {
         .filter(a => achievements[a].isUnlocked())
     dispatch(updateAchievements(wonAchievements));
 
+
+    //Handle stories
+    const newStories = Object.keys(stories)
+        .filter(s => !state.system.seenStories.includes(s))
+        .filter(s => stories[s].trigger());
+    dispatch(addSeenStories(newStories))
 
 
     return overallDamage;
