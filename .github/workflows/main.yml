@@ -40,6 +40,6 @@ jobs:
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
           npm ci
           npm install decimal.js
-          npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
+          CI=false npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
