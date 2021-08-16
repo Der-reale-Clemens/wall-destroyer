@@ -47,9 +47,19 @@ const load = (saveString: string) => {
         }
     }
 
+
+    if(saveObject.version === "0.12") {
+        saveObject = convertTo013(saveObject);
+    }
+
     return saveObject.state;
 }
 
+
+const convertTo013 = (saveObject: any) => {
+    saveObject.state.system.seenStories = []
+    return saveObject;
+}
 
 
 

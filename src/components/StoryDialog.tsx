@@ -22,7 +22,6 @@ export const StoryDialog: FC<Props> = ({story}) => {
 
     useEffect(() => {
         const isClosed = seenStories.includes(story);
-        console.log("closed?: " + story + " | " + isClosed);
         setClosed(isClosed);
     },[])
 
@@ -32,14 +31,8 @@ export const StoryDialog: FC<Props> = ({story}) => {
         }
     }, [seenStories])
 
-    console.log("activated: " + story + " | " + activated);
-    console.log("open?: " + story + " | " + (activated && !closed));
-    console.log("------")
-
-
     const handleClose = () => {
         setClosed(true);
-        console.log("closed: "+story)
     }
 
 
