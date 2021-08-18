@@ -15,15 +15,21 @@ const initialState = {
     wreckingBall: 0,
     bulldozer: 0,
     airstrikeCaller: 0,
-     dps: {
-         puncherDps: 0,
-         clubberDps: 0,
-         swordsmanDps: 0,
-         gunshooterDps: 0,
-         grenademanDps: 0,
-         wreckingBallDps: 0,
-         bulldozerDps: 0,
-         airstrikeCallerDps: 0,
+    necromancer: 0,
+    titan: 0,
+    demon: 0,
+    dps: {
+        puncherDps: 0,
+        clubberDps: 0,
+        swordsmanDps: 0,
+        gunshooterDps: 0,
+        grenademanDps: 0,
+        wreckingBallDps: 0,
+        bulldozerDps: 0,
+        airstrikeCallerDps: 0,
+        necromancerDps: 0,
+        titanDps: 0,
+        demonDps: 0,
     }
 }
 
@@ -38,9 +44,9 @@ const statSlice = createSlice({
             //@ts-ignore I know what im doing (Maybe)
             //state[payload.payload.building+"Dps"] += payload.payload.amount;
         },
-        updateBuildingDps: (state,  payload: PayloadAction<BuildingDamage>) => {
+        updateBuildingDps: (state, payload: PayloadAction<BuildingDamage>) => {
             //@ts-ignore I know what im doing (Maybe)
-            state.dps[payload.payload.building+"Dps"] = payload.payload.amount;
+            state.dps[payload.payload.building + "Dps"] = payload.payload.amount;
         }
     }
 })

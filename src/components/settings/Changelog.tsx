@@ -51,6 +51,12 @@ export const Changelog: FC = () => {
             <DialogTitle id="alert-dialog-title">Changelog</DialogTitle>
             <DialogContent>
                 <DialogContentText id="alert-dialog-description">
+                    v.0.14 - Magic
+                    <Divider/>
+                    Finally some proper rewards for destroying the walls.  This was just supposed to be a quick and small
+                    addition of a new building and some updates but no I got a bit carried away and its now magic content
+                    for the first three walls. Also made some small stylistic changes to the buildings.
+                    <Divider/>
                     v.0.13 - Story?
                     <Divider/>
                     There are now a few little story popups in the game triggered at specific points. This is first bit

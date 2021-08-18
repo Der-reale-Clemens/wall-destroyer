@@ -10,6 +10,9 @@ const initialState = {
     wreckingBall: 0,
     bulldozer: 0,
     airstrikeCaller: 0,
+    necromancer: 0,
+    titan: 0,
+    demon: 0,
 }
 
 const buildingSlice = createSlice({

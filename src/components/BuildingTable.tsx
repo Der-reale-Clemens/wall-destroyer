@@ -1,9 +1,9 @@
 import React, {FC} from "react";
-import {createStyles, Divider, List, makeStyles, Typography} from "@material-ui/core";
+import {createStyles, Divider, List, makeStyles} from "@material-ui/core";
 import {BuildingButton} from "./BuildingButton";
-import {DestroyWall} from "./DestroyWall";
-import {BuildingKeys, buildings} from "../constants/buildings";
-import {HtmlTooltip} from "./HtmlTooltip";
+import {useSelector} from "react-redux";
+import {AppState} from "../redux/store";
+import {buildings} from "../constants/buildings";
 
 const useStyles = makeStyles((theme) =>
     createStyles({
@@ -17,45 +17,26 @@ const useStyles = makeStyles((theme) =>
 
 
 export const BuildingTable: FC = () => {
+    const _ = useSelector((state: AppState) => state.upgrades.boughtUpgrades);
     const classes = useStyles();
 
-    const createBuilding = (name: BuildingKeys) =>  {
-        //Takes the name of a building and capitilizes the first letter and adds a space in front
-        // of all subsequent capital letters. Works by regex magic
-        const text = (name.charAt(0).toUpperCase() + name.substr(1))
-            .replaceAll(/([A-Z])/g, " $1").trim()
-
-        const getDescription = () => {
-            return (
-                <>
-                    <Typography color="inherit">{text}</Typography>
-                    {buildings[name].type + " Building"}
-                    <br/>
-                    {"Does "} <b>{buildings[name].power}</b> {"base damage."}
-                    <br/>
-                    <em>{buildings[name].description}</em>
-                </>
-            )
-        };
-
-        return (<HtmlTooltip text={getDescription()}>
-                <BuildingButton text={text} img={buildings[name].img} name={name}/>
-        </HtmlTooltip>)
-    }
-
+    //const unlockedBuildings = Object.keys(unlockableBuildings).filter(b => unlockableBuildings[b].isUnlocked());
 
     return (
         <div className={classes.root}>
         <List component="nav">
             <Divider/>
-            {createBuilding("puncher")}
-            {createBuilding("clubber")}
-            {createBuilding("swordsman")}
-            {createBuilding("gunshooter")}
-            {createBuilding("grenademan")}
-            {createBuilding("wreckingBall")}
-            {createBuilding("bulldozer")}
-            {createBuilding("airstrikeCaller")}
+            <BuildingButton name="puncher"/>
+            <BuildingButton name="clubber"/>
+            <BuildingButton name="swordsman"/>
+            <BuildingButton name="gunshooter"/>
+            <BuildingButton name="grenademan"/>
+            <BuildingButton name="wreckingBall"/>
+            <BuildingButton name="bulldozer"/>
+            <BuildingButton name="airstrikeCaller"/>
+            {buildings.necromancer.isUnlocked() && <BuildingButton name="necromancer"/>}
+            {buildings.titan.isUnlocked() && <BuildingButton name="titan"/>}
+            {buildings.demon.isUnlocked() && <BuildingButton name="demon"/>}
         </List>
         </div>
     )

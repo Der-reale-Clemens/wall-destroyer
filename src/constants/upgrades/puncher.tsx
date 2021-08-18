@@ -1,6 +1,6 @@
 import {Upgrade} from "../upgrades";
 import {store} from "../../redux/store";
-import {decreaseMoney} from "../../redux/GameSlice";
+import {decreaseBricks, decreaseMoney} from "../../redux/GameSlice";
 import {Typography} from "@material-ui/core";
 import {prettify} from "../../constants";
 import glovesImg from "../../images/upgrades/punchUpg1.png";
@@ -137,6 +137,26 @@ const upgrades: {[key: string]: Upgrade} = {
         </>,
         img: "http://i.imgur.com/GfoMaz4.png"
     },
+    magicallyEnhancedFists: {
+        isVisible: () => store.getState().upgrades.boughtUpgrades.includes("magicMining"),
+        isBuyable: () => store.getState().game.money >= 20202020202 &&
+            store.getState().game.bricks >= 1 &&
+            store.getState().buildings.puncher >= 125,
+        buy: (dispatch) => {
+            dispatch(decreaseMoney(2e15));
+            dispatch(decreaseBricks(1));
+        },
+        effect: {hand: 1.5, puncher: 3},
+        text: <>
+            <Typography color="inherit">Magically Enhanced Fists</Typography>
+            Punchers do <b>three times</b> as much damage.
+            <br/>Hand punches do <b>50%</b> more damage.
+            <br/><i>A syringe filled with pure magic.</i>
+            <br/>Costs <b>{prettify(20202020202)}</b> Cash & <b>{prettify(1)}</b> Brick
+            <br/>Also requires <b>125</b> punchers
+        </>,
+        img: "http://i.imgur.com/kRu3uU8.png"
+    },
 }
 
 export const {
@@ -148,5 +168,6 @@ export const {
     diamondKnuckles,
     adamantiumKnuckles,
     redactedGloves,
-    antimatterGauntlets
+    antimatterGauntlets,
+    magicallyEnhancedFists
 } = upgrades;

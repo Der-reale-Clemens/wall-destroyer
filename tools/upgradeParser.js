@@ -32,12 +32,17 @@ const changeBuildingName = (name) => {
         case "wreckingBall": return "wreckingBall";
         case "bulldozer": return "bulldozer";
         case "airstrike": return "airstrikeCaller";
+        case "necromancer": return "necromancer";
+        case "giant": return "titan";
+        case "demon": return "demon";
         default: return name;
     }
 }
 
 const convert = (text, name) => {
     const g = (text, regex) => {
+        //console.log(regex.exec(text));
+        console.log(text);
         return regex.exec(text)[1]
     }
 

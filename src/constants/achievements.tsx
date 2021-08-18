@@ -98,6 +98,33 @@ import {
     theGrandmaster, theHarbinger,
     theHeroGothamDeserves, theWinner
 } from "./achievements/hand";
+import {
+    armyOfDarkness,
+    bringInTheHats,
+    deadRising,
+    menInBlack, onlyZombiesNow,
+    thatsItImGettingTheDead,
+    theCult, theGratefulDead,
+    zombieland
+} from "./achievements/necromancer";
+import {
+    aBeautifulSight,
+    ancientArmy,
+    hyzemsKingdom,
+    itsBack,
+    lordReaefsek,
+    massiveAttack, theOldWorld,
+    theyreComing,
+    titanicTakeover
+} from "./achievements/titan";
+import {
+    demonicDominace,
+    fireAndBrimstone,
+    hellOnEarth, holyHell, howCouldYouHell, judgementDay,
+    noQuarter,
+    raisingHell,
+    satansLittleHelpers
+} from "./achievements/demon";
 
 export interface Achievement {
     isUnlocked: () => boolean;
@@ -262,6 +289,45 @@ export const achievements: {[key: string]: Achievement} = {
     itsCallOverNow,
     godsOnTheOtherLine,
     deathCalled,
+
+    //--------------
+    //Necromancer Achievements
+    //--------------
+    bringInTheHats,
+    menInBlack,
+    theCult,
+    deadRising,
+    zombieland,
+    armyOfDarkness,
+    thatsItImGettingTheDead,
+    onlyZombiesNow,
+    theGratefulDead,
+
+    //--------------
+    //Titan Achievements
+    //--------------
+    itsBack,
+    theyreComing,
+    massiveAttack,
+    titanicTakeover,
+    ancientArmy,
+    lordReaefsek,
+    hyzemsKingdom,
+    aBeautifulSight,
+    theOldWorld,
+
+    //--------------
+    //Demon Achievements
+    //--------------
+    raisingHell,
+    satansLittleHelpers,
+    fireAndBrimstone,
+    hellOnEarth,
+    demonicDominace,
+    noQuarter,
+    judgementDay,
+    howCouldYouHell,
+    holyHell,
 
     //--------------
     //All Buildings Achievements

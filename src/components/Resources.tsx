@@ -21,13 +21,15 @@ export const Resources: FC = () => {
 
     return (
         <Paper className={classes.paper} variant="outlined">
+            <b>
             <label>Resources</label>
             <Divider/>
             <label>Money: {prettify(money)}(+{prettify(dps)}/s)</label>
             <br/>
             <label>Damage: {prettify(damage)}(+{prettify(dps)}/s)</label>
             <br/>
-            <label>Bricks: {bricks}</label>
+            <label>Bricks: {prettify(bricks)}</label>
+            </b>
             <Stats/>
         </Paper>);
 }

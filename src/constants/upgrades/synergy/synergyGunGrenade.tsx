@@ -1,8 +1,8 @@
-import {Upgrade} from "../upgrades";
-import {store} from "../../redux/store";
-import {decreaseMoney} from "../../redux/GameSlice";
+import {Upgrade} from "../../upgrades";
+import {store} from "../../../redux/store";
+import {decreaseMoney} from "../../../redux/GameSlice";
 import {Typography} from "@material-ui/core";
-import {prettify} from "../../constants";
+import {prettify} from "../../../constants";
 
 const upgrades: { [key: string]: Upgrade } = {
     gunThatShootsGrenades: {

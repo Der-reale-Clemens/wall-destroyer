@@ -30,12 +30,16 @@ const changeBuildingName = (name) => {
         case "wreckingBall": return "wreckingBall";
         case "bulldozer": return "bulldozer";
         case "airstrike": return "airstrikeCaller";
+        case "necromancer": return "necromancer";
+        case "giant": return "titan";
+        case "demon": return "demon";
         default: return name;
     }
 }
 
 const convert = (data, name) => {
     const g = (text, regex) => {
+        console.log(text);
         return regex.exec(text)[1]
     }
 
@@ -57,7 +61,6 @@ fs.readFile("inputAchievements.txt", (e, data) => {
     let d = ""
     for(const achievementData of achievementArray) {
         d += convert(achievementData, "namePls") +"\n";
-        console.log(d);
     }
 
     fs.writeFile("achievements.txt", d, (err) => {

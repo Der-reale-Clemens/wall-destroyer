@@ -1,8 +1,4 @@
-import {Typography} from "@material-ui/core";
 import React from "react";
-import {store} from "../redux/store";
-import {decreaseBricks} from "../redux/GameSlice";
-import magicMiningImg from "../images/upgrades/magicMining.png";
 import {Dispatch} from "@reduxjs/toolkit";
 import {addUpgrade} from "../redux/UpgradeSlice";
 import {BuildingKeys} from "./buildings";
@@ -12,7 +8,7 @@ import {
     gloves,
     paddedGloves, redactedGloves,
     steelPlatedGloves,
-    titaniumKnuckles
+    titaniumKnuckles, magicallyEnhancedFists
 } from "./upgrades/puncher";
 import {
     biggerCrates,
@@ -92,33 +88,68 @@ import {
     teamUp,
     theChallenge,
     ultraTeamUp, wreckingBallPunch
-} from "./upgrades/synergyHandPuncher";
+} from "./upgrades/synergy/synergyHandPuncher";
 import {
     bayonets,
     clubsCoveredInSwords, kingHyzemBlades,
     rotatingChainsawSwordClubs,
     swordClubs, theArenaOfSgapang,
     thePerfectCombination
-} from "./upgrades/synergyClubberPuncher";
+} from "./upgrades/synergy/synergyClubberPuncher";
 import {
     giantGunGrenades,
     grenadeGuns,
     grenadeThatShoots,
     gunnades,
     gunThatShootsGrenades, inspirationalWarFilms, theTurretsOfBextic
-} from "./upgrades/synergyGunGrenade";
+} from "./upgrades/synergy/synergyGunGrenade";
 import {
     coordinatedWrecking, literalWreckingBallFists, thePuekingFill,
     ultimateFistBalls,
     wreckingBallFists,
     wreckingBallRiders, wreckingFists
-} from "./upgrades/synergyPuncherWreckingball";
+} from "./upgrades/synergy/synergyPuncherWreckingball";
 import {
     bulldozerDrop, bulldozerPlanes,
     enhancedBulldozerDrop, epicBulldozerDrop,
     precisionStrikes, theDarkBindings,
     ultimateBulldozerDrop
-} from "./upgrades/synergyBulldozerAirstrike";
+} from "./upgrades/synergy/synergyBulldozerAirstrike";
+import {
+    ancientScrolls, ancientTombs,
+    betterGraveyards, duplicationSpells, firstWizardScrolls,
+    giantHats, higherClassedNecromancers,
+    polishedBricks, teleportationSpells,
+    thrones,
+    zombiePreservatives
+} from "./upgrades/necromancer";
+import {darkMagicMining, deepMagicMining, magicMining, unlockTitan} from "./upgrades/research";
+import {
+    accessToTheLibraryOfHell, bathsInThePitsOfAhnsquall, enlargedCataract,
+    giantBrassKnuckles,
+    giantLightsabers, giantSwords, hellfireWeapons, scrollsOfWisdom, strengthRestorationSpells,
+    theLexiconOfKnowledge,
+    theStrongestTitans, theTitanKing, vwynido,
+    wizardTranslators
+} from "./upgrades/titan";
+import {
+    incidentX,
+    kingHyzem,
+    kingOptuqui,
+    magicSwap,
+    mergeForm,
+    titanThrones
+} from "./upgrades/synergy/synergyNecromancerTitan";
+import {
+    allTheMostPowerfulSpellScrolls,
+    hyzemsArtifactVault, illusionSpells,
+    leatherJackets,
+    loadsOfWeapons, LordReaefseksJournal,
+    motorcycles, notDestroyingTheWorldTax, nuclearLaunchCodes, realityBendingMagic,
+    ritualSacrifices,
+    tortureReels, universalPasses,
+    worshippers
+} from "./upgrades/synergy/demon";
 
 export interface Upgrade {
     isVisible: () => boolean;
@@ -144,6 +175,15 @@ export const buyUpgrade = (upgrade: UpgradeKeys, dispatch: Dispatch<any>) => {
 }
 
 export const upgrades: { [key: string]: Upgrade } = {
+
+    //--------------
+    //Research Upgrades
+    //--------------
+    magicMining,
+    deepMagicMining,
+    darkMagicMining,
+    unlockTitan,
+
     //--------------
     //Hand Synergy Upgrades
     //--------------
@@ -187,6 +227,8 @@ export const upgrades: { [key: string]: Upgrade } = {
     adamantiumKnuckles,
     redactedGloves,
     antimatterGauntlets,
+
+    magicallyEnhancedFists,
 
     //--------------
     //Club Upgrades
@@ -316,24 +358,66 @@ export const upgrades: { [key: string]: Upgrade } = {
     bulldozerPlanes,
     theDarkBindings,
 
+    //--------------
+    //Necromancer Upgrades
+    //--------------
+    polishedBricks,
+    giantHats,
+    ancientScrolls,
+    thrones,
+    zombiePreservatives,
+    betterGraveyards,
+    higherClassedNecromancers,
+    teleportationSpells,
+    duplicationSpells,
+    ancientTombs,
+    firstWizardScrolls,
 
-    magicMining: {
-        isVisible: () => store.getState().game.wall >= 10,
-        isBuyable: () => {
-            const state = store.getState();
-            const bricks = state.game.bricks;
-            return bricks >= 10;
-        },
-        effect: {},
-        buy: (dispatch) => dispatch(decreaseBricks(1)),
-        text: <>
-            <Typography color="inherit">Magic Mining</Typography>
-            We need bricks to trade with the underground wizards for their secrets. Bricks are their most valuable
-            resource.
-            <br/>Costs <b>1</b> Brick
-        </>,
-        img: magicMiningImg,
-    }
+    //--------------
+    //Titan Upgrades
+    //--------------
+    wizardTranslators,
+    strengthRestorationSpells,
+    theLexiconOfKnowledge,
+    giantBrassKnuckles,
+    giantSwords,
+    giantLightsabers,
+    enlargedCataract,
+    theStrongestTitans,
+    theTitanKing,
+    vwynido,
+    scrollsOfWisdom,
+    hellfireWeapons,
+    accessToTheLibraryOfHell,
+    bathsInThePitsOfAhnsquall,
+
+    //--------------
+    //Necromancer and Titan Synergy Upgrades
+    //--------------
+    titanThrones,
+    magicSwap,
+    mergeForm,
+    incidentX,
+    kingHyzem,
+    kingOptuqui,
+
+    //--------------
+    //Demon Upgrades
+    //--------------
+    leatherJackets,
+    motorcycles,
+    ritualSacrifices,
+    tortureReels,
+    loadsOfWeapons,
+    worshippers,
+    universalPasses,
+    nuclearLaunchCodes,
+    notDestroyingTheWorldTax,
+    LordReaefseksJournal,
+    hyzemsArtifactVault,
+    illusionSpells,
+    realityBendingMagic,
+    allTheMostPowerfulSpellScrolls,
 }
 
 const effectsAllBuildings = (power: number) => {
