@@ -1,14 +1,17 @@
-import React, {FC} from "react";
-import {createStyles, Divider, makeStyles, Paper} from "@material-ui/core";
+import {FC} from "react";
+import {createStyles, Grid, LinearProgress, makeStyles, Paper} from "@material-ui/core";
+import moneyImg from "../images/dollar.png";
+import brickImg from "../images/brick.png";
+import fourthWallBrickImg from "../images/fourthWallBrick.png";
 import {useSelector} from "react-redux";
 import {AppState} from "../redux/store";
 import {prettify} from "../constants";
-import {Stats} from "./Stats";
+import {walls} from "../constants/walls";
 
 const useStyles = makeStyles((theme) =>
     createStyles({
         paper: {
-            padding: theme.spacing(2),
+            padding: theme.spacing(0.5),
             textAlign: 'center',
             color: theme.palette.text.secondary,
         },
@@ -16,20 +19,38 @@ const useStyles = makeStyles((theme) =>
 );
 
 export const Resources: FC = () => {
-    const {damage, money, bricks, dps} = useSelector((state: AppState) => state.game);
     const classes = useStyles();
+    const {money, bricks, wall} = useSelector((state: AppState) => state.game);
+    const alignStyle = {display: "flex", alignItems: "center"}
 
-    return (
+    return (<>
         <Paper className={classes.paper} variant="outlined">
-            <b>
-            <label>Resources</label>
-            <Divider/>
-            <label>Money: {prettify(money)}(+{prettify(dps)}/s)</label>
-            <br/>
-            <label>Damage: {prettify(damage)}(+{prettify(dps)}/s)</label>
-            <br/>
-            <label>Bricks: {prettify(bricks)}</label>
-            </b>
-            <Stats/>
-        </Paper>);
+            <Grid container>
+                <Grid item xs={4} style={alignStyle}>
+                    <img src={moneyImg}/>
+                    {prettify(money)}
+                </Grid>
+                <Grid item xs={4} style={alignStyle}>
+                    {wall >= 1 &&
+                    <><img src={brickImg}/>
+                    {prettify(bricks)}</>}
+                </Grid>
+                <Grid item xs={4} style={alignStyle}>
+                    {wall >= 4 &&
+                    <><img src={fourthWallBrickImg}/>
+                    4th Wall Bricks</>}
+                </Grid>
+            </Grid>
+            <ProgressBar/>
+        </Paper>
+    </>)
+}
+
+const ProgressBar: FC = () => {
+    const wall = useSelector((state: AppState) => state.game.wall);
+    const damage = useSelector((state: AppState) => state.game.damage);
+    const cost = walls[wall].cost;
+    const progress = Math.min(damage / cost * 100, 100);
+
+    return <LinearProgress variant="determinate" value={progress}/>
 }

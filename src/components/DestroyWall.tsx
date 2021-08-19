@@ -26,41 +26,22 @@ export const DestroyWall: FC = () => {
     };
 
     return (<>
-        <DestroyWallProgress/>
+        <WallText/>
         <HtmlTooltip text={walls[wall].text}>
             <div onClick={() => dispatch(tryDestroyWall())} style={styles.container}>
                 <b style={styles.text}>Destroy Wall</b>
-                <img src={walls[wall].img} style={{width: "80%"}} alt="Wall"/>
+                <img src={walls[wall].img} style={{width: "85%"}} alt="Wall"/>
             </div>
         </HtmlTooltip>
         <Divider/>
     </>)
 }
 
-const DestroyWallProgress: FC = () => {
-    const wall = useSelector((state:AppState)=> state.game.wall);
-
-    return (<>
-            <ProgressBar cost={walls[wall].cost}/>
-            <WallText cost={walls[wall].cost}/>
-        </>
-    )
-}
-
-interface Props {
-    cost: number;
-}
-
-const WallText: FC<Props> = ({cost}) => {
+const WallText: FC = () => {
     const damage = useSelector((state: AppState) => state.game.damage);
+    const wall = useSelector((state:AppState)=> state.game.wall);
+    const cost = walls[wall].cost
     const textColor = damage > cost ? "green" : "red";
 
     return <label style={{color: textColor}}>Needs: {prettify(cost)} Damage</label>
-}
-
-const ProgressBar: FC<Props> = ({cost}) => {
-    const {damage} = useSelector((state: AppState) => state.game);
-    const progress = Math.min(damage/cost*100, 100);
-
-    return <LinearProgress variant="determinate" value={progress}/>
 }

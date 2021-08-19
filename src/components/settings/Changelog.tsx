@@ -51,6 +51,11 @@ export const Changelog: FC = () => {
             <DialogTitle id="alert-dialog-title">Changelog</DialogTitle>
             <DialogContent>
                 <DialogContentText id="alert-dialog-description">
+                    v.0.15 - New UI (again)
+                    <Divider/>
+                    Yup, I changed the UI again, the resource display should now be more modern and easier on the eyes.
+                    And it is ready for incoming new content in the next updates as well.
+                    <Divider/>
                     v.0.14 - Magic
                     <Divider/>
                     Finally some proper rewards for destroying the walls.  This was just supposed to be a quick and small

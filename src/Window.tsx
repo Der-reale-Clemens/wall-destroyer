@@ -3,7 +3,6 @@ import {createStyles, Grid, makeStyles, Paper} from "@material-ui/core";
 import {useDispatch} from "react-redux";
 import {increaseMoney} from "./redux/GameSlice";
 import {BuildingTable} from "./components/BuildingTable";
-import {Resources} from "./components/Resources";
 import {update} from "./functions/update";
 import {addNotification, setLastUpdate} from "./redux/SystemSlice";
 import {SettingsButton} from "./components/settings/SettingsButton";
@@ -12,6 +11,8 @@ import {DestroyWall} from "./components/DestroyWall";
 import {UpgradeAndAchievementTable} from "./components/upgradsAndAchievements/UpgradeAndAchievementTable";
 import {PunchWallButton} from "./components/PunchWallButton";
 import {StoryDisplay} from "./components/StoryDisplay";
+import {Resources} from "./components/Resources";
+import {Stats} from "./components/Stats";
 
 const useStyles = makeStyles((theme) =>
     createStyles({
@@ -63,6 +64,10 @@ export const Window: FC = () => {
                 </Grid>
                 <Grid item xs={5}>
                     <Grid container spacing={1}>
+                        <Grid item xs={2}></Grid>
+                        <Grid item xs={8}>
+                            <Resources/>
+                        </Grid>
                         <Grid item xs={12}>
                             <Paper className={classes.paper} variant="outlined">
                                 <DestroyWall/>
@@ -70,7 +75,7 @@ export const Window: FC = () => {
                             </Paper>
                         </Grid>
                         <Grid item xs={12}>
-                            <Resources/>
+                            <Stats/>
                         </Grid>
                     </Grid>
                 </Grid>

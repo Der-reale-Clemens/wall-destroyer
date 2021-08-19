@@ -1,12 +1,23 @@
 import {FC} from "react";
-import {Divider} from "@material-ui/core";
+import {createStyles, Divider, makeStyles, Paper} from "@material-ui/core";
 import {useSelector} from "react-redux";
 import {AppState} from "../redux/store";
 import {prettify} from "../constants";
 import {buildings} from "../constants/buildings";
 
+const useStyles = makeStyles((theme) =>
+    createStyles({
+        paper: {
+            padding: theme.spacing(2),
+            textAlign: 'center',
+            color: theme.palette.text.secondary,
+        },
+    }),
+);
+
 export const Stats: FC = () => {
-    const hand = useSelector((state: AppState) => state.game.handDamage);
+    const classes = useStyles();
+    const {handDamage, damage, dps} = useSelector((state: AppState) => state.game);
     const {
         puncher,
         clubber,
@@ -34,12 +45,12 @@ export const Stats: FC = () => {
         demonDps
     } = useSelector((state: AppState) => state.stats.dps);
 
-    return (<>
-        <Divider/>
+    return (<Paper className={classes.paper} variant="outlined">
         Stats
         <Divider/>
         <div style={{textAlign: "center"}}>
-            Hand damage: {prettify(hand)}<br/>
+            <b>Overall damage: {prettify(damage)}(+{prettify(dps)}/s)</b><br/>
+            Hand damage: {prettify(handDamage)}<br/>
             Puncher damage: {prettify(puncher)}(+{prettify(puncherDps)}/s)<br/>
             Clubber damage: {prettify(clubber)}(+{prettify(clubberDps)}/s)<br/>
             Swordsman damage: {prettify(swordsman)}(+{prettify(swordsmanDps)}/s)<br/>
@@ -52,5 +63,5 @@ export const Stats: FC = () => {
             {buildings.titan.isUnlocked() && <>Titan damage: {prettify(titan)}(+{prettify(titanDps)}/s)<br/></>}
             {buildings.demon.isUnlocked() && <>Demon damage: {prettify(demon)}(+{prettify(demonDps)}/s)<br/></>}
         </div>
-    </>)
+    </Paper>)
 }
