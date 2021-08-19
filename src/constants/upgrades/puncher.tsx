@@ -143,7 +143,7 @@ const upgrades: {[key: string]: Upgrade} = {
             store.getState().game.bricks >= 1 &&
             store.getState().buildings.puncher >= 125,
         buy: (dispatch) => {
-            dispatch(decreaseMoney(2e15));
+            dispatch(decreaseMoney(20202020202));
             dispatch(decreaseBricks(1));
         },
         effect: {hand: 1.5, puncher: 3},
