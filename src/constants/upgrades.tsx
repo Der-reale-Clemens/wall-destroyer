@@ -1,57 +1,69 @@
-import React from "react";
 import {Dispatch} from "@reduxjs/toolkit";
 import {addUpgrade} from "../redux/UpgradeSlice";
 import {BuildingKeys} from "./buildings";
 import {
-    adamantiumKnuckles, antimatterGauntlets,
-    diamondKnuckles, brassKnuckles,
+    adamantiumKnuckles,
+    antimatterGauntlets,
+    diamondKnuckles,
+    brassKnuckles,
     gloves,
-    paddedGloves, redactedGloves,
+    paddedGloves,
+    redactedGloves,
     steelPlatedGloves,
-    titaniumKnuckles, magicallyEnhancedFists
+    titaniumKnuckles,
+    magicallyEnhancedFists,
+    theFistsOfDestiny,
+    eternityGloves,
+    theMillion,
+    finalityRockKnuckles,
+    maganiumGauntlets, blackHoleGloves, blackDippedGloves, chessKnuckles, maximumSuperStrength
 } from "./upgrades/puncher";
 import {
     biggerCrates,
-    bigGrenades,
+    bigGrenades, blackInfusedGrenades, bucketsOfGrenades, enlargedExplosions,
     extraShrapnel,
     flameGrenades,
-    greasedPins,
-    nuclearGrenades, plasmaGrenades, unobtaniumShrapnel
+    greasedPins, grenades, hellfireBombs, holyHandGrenades, magicalLightningGrenades,
+    nuclearGrenades, oblivionGrenades, plasmaGrenades, portalGrenades, timeSplittingGrenades, unobtaniumShrapnel
 } from "./upgrades/grenademan";
 import {
-    doubleMagazines,
+    blackBullets,
+    consciosnessSegmentation, crossoverGuns,
+    doubleMagazines, everyGunCombinedIntoOne, hyzemsGoldenRifle,
     infiniteMagazines, laserChainsawGatlingGuns,
     laserSights,
-    machineGuns, plasmaRifles,
-    quadrupleMagazines,
-    snipers
+    machineGuns, magicBullets, plasmaRifles, pureMagicBullets,
+    quadrupleMagazines, reaefseksCrimsonRifle,
+    snipers, theBestGun, unstoppableBullets
 } from "./upgrades/gunshooter";
 import {
+    breakingPoint,
+    cloning,
     coffee,
     elephantiasis,
     energyDrinks,
     experimentalDrugs, laserBrainSurgery,
     mechanicalLimbs,
-    personalTrainer, trainingMontage
+    personalTrainer, propasal731, theFinalFist, theFinalityTrees, theHandOfGod, theMightyFistOfReaefsek, trainingMontage
 } from "./upgrades/hand";
 import {
     betterClubs,
-    biggerClubs,
-    bombClubs,
-    ironClubs,
-    nukeClubs,
-    plasmaClubs,
-    spikedClubs,
+    biggerClubs, blackInfestedClubs,
+    bombClubs, cartoonPhysics, clubsOfHappiness,
+    ironClubs, magicLavaClub,
+    nukeClubs, perfectClubs,
+    plasmaClubs, protectionAgainstTheClubs, quantumClubs,
+    spikedClubs, sunClubs, supernovaClubs, theDevilsClub,
     titaniumClubs
 } from "./upgrades/club";
 import {
     animeSizedSwords,
-    biggerSwords,
-    dualKatanas,
+    biggerSwords, blackCoatedSwords, buildingSizedSwords,
+    dualKatanas, dualWielding,
     fancyHilts,
     flamingKatanas,
-    katanas, lightsabers,
-    sharpening
+    katanas, lightsabers, maganiumSwords, oblivionBlades, realityBlades, sevensSword,
+    sharpening, swordThatCutsThroughEverything, theFinalitySwords, theNightmareBlade
 } from "./upgrades/swordsman";
 import {
     ballsOfSteel,
@@ -79,15 +91,16 @@ import {
     supersonicJets
 } from "./upgrades/airstrikeCaller";
 import {
+    ancientTechniques, brickKnuckles,
     bulldozerStrike,
     bulletPunch,
     clubKnuckles,
     comeTogether, energyDraining,
-    finalTeamUp, fistGrenades, skydiving,
+    finalTeamUp, fistGrenades, fistOfEvil, fistOfTheBlack, invulnerability, skydiving,
     standingOvation, swordKnuckles,
     teamUp,
     theChallenge,
-    ultraTeamUp, wreckingBallPunch
+    ultraTeamUp, wreckingBallPunch, zombification
 } from "./upgrades/synergy/synergyHandPuncher";
 import {
     bayonets,
@@ -123,7 +136,14 @@ import {
     thrones,
     zombiePreservatives
 } from "./upgrades/necromancer";
-import {darkMagicMining, deepMagicMining, magicMining, unlockTitan} from "./upgrades/research";
+import {
+    blackResearch,
+    darkMagicMining,
+    deepMagicMining,
+    magicMining,
+    realityResearch,
+    unlockTitan
+} from "./upgrades/research";
 import {
     accessToTheLibraryOfHell, bathsInThePitsOfAhnsquall, enlargedCataract,
     giantBrassKnuckles,
@@ -149,7 +169,7 @@ import {
     ritualSacrifices,
     tortureReels, universalPasses,
     worshippers
-} from "./upgrades/synergy/demon";
+} from "./upgrades/demon";
 
 export interface Upgrade {
     isVisible: () => boolean;
@@ -182,6 +202,8 @@ export const upgrades: { [key: string]: Upgrade } = {
     magicMining,
     deepMagicMining,
     darkMagicMining,
+    realityResearch,
+    blackResearch,
     unlockTitan,
 
     //--------------
@@ -202,6 +224,12 @@ export const upgrades: { [key: string]: Upgrade } = {
     wreckingBallPunch,
     bulldozerStrike,
     skydiving,
+    zombification,
+    ancientTechniques,
+    fistOfEvil,
+    invulnerability,
+    fistOfTheBlack,
+    brickKnuckles,
 
     //--------------
     //Hand Upgrades
@@ -214,6 +242,13 @@ export const upgrades: { [key: string]: Upgrade } = {
     trainingMontage,
     laserBrainSurgery,
     mechanicalLimbs,
+    cloning,
+    theFinalFist,
+    breakingPoint,
+    theMightyFistOfReaefsek,
+    propasal731,
+    theFinalityTrees,
+    theHandOfGod,
 
     //--------------
     //Puncher Upgrades
@@ -227,8 +262,17 @@ export const upgrades: { [key: string]: Upgrade } = {
     adamantiumKnuckles,
     redactedGloves,
     antimatterGauntlets,
+    theFistsOfDestiny,
+    eternityGloves,
+    theMillion,
+    finalityRockKnuckles,
 
     magicallyEnhancedFists,
+    maganiumGauntlets,
+    blackHoleGloves,
+    blackDippedGloves,
+    chessKnuckles,
+    maximumSuperStrength,
 
     //--------------
     //Club Upgrades
@@ -241,6 +285,17 @@ export const upgrades: { [key: string]: Upgrade } = {
     bombClubs,
     plasmaClubs,
     nukeClubs,
+    quantumClubs,
+    clubsOfHappiness,
+    protectionAgainstTheClubs,
+    theDevilsClub,
+
+    magicLavaClub,
+    sunClubs,
+    supernovaClubs,
+    blackInfestedClubs,
+    perfectClubs,
+    cartoonPhysics,
 
     //--------------
     //Swordsman Upgrades
@@ -253,6 +308,17 @@ export const upgrades: { [key: string]: Upgrade } = {
     flamingKatanas,
     animeSizedSwords,
     lightsabers,
+    realityBlades,
+    dualWielding,
+    theFinalitySwords,
+    theNightmareBlade,
+
+    maganiumSwords,
+    swordThatCutsThroughEverything,
+    oblivionBlades,
+    blackCoatedSwords,
+    sevensSword,
+    buildingSizedSwords,
 
     //--------------
     //Clubber & Swordsman Synergy Upgrades
@@ -276,6 +342,17 @@ export const upgrades: { [key: string]: Upgrade } = {
     machineGuns,
     plasmaRifles,
     laserChainsawGatlingGuns,
+    unstoppableBullets,
+    everyGunCombinedIntoOne,
+    hyzemsGoldenRifle,
+    reaefseksCrimsonRifle,
+
+    magicBullets,
+    pureMagicBullets,
+    theBestGun,
+    blackBullets,
+    consciosnessSegmentation,
+    crossoverGuns,
 
     //--------------
     //Grenademan Upgrades
@@ -288,8 +365,19 @@ export const upgrades: { [key: string]: Upgrade } = {
     nuclearGrenades,
     plasmaGrenades,
     unobtaniumShrapnel,
+    timeSplittingGrenades,
+    bucketsOfGrenades,
+    holyHandGrenades,
+    hellfireBombs,
 
-    //--------------
+    magicalLightningGrenades,
+    portalGrenades,
+    oblivionGrenades,
+    blackInfusedGrenades,
+    grenades,
+    enlargedExplosions,
+
+        //--------------
     //Gunshooter & Grenademan Synergy Upgrades
     //--------------
     gunThatShootsGrenades,

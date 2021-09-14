@@ -41,7 +41,7 @@ const changeBuildingName = (name) => {
 
 const convert = (text, name) => {
     const g = (text, regex) => {
-        //console.log(regex.exec(text));
+        console.log(regex);
         console.log(text);
         return regex.exec(text)[1]
     }
@@ -49,8 +49,8 @@ const convert = (text, name) => {
     const amount = g(text, /-unlocks at (\d+)/g);
     const building = changeBuildingName(/-unlocks at \d+ (\w+)/g.exec(text)[1]);
     const cost = Number(g(text, /costs (\d+)/g)).toExponential();
-    const textName = g(text, /-named ([\w\s]+)/g);
-    const textBody = g(text, /-"(.*?)"/g);
+    const textName = g(text, /-named (.+)\n/g);
+    const textBody = g(text, /-"(.*)"\n/g);
     const pictureUrl = g(text, /-picture : ([^\s]+)/g);
     const effect = "{}";
 

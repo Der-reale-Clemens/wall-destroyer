@@ -37,6 +37,9 @@ export const BuildingTable: FC = () => {
             {buildings.necromancer.isUnlocked() && <BuildingButton name="necromancer"/>}
             {buildings.titan.isUnlocked() && <BuildingButton name="titan"/>}
             {buildings.demon.isUnlocked() && <BuildingButton name="demon"/>}
+            {buildings.realityCompromiser.isUnlocked() && <BuildingButton name="realityCompromiser"/>}
+            {buildings.blackObliterator.isUnlocked() && <BuildingButton name="blackObliterator"/>}
+            {buildings.brickFactory.isUnlocked() && <BuildingButton name="brickFactory"/>}
         </List>
         </div>
     )

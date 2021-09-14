@@ -5,7 +5,7 @@ import {prettify} from "../../constants";
 
 const achievements: { [key: string]: Achievement } = {
     puncher: {
-        isUnlocked: () => store.getState().game.handDamage >= 100,
+        isUnlocked: () => store.getState().stats.hand >= 100,
         text: <>
             <Typography color="inherit">Puncher</Typography>
             Deal <b>{prettify(100)}</b> damage by hand.
@@ -13,7 +13,7 @@ const achievements: { [key: string]: Achievement } = {
         img: "http://i.imgur.com/c3mfsZ7.png"
     },
     boxer: {
-        isUnlocked: () => store.getState().game.handDamage >= 10000,
+        isUnlocked: () => store.getState().stats.hand >= 10000,
         text: <>
             <Typography color="inherit">Boxer</Typography>
             Deal <b>{prettify(10_000)}</b> damage by hand.
@@ -21,7 +21,7 @@ const achievements: { [key: string]: Achievement } = {
         img: "http://i.imgur.com/1VAyqoa.png"
     },
     brawler: {
-        isUnlocked: () => store.getState().game.handDamage >= 1000000,
+        isUnlocked: () => store.getState().stats.hand >= 1000000,
         text: <>
             <Typography color="inherit">Brawler</Typography>
             Deal <b>{prettify(1e6)}</b> damage by hand.
@@ -29,7 +29,7 @@ const achievements: { [key: string]: Achievement } = {
         img: "http://i.imgur.com/3pMJrsL.png"
     },
     blood: {
-        isUnlocked: () => store.getState().game.handDamage >= 100000000,
+        isUnlocked: () => store.getState().stats.hand >= 100000000,
         text: <>
             <Typography color="inherit">Blood, Sweat, and Tears</Typography>
             Deal <b>{prettify(1e8)}</b> damage by hand.
@@ -37,7 +37,7 @@ const achievements: { [key: string]: Achievement } = {
         img: "http://i.imgur.com/bOLxNz7.png"
     },
     karateMaster: {
-        isUnlocked: () => store.getState().game.handDamage >= 10000000000,
+        isUnlocked: () => store.getState().stats.hand >= 10000000000,
         text: <>
             <Typography color="inherit">Karate Master</Typography>
             Deal <b>{prettify(1e10)}</b> damage by hand.
@@ -45,7 +45,7 @@ const achievements: { [key: string]: Achievement } = {
         img: "http://i.imgur.com/PtmkAH3.png"
     },
     doingGodsWork: {
-        isUnlocked: () => store.getState().game.handDamage >= 1000000000000,
+        isUnlocked: () => store.getState().stats.hand >= 1000000000000,
         text: <>
             <Typography color="inherit">Doing God's Work</Typography>
             Deal <b>{prettify(1e12)}</b> damage by hand.
@@ -53,7 +53,7 @@ const achievements: { [key: string]: Achievement } = {
         img: "http://i.imgur.com/ouFA8Lg.png"
     },
     theHeroGothamDeserves: {
-        isUnlocked: () => store.getState().game.handDamage >= 100000000000000,
+        isUnlocked: () => store.getState().stats.hand >= 100000000000000,
         text: <>
             <Typography color="inherit">The Hero Gotham Deserves</Typography>
             Deal <b>{prettify(1e14)}</b> damage by hand.
@@ -61,7 +61,7 @@ const achievements: { [key: string]: Achievement } = {
         img: "http://i.imgur.com/ee3LJxJ.png"
     },
     theGrandmaster: {
-        isUnlocked: () => store.getState().game.handDamage >= 10000000000000000,
+        isUnlocked: () => store.getState().stats.hand >= 10000000000000000,
         text: <>
             <Typography color="inherit">The Grandmaster</Typography>
             Deal <b>{prettify(1e16)}</b> damage by hand.
@@ -69,7 +69,7 @@ const achievements: { [key: string]: Achievement } = {
         img: "http://i.imgur.com/YZfg6Vg.png"
     },
     theChampionOfTheWorld: {
-        isUnlocked: () => store.getState().game.handDamage >= 1000000000000000000,
+        isUnlocked: () => store.getState().stats.hand >= 1000000000000000000,
         text: <>
             <Typography color="inherit">The Champion of The World</Typography>
             Deal <b>{prettify(1e18)}</b> damage by hand.
@@ -77,7 +77,7 @@ const achievements: { [key: string]: Achievement } = {
         img: "http://i.imgur.com/0fHTOjH.png"
     },
     theChosenOne: {
-        isUnlocked: () => store.getState().game.handDamage >= 100000000000000000000,
+        isUnlocked: () => store.getState().stats.hand >= 100000000000000000000,
         text: <>
             <Typography color="inherit">The Chosen One</Typography>
             Deal <b>{prettify(1e20)}</b> damage by hand.
@@ -85,7 +85,7 @@ const achievements: { [key: string]: Achievement } = {
         img: "http://i.imgur.com/uKozUUJ.png"
     },
     theWinner: {
-        isUnlocked: () => store.getState().game.handDamage >= 10000000000000000000000,
+        isUnlocked: () => store.getState().stats.hand >= 10000000000000000000000,
         text: <>
             <Typography color="inherit">The Winner</Typography>
             Deal <b>{prettify(1e22)}</b> damage by hand.
@@ -94,7 +94,7 @@ const achievements: { [key: string]: Achievement } = {
         img: "http://i.imgur.com/VywN1Do.png"
     },
     agentOfTheDevil: {
-        isUnlocked: () => store.getState().game.handDamage >= 1000000000000000000000000,
+        isUnlocked: () => store.getState().stats.hand >= 1000000000000000000000000,
         text: <>
             <Typography color="inherit">Agent of The Devil</Typography>
             Deal <b>{prettify(1e24)}</b> damage by hand.
@@ -103,7 +103,7 @@ const achievements: { [key: string]: Achievement } = {
         img: "http://i.imgur.com/XSPPdpX.png"
     },
     beyondReality: {
-        isUnlocked: () => store.getState().game.handDamage >= 100000000000000000000000000,
+        isUnlocked: () => store.getState().stats.hand >= 100000000000000000000000000,
         text: <>
             <Typography color="inherit">Beyond Reality</Typography>
             Deal <b>{prettify(1e26)}</b> damage by hand.
@@ -112,7 +112,7 @@ const achievements: { [key: string]: Achievement } = {
         img: "http://i.imgur.com/QJ6t0uF.png"
     },
     theHarbinger: {
-        isUnlocked: () => store.getState().game.handDamage >= 10000000000000000000000000000,
+        isUnlocked: () => store.getState().stats.hand >= 10000000000000000000000000000,
         text: <>
             <Typography color="inherit">The Harbinger</Typography>
             Deal <b>{prettify(1e28)}</b> damage by hand.
@@ -121,7 +121,7 @@ const achievements: { [key: string]: Achievement } = {
         img: "http://i.imgur.com/uCnJqSI.png"
     },
     missionaryOfTheDivine: {
-        isUnlocked: () => store.getState().game.handDamage >= 10000000000000000000000000000000,
+        isUnlocked: () => store.getState().stats.hand >= 10000000000000000000000000000000,
         text: <>
             <Typography color="inherit">Missionary of The Divine</Typography>
             Deal <b>{prettify(1e31)}</b> damage by hand.

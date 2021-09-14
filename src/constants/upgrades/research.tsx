@@ -56,6 +56,38 @@ const upgrades: { [key: string]: Upgrade } = {
         </>,
         img: "http://i.imgur.com/Z4p4G7T.png",
     },
+    realityResearch: {
+        isVisible: () => store.getState().game.wall >= 4,
+        isBuyable: () => store.getState().game.money >= 404400040440040440 && store.getState().game.bricks >= 4_004_404,
+        effect: {},
+        buy: (dispatch) => {
+            dispatch(decreaseMoney(404400040440040440));
+            dispatch(decreaseBricks(4_004_404));
+        },
+        text: <>
+            <Typography color="inherit">Reality Research</Typography>
+            Unlocks <b>reality compromisers</b>.
+            <br/>Unlocks the <b>4th wall upgrade tier</b>.
+            <br/>We have discovered with the breaking of the 4th wall that we are all inside a stupid idle game. Not
+            even a <i>real</i> game! But we can use this knowledge to our advantage...
+            <br/>Costs <b>{prettify(404400040440040440)}</b> Cash & <b>{prettify(4_004_404)}</b> Bricks
+        </>,
+        img: " http://i.imgur.com/RH7gkh2.png",
+    },
+    blackResearch: {
+        isVisible: () => store.getState().game.wall >= 5,
+        isBuyable: () => store.getState().game.money >= 42000000000000000000,
+        effect: {},
+        buy: (dispatch) => dispatch(decreaseMoney(42000000000000000000)),
+        text: <>
+            <Typography color="inherit">Black Research</Typography>
+            Unlocks <b>Black Obliterators</b>.
+            <br/><i>We have discovered a substance in [REDACTED] that holds more power than anything we have ever
+            encountered. We call it The Black because it is pitch black.</i>
+            <br/>Costs <b>{prettify(42000000000000000000)}</b> Cash
+        </>,
+        img: "http://i.imgur.com/Pewjyq5.png",
+    },
     unlockTitan: {
         isVisible: () => store.getState().game.wall >= 2,
         isBuyable: () => store.getState().game.bricks >= 16,
@@ -74,5 +106,7 @@ export const {
     magicMining,
     deepMagicMining,
     unlockTitan,
-    darkMagicMining
+    darkMagicMining,
+    realityResearch,
+    blackResearch,
 } = upgrades

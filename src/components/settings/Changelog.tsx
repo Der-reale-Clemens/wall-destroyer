@@ -51,6 +51,26 @@ export const Changelog: FC = () => {
             <DialogTitle id="alert-dialog-title">Changelog</DialogTitle>
             <DialogContent>
                 <DialogContentText id="alert-dialog-description">
+                    v.0.16.2 - More fixes
+                    <Divider/>
+                    Fixed a spelling mistake for Melee buildings and a wrong cost for an upgrade
+                    <Divider/>
+                    v.0.16.1 - First post release fix
+                    <Divider/>
+                    Hi to everyone who came here after the release and decided to read these notes. Instead of the architectural
+                    changes I talked about in the previous notes I just decided to go ahead and release this finally. And
+                    with the big increase in player base we already found our first post release bug: Not working hand synergy
+                    upgrades for the higher tiers, which is now fixed.
+                    <Divider/>
+                    v.0.16 - The Reality update
+                    <Divider/>
+                    After quite some time the reality update is finally here, this update includes the last two buildings,
+                    over 50(!) new upgrades (with quite a few still missing but we almost got all). This update is technically
+                    still unfinished as some upgrades are missing, but I wanted to release this stuff for testing first, as
+                    I am considering rewriting parts of the architecture to future proof it against problems that I started to
+                    identify while adding as much content as in this updated. The next update might therefore take a while
+                    and might not even contain new content or other directly visible changes.
+                    <Divider/>
                     v.0.15 - New UI (again)
                     <Divider/>
                     Yup, I changed the UI again, the resource display should now be more modern and easier on the eyes.

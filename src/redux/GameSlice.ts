@@ -5,10 +5,10 @@ const initialState = {
     money: 0,
     damage: 0,
     bricks: 0,
+    fourthWallBricks: 0,
     wall: 0,
     knowledge: 0,
     dps: 0,
-    handDamage: 0,
 };
 
 const gameSlice = createSlice({
@@ -46,8 +46,11 @@ const gameSlice = createSlice({
         updateDps: (state, {payload: amount}: PayloadAction<number>) => {
             state.dps = amount;
         },
-        increaseHandDamage: (state, {payload: amount}: PayloadAction<number>) => {
-            state.handDamage += amount;
+        increaseFourthWallBricks: (state, {payload: amount}: PayloadAction<number>) => {
+            state.fourthWallBricks += amount;
+        },
+        decreaseFourthWallBricks: (state, {payload: amount}: PayloadAction<number>) => {
+            state.fourthWallBricks -= amount;
         }
     }
 })
@@ -57,8 +60,10 @@ export const gameReducer = gameSlice.reducer;
 export const {
     increaseMoney,
     decreaseMoney,
+    increaseBricks,
     decreaseBricks,
     tryDestroyWall,
     updateDps,
-    increaseHandDamage
+    increaseFourthWallBricks,
+    decreaseFourthWallBricks
 } = gameSlice.actions

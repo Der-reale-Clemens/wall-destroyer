@@ -9,6 +9,8 @@ export const calculateNextBuildingCost = (amount: number, baseCost: number): num
 
 
 export const prettify = (num: number): string => {
+    if(num === undefined)
+        return "0";
     if (num <= 100) {
         return (Math.round(num * 1000) / 1000).toString();
     }

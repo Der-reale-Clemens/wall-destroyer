@@ -33,7 +33,7 @@ export const Info: FC = () => {
                     <br/>
                     This projects packed source can be found on <a href="https://github.com/Der-reale-Clemens/wall-destroyer-prod">
                     https://github.com/Der-reale-Clemens/wall-destroyer-prod</a>, the unpacked source might be released
-                    at a latter date.
+                    at a later date.
                 </DialogContentText>
             </DialogContent>
             <DialogActions>

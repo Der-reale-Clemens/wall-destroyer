@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) =>
 
 export const Resources: FC = () => {
     const classes = useStyles();
-    const {money, bricks, wall} = useSelector((state: AppState) => state.game);
+    const {money, bricks, fourthWallBricks, wall} = useSelector((state: AppState) => state.game);
     const alignStyle = {display: "flex", alignItems: "center"}
 
     return (<>
@@ -38,7 +38,7 @@ export const Resources: FC = () => {
                 <Grid item xs={4} style={alignStyle}>
                     {wall >= 4 &&
                     <><img src={fourthWallBrickImg}/>
-                    4th Wall Bricks</>}
+                        {prettify(fourthWallBricks)}</>}
                 </Grid>
             </Grid>
             <ProgressBar/>

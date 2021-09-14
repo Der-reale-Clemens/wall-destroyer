@@ -13,6 +13,9 @@ const initialState = {
     necromancer: 0,
     titan: 0,
     demon: 0,
+    realityCompromiser: 0,
+    blackObliterator: 0,
+    brickFactory: 0,
 }
 
 const buildingSlice = createSlice({

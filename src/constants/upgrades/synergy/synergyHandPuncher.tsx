@@ -216,91 +216,85 @@ const upgrades: { [key: string]: Upgrade } = {
         </>,
         img: "http://i.imgur.com/2Os5vuG.png"
     },
-    // namePls:{
-    //     isVisible: () => store.getState().buildings.necromancer >= 50,
-    //     isBuyable: () => store.getState().game.money >= 5e+14,
-    //     buy: (dispatch) => dispatch(decreaseMoney(5e+14)),
-    //     effect: {},
-    //     text: <>
-    //         <Typography color="inherit">Zombification
-    //         </Typography>
-    //         Hand punches do <b>1%</b> more damage per necromancer.
-    //         <br/><i>Now you don't have to waste hours sleeping.</i>
-    //         <br/>Costs <b>{prettify(500000000000000)}</b> Cash
-    //     </>,
-    //     img: "http://i.imgur.com/LXWPMiN.png"
-    // },
-    // namePls:{
-    //     isVisible: () => store.getState().buildings.giant >= 50,
-    //     isBuyable: () => store.getState().game.money >= 5e+15,
-    //     buy: (dispatch) => dispatch(decreaseMoney(5e+15)),
-    //     effect: {},
-    //     text: <>
-    //         <Typography color="inherit">Ancient Techniques
-    //         </Typography>
-    //         Hand punches do <b>1%</b> more damage per titan.
-    //         <br/><i>The walls were around even in the Old World, and with the walls comes wall punching.</i>
-    //         <br/>Costs <b>{prettify(5000000000000000)}</b> Cash
-    //     </>,
-    //     img: "http://i.imgur.com/NYQFO1N.png"
-    // },
-    // namePls:{
-    //     isVisible: () => store.getState().buildings.demon >= 50,
-    //     isBuyable: () => store.getState().game.money >= 7e+5,
-    //     buy: (dispatch) => dispatch(decreaseMoney(7e+5)),
-    //     effect: {},
-    //     text: <>
-    //         <Typography color="inherit">Fist of Evil
-    //         </Typography>
-    //         Hand punches do <b>0.5%</b> more damage per demon.
-    //         <br/><i>It doesn't matter how evil or horrible the technique, all that matters is that the wall comes down!</i>
-    //         <br/>Costs <b>{prettify(700000)}</b> Cash
-    //     </>,
-    //     img: "http://i.imgur.com/8COb4Z5.png"
-    // },
-    // namePls:{
-    //     isVisible: () => store.getState().buildings.compromiser >= 50,
-    //     isBuyable: () => store.getState().game.money >= 6e+17,
-    //     buy: (dispatch) => dispatch(decreaseMoney(6e+17)),
-    //     effect: {},
-    //     text: <>
-    //         <Typography color="inherit">Invulnerability
-    //         </Typography>
-    //         Hand punches do <b>0.5%</b> more damage per reality compromiser.
-    //         <br/><i>Sometimes it hurts to punch a brick wall. Not anymore!</i>
-    //         <br/>Costs <b>{prettify(600000000000000000)}</b> Cash
-    //     </>,
-    //     img: "http://i.imgur.com/3tap4AJ.png"
-    // },
-    // namePls:{
-    //     isVisible: () => store.getState().buildings.lastBuilding >= 50,
-    //     isBuyable: () => store.getState().game.money >= 3e+22,
-    //     buy: (dispatch) => dispatch(decreaseMoney(3e+22)),
-    //     effect: {},
-    //     text: <>
-    //         <Typography color="inherit">Fist of The Black
-    //         </Typography>
-    //         Hand punches do <b>0.5%</b> more damage per Black obliterator.
-    //         <br/><i>Since you're invulnerable, you are the only person who can touch The Black without dying a horrible, painful death.</i>
-    //         <br/>Costs <b>{prettify(3e+22)}</b> Cash
-    //     </>,
-    //     img: "http://i.imgur.com/pFyHQUx.png"
-    // },
-    // namePls:{
-    //     isVisible: () => store.getState().buildings.brickFactory >= 50,
-    //     isBuyable: () => store.getState().game.money >= 5e+16,
-    //     buy: (dispatch) => dispatch(decreaseMoney(5e+16)),
-    //     effect: {},
-    //     text: <>
-    //         <Typography color="inherit">Brick Knuckles
-    //         </Typography>
-    //         Hand punches do <b>0.5%</b> more damage per brick factory.
-    //         <br/>Manual brick creation creates <b>4%</b> more bricks per brick factory.
-    //         <br/><i>Fight fire with fire!</i>
-    //         <br/>Costs <b>{prettify(50000000000000000)}</b> Cash
-    //     </>,
-    //     img: "http://i.imgur.com/pcHLrGL.png"
-    // },
+    zombification:{
+        isVisible: () => store.getState().buildings.necromancer >= 50,
+        isBuyable: () => store.getState().game.money >= 5e+14,
+        buy: (dispatch) => dispatch(decreaseMoney(5e+14)),
+        effect: {hand: () => 1 + store.getState().buildings.necromancer * 0.01},
+        text: <>
+            <Typography color="inherit">Zombification</Typography>
+            Hand punches do <b>1%</b> more damage per necromancer.
+            <br/><i>Now you don't have to waste hours sleeping.</i>
+            <br/>Costs <b>{prettify(500000000000000)}</b> Cash
+        </>,
+        img: "http://i.imgur.com/LXWPMiN.png"
+    },
+    ancientTechniques:{
+        isVisible: () => store.getState().buildings.titan >= 50,
+        isBuyable: () => store.getState().game.money >= 5e+15,
+        buy: (dispatch) => dispatch(decreaseMoney(5e+15)),
+        effect: {hand: () => 1 + store.getState().buildings.titan * 0.01},
+        text: <>
+            <Typography color="inherit">Ancient Techniques</Typography>
+            Hand punches do <b>1%</b> more damage per titan.
+            <br/><i>The walls were around even in the Old World, and with the walls comes wall punching.</i>
+            <br/>Costs <b>{prettify(5000000000000000)}</b> Cash
+        </>,
+        img: "http://i.imgur.com/NYQFO1N.png"
+    },
+    fistOfEvil:{
+        isVisible: () => store.getState().buildings.demon >= 50,
+        isBuyable: () => store.getState().game.money >= 7e+5,
+        buy: (dispatch) => dispatch(decreaseMoney(7e+5)),
+        effect: {hand: () => 1 + store.getState().buildings.demon * 0.005},
+        text: <>
+            <Typography color="inherit">Fist of Evil</Typography>
+            Hand punches do <b>0.5%</b> more damage per demon.
+            <br/><i>It doesn't matter how evil or horrible the technique, all that matters is that the wall comes down!</i>
+            <br/>Costs <b>{prettify(700000)}</b> Cash
+        </>,
+        img: "http://i.imgur.com/8COb4Z5.png"
+    },
+    invulnerability:{
+        isVisible: () => store.getState().buildings.realityCompromiser >= 50,
+        isBuyable: () => store.getState().game.money >= 6e+17,
+        buy: (dispatch) => dispatch(decreaseMoney(6e+17)),
+        effect: {hand: () => 1 + store.getState().buildings.realityCompromiser * 0.005},
+        text: <>
+            <Typography color="inherit">Invulnerability</Typography>
+            Hand punches do <b>0.5%</b> more damage per reality compromiser.
+            <br/><i>Sometimes it hurts to punch a brick wall. Not anymore!</i>
+            <br/>Costs <b>{prettify(600000000000000000)}</b> Cash
+        </>,
+        img: "http://i.imgur.com/3tap4AJ.png"
+    },
+    fistOfTheBlack:{
+        isVisible: () => store.getState().buildings.blackObliterator >= 50,
+        isBuyable: () => store.getState().game.money >= 3e+22,
+        buy: (dispatch) => dispatch(decreaseMoney(3e+22)),
+        effect: {hand: () => 1 + store.getState().buildings.blackObliterator * 0.005},
+        text: <>
+            <Typography color="inherit">Fist of The Black</Typography>
+            Hand punches do <b>0.5%</b> more damage per Black obliterator.
+            <br/><i>Since you're invulnerable, you are the only person who can touch The Black without dying a horrible, painful death.</i>
+            <br/>Costs <b>{prettify(3e+22)}</b> Cash
+        </>,
+        img: "http://i.imgur.com/pFyHQUx.png"
+    },
+    brickKnuckles:{
+        isVisible: () => store.getState().buildings.brickFactory >= 50,
+        isBuyable: () => store.getState().game.money >= 5e+16,
+        buy: (dispatch) => dispatch(decreaseMoney(5e+16)),
+        effect: {hand: () => 1 + store.getState().buildings.brickFactory * 0.005},
+        text: <>
+            <Typography color="inherit">Brick Knuckles</Typography>
+            Hand punches do <b>0.5%</b> more damage per brick factory.
+            <br/>Manual brick creation creates <b>4%</b> more bricks per brick factory.
+            <br/><i>Fight fire with fire!</i>
+            <br/>Costs <b>{prettify(50000000000000000)}</b> Cash
+        </>,
+        img: "http://i.imgur.com/pcHLrGL.png"
+    },
 
 }
 
@@ -320,4 +314,10 @@ export const {
     wreckingBallPunch,
     bulldozerStrike,
     skydiving,
+    zombification,
+    ancientTechniques,
+    fistOfEvil,
+    invulnerability,
+    fistOfTheBlack,
+    brickKnuckles,
 } = upgrades;

@@ -2,11 +2,12 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {BuildingKeys} from "../constants/buildings";
 
 interface BuildingDamage {
-    building: BuildingKeys;
+    building: BuildingKeys|"hand";
     amount: number;
 }
 
 const initialState = {
+    hand: 0,
     puncher: 0,
     clubber: 0,
     swordsman: 0,
@@ -18,7 +19,12 @@ const initialState = {
     necromancer: 0,
     titan: 0,
     demon: 0,
+    realityCompromiser: 0,
+    blackObliterator: 0,
+    brickFactory: 0,
+    fourthWallbricks: 0,
     dps: {
+        handDps: 0,
         puncherDps: 0,
         clubberDps: 0,
         swordsmanDps: 0,
@@ -30,6 +36,10 @@ const initialState = {
         necromancerDps: 0,
         titanDps: 0,
         demonDps: 0,
+        realityCompromiserDps: 0,
+        blackObliteratorDps: 0,
+        brickFactoryDps: 0,
+        fourthWallbricksDps: 0,
     }
 }
 

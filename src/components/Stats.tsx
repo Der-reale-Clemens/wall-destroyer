@@ -17,8 +17,9 @@ const useStyles = makeStyles((theme) =>
 
 export const Stats: FC = () => {
     const classes = useStyles();
-    const {handDamage, damage, dps} = useSelector((state: AppState) => state.game);
+    const {damage, dps} = useSelector((state: AppState) => state.game);
     const {
+        hand,
         puncher,
         clubber,
         swordsman,
@@ -29,9 +30,12 @@ export const Stats: FC = () => {
         airstrikeCaller,
         necromancer,
         titan,
-        demon
+        demon,
+        realityCompromiser,
+        blackObliterator
     } = useSelector((state: AppState) => state.stats);
     const {
+        handDps,
         puncherDps,
         clubberDps,
         swordsmanDps,
@@ -42,7 +46,9 @@ export const Stats: FC = () => {
         airstrikeCallerDps,
         necromancerDps,
         titanDps,
-        demonDps
+        demonDps,
+        realityCompromiserDps,
+        blackObliteratorDps,
     } = useSelector((state: AppState) => state.stats.dps);
 
     return (<Paper className={classes.paper} variant="outlined">
@@ -50,7 +56,7 @@ export const Stats: FC = () => {
         <Divider/>
         <div style={{textAlign: "center"}}>
             <b>Overall damage: {prettify(damage)}(+{prettify(dps)}/s)</b><br/>
-            Hand damage: {prettify(handDamage)}<br/>
+            Hand damage: {prettify(hand)}(+{prettify(handDps)}/p)<br/>
             Puncher damage: {prettify(puncher)}(+{prettify(puncherDps)}/s)<br/>
             Clubber damage: {prettify(clubber)}(+{prettify(clubberDps)}/s)<br/>
             Swordsman damage: {prettify(swordsman)}(+{prettify(swordsmanDps)}/s)<br/>
@@ -62,6 +68,8 @@ export const Stats: FC = () => {
             {buildings.necromancer.isUnlocked() && <>Necromancer damage: {prettify(necromancer)}(+{prettify(necromancerDps)}/s)<br/></>}
             {buildings.titan.isUnlocked() && <>Titan damage: {prettify(titan)}(+{prettify(titanDps)}/s)<br/></>}
             {buildings.demon.isUnlocked() && <>Demon damage: {prettify(demon)}(+{prettify(demonDps)}/s)<br/></>}
+            {buildings.realityCompromiser.isUnlocked() && <>Reality Compromiser damage: {prettify(realityCompromiser)}(+{prettify(realityCompromiserDps)}/s)<br/></>}
+            {buildings.blackObliterator.isUnlocked() && <>Black Obliterator damage: {prettify(blackObliterator)}(+{prettify(blackObliteratorDps)}/s)<br/></>}
         </div>
     </Paper>)
 }
