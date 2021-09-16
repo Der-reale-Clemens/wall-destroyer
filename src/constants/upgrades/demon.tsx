@@ -1,6 +1,6 @@
 import {Upgrade} from "../upgrades";
 import {store} from "../../redux/store";
-import {decreaseBricks} from "../../redux/GameSlice";
+import {decreaseBricks, decreaseMoney} from "../../redux/GameSlice";
 import {Typography} from "@material-ui/core";
 import {prettify} from "../../constants";
 
@@ -157,42 +157,51 @@ const upgrades: { [key: string]: Upgrade } = {
     },
     illusionSpells: {
         isVisible: () => store.getState().buildings.demon >= 125,
-        isBuyable: () => store.getState().game.bricks >= 6.66666666e+8,
-        buy: (dispatch) => dispatch(decreaseBricks(6.66666666e+8)),
+        isBuyable: () => store.getState().game.money >= 66666666666666666666 && store.getState().game.bricks >= 666666666,
+        buy: (dispatch) => {
+            dispatch(decreaseMoney(66666666666666666666));
+            dispatch(decreaseBricks(666666666));
+        },
         effect: {demon: 3},
         text: <>
             <Typography color="inherit">Illusion Spells</Typography>
             Demons do <b>three times</b> as much damage.
             <br/><i>They told us they'd use these strictly for trolling.
             <br/>EDIT: WHY THE HELL DID WE GIVE THEM THESE</i>
-            <br/>Costs <b>{prettify(666666666)}</b> Bricks
+            <br/>Costs <b>{prettify(66666666666666666666)}</b> Cash & <b>{prettify(666666666)}</b> Bricks
         </>,
         img: "http://i.imgur.com/SyYTebW.png"
     },
     realityBendingMagic: {
         isVisible: () => store.getState().buildings.demon >= 250,
-        isBuyable: () => store.getState().game.bricks >= 6.6666666666666e+13,
-        buy: (dispatch) => dispatch(decreaseBricks(6.6666666666666e+13)),
+        isBuyable: () => store.getState().game.money >= 6666666666666666666666666 && store.getState().game.bricks >= 66666666666666,
+        buy: (dispatch) => {
+            dispatch(decreaseMoney(6666666666666666666666666));
+            dispatch(decreaseBricks(66666666666666));
+        },
         effect: {demon: 4},
         text: <>
             <Typography color="inherit">Reality-Bending Magic</Typography>
             Demons do <b>four times</b> as much damage.
             <br/><i>"Whatever you do, NEVER give them the ability to actually bend reality instead of just look like
             they can." ~Demon Relations Department Chief, RUC</i>
-            <br/>Costs <b>{prettify(66666666666666)}</b> Bricks
+            <br/>Costs <b>{prettify(6666666666666666666666666)}</b> Cash & <b>{prettify(66666666666666)}</b> Bricks
         </>,
         img: "http://i.imgur.com/wkLzlig.png"
     },
     allTheMostPowerfulSpellScrolls: {
         isVisible: () => store.getState().buildings.demon >= 350,
-        isBuyable: () => store.getState().game.bricks >= 6.666666666666666e+17,
-        buy: (dispatch) => dispatch(decreaseBricks(6.666666666666666e+17)),
+        isBuyable: () => store.getState().game.money >= 66666666666666666666666666666 && store.getState().game.bricks >= 666666666666666600,
+        buy: (dispatch) => {
+            dispatch(decreaseMoney(66666666666666666666666666666));
+            dispatch(decreaseBricks(666666666666666600));
+        },
         effect: {demon: 5},
         text: <>
             <Typography color="inherit">All The Most Powerful Spell Scrolls</Typography>
             Demons do <b>five times</b> as much damage.
             <br/><i>You have to be joking." ~All the wizards (paraphrased)</i>
-            <br/>Costs <b>{prettify(666666666666666600)}</b> Bricks
+            <br/>Costs <b>{prettify(66666666666666666666666666666)}</b> Cash & <b>{prettify(666666666666666600)}</b> Bricks
         </>,
         img: "http://i.imgur.com/nIT1FkW.png"
     },

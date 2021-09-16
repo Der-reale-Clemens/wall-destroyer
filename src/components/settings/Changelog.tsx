@@ -51,6 +51,10 @@ export const Changelog: FC = () => {
             <DialogTitle id="alert-dialog-title">Changelog</DialogTitle>
             <DialogContent>
                 <DialogContentText id="alert-dialog-description">
+                    v.0.16.3 - Bit of QoL
+                    <Divider/>
+                    Now the buildings show insufficient resources in red and also simplified the code surrounding this.
+                    <Divider/>
                     v.0.16.2 - More fixes
                     <Divider/>
                     Fixed a spelling mistake for Melee buildings and a wrong cost for an upgrade

@@ -34,40 +34,49 @@ const BuildingButtonCore: FC<PropsCore> = ({img, text, name}) => {
     const amount = useSelector((state: AppState) => state.buildings[name])
     const dispatch = useDispatch();
 
-    const cost = calculateNextBuildingCost(amount, buildings[name].cost);
     const buy = () => buyBuilding(name, dispatch);
-
-    const secondaryText = () => {
-        const building = buildings[name];
-        // @ts-ignore
-        if(building.fourthWallBrickCost !== undefined) {
-            // @ts-ignore
-            const fourthWallBrickCost = calculateNextBuildingCost(amount, buildings[name].fourthWallBrickCost);
-            return <>{prettify(cost)} Cash<br/>{prettify(fourthWallBrickCost)} 4th Wall Bricks</>
-        }
-        // @ts-ignore
-        if (building.brickCost === undefined) {
-            return `${prettify(cost)} Cash`;
-        }
-        // @ts-ignore
-        const brickCost = calculateNextBuildingCost(amount, buildings[name].brickCost);
-        if (building.cost === 0) {
-            return <>{prettify(brickCost)} Bricks</>
-        }
-        return <>{prettify(cost)} Cash<br/>{prettify(brickCost)} Bricks</>
-
-    }
 
     return (<div>
             <ListItem button style={{border: "1px"}} onClick={buy}>
                 <ListItemIcon>
                     <img src={img} alt={name}/>
                 </ListItemIcon>
-                <ListItemText primary={<b>{text}</b>} secondary={secondaryText()}/>
+                <ListItemText primary={<b>{text}</b>} secondary={<CostText name={name}/>}/>
                 <b>{amount}</b>
             </ListItem>
             <Divider/>
         </div>
     )
+}
+
+const CostText: FC<Props> = ({name}) => {
+    const {money, bricks, fourthWallBricks} = useSelector((state: AppState) => state.game);
+    const amount = useSelector((state: AppState) => state.buildings[name])
+    const building:any = buildings[name];
+
+    let cashcost;
+    if (building.cost !== 0) {
+        const cost = calculateNextBuildingCost(amount, building.cost);
+        const style = money >= cost ? {} : {color: "red"};
+        cashcost = <span style={style}>{prettify(cost)} Cash</span>;
+    }
+
+    let brickCost;
+    if (building.brickCost !== undefined) {
+        const cost = calculateNextBuildingCost(amount, building.brickCost);
+        const style = bricks >= cost ? {} : {color: "red"};
+        brickCost = <span style={style}>{prettify(cost)} Bricks</span>;
+    }
+
+    let fourtWallCost;
+    if (building.fourthWallBrickCost !== undefined) {
+        const cost = calculateNextBuildingCost(amount, building.fourthWallBrickCost);
+        const style = fourthWallBricks >= cost ? {} : {color: "red"};
+        fourtWallCost = <span style={style}>{prettify(cost)} 4th Bricks</span>;
+    }
+
+    return <>{cashcost && (<>{cashcost}<br/></>)}
+    {brickCost && (<>{brickCost}<br/></>)}
+    {fourtWallCost}</>
 }
 

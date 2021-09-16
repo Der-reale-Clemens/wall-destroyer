@@ -265,7 +265,7 @@ const upgrades: { [key: string]: Upgrade } = {
             now.</i>
             <br/>Costs <b>{prettify(202002220020200002)}</b> Cash & <b>{prettify(50_000)}</b> 4th Wall Bricks
         </>,
-        img: "http://i.imgur.com/kB9V23R.png"
+        img: "http://i.imgur.com/ZTUASsk.png"
     },
 }
 

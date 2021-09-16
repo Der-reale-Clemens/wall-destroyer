@@ -170,6 +170,14 @@ import {
     tortureReels, universalPasses,
     worshippers
 } from "./upgrades/demon";
+import {
+    alignmentSliders, assholes, blackImbuedFactoryWalls, blackMagic, childBlood, convictFiltering,
+    convicts,
+    evilAlchemist, evilium, evilMagic,
+    evilProofSuits,
+    evilRobots,
+    interviewers, pureEvilMagic, theHolyBrickOfVywheir
+} from "./upgrades/brickFactory";
 
 export interface Upgrade {
     isVisible: () => boolean;
@@ -506,6 +514,28 @@ export const upgrades: { [key: string]: Upgrade } = {
     illusionSpells,
     realityBendingMagic,
     allTheMostPowerfulSpellScrolls,
+
+    //--------------
+    //Brick Factory Upgrades
+    //--------------
+    interviewers,
+    assholes,
+    convicts,
+    convictFiltering,
+    evilRobots,
+    evilAlchemist,
+    evilium,
+    childBlood,
+    alignmentSliders,
+    evilProofSuits,
+    theHolyBrickOfVywheir,
+
+    evilMagic,
+    blackMagic,
+    pureEvilMagic,
+    blackImbuedFactoryWalls,
+
+
 }
 
 const effectsAllBuildings = (power: number) => {

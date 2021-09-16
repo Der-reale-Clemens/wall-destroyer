@@ -272,11 +272,11 @@ const upgrades: { [key: string]: Upgrade } = {
         effect: {swordsman: 4},
         text: <>
             <Typography color="inherit">Building-Sized Swords</Typography>
-            Clubbers do <b>four times</b> as much damage.
-            <br/><i>You can whack someone 1000 feet into the air with a club now!</i>
+            Swordsmen do <b>four times</b> as much damage.
+            <br/><i>We can hold them because it's a damn idle game, it doesn't need to make sense.</i>
             <br/>Costs <b>{prettify(55055005505000555)}</b> Cash & <b>{prettify(2500)}</b> 4th Wall Bricks
         </>,
-        img: "http://i.imgur.com/kB9V23R.png"
+        img: "http://i.imgur.com/XIZVvLa.png"
     },
 }
 
