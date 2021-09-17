@@ -1,5 +1,5 @@
 import React, {FC} from "react";
-import {createStyles, Divider, List, makeStyles} from "@material-ui/core";
+import {createStyles, Divider, List, makeStyles, Button} from "@material-ui/core";
 import {BuildingButton} from "./BuildingButton";
 import {useSelector} from "react-redux";
 import {AppState} from "../redux/store";
@@ -20,7 +20,6 @@ export const BuildingTable: FC = () => {
     const _ = useSelector((state: AppState) => state.upgrades.boughtUpgrades);
     const classes = useStyles();
 
-    //const unlockedBuildings = Object.keys(unlockableBuildings).filter(b => unlockableBuildings[b].isUnlocked());
 
     return (
         <div className={classes.root}>

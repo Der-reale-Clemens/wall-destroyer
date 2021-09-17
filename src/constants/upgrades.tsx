@@ -66,29 +66,31 @@ import {
     sharpening, swordThatCutsThroughEverything, theFinalitySwords, theNightmareBlade
 } from "./upgrades/swordsman";
 import {
+    agentJohnsonIsAnIdiot,
+    antimatterBalls,
     ballsOfSteel,
-    biggerBalls,
+    biggerBalls, blackAbsorbedBalls,
     diamondBalls,
-    flamingBalls, neutronBalls,
-    reinforcedBalls,
-    spikedBalls, triBalls
+    flamingBalls, hellfireBalls, magicExplodingBalls, neutronBalls, planets, reaefseksCrystalBall,
+    reinforcedBalls, singularityBalls,
+    spikedBalls, theSgapangBall, triBalls
 } from "./upgrades/wreckingBall";
 import {
-    adamantiumBlades,
+    adamantiumBlades, antimatterBlades, blackEnhancedBlades,
     bladesWithBlades,
     diamondBlades,
-    doubleBlades,
+    doubleBlades, explosiveBlades, gravityAlteringEngines, hyzemsTablet, indestructibleBulldozers, phasingEngines,
     powerfulEngines,
-    powerTreads,
-    strongerBlades, theMegadozer
+    powerTreads, roboticBulldozers,
+    strongerBlades, theMegadozer, theUnstoppableForce
 } from "./upgrades/bulldozer";
 import {
     anvils,
-    anvilShapedBombs,
+    anvilShapedBombs, astralMagnets, biggerEverything, blackMergedAnvils, densitySpells, dimensionalPortal,
     fasterCommunications, missiles, nukes,
-    pianos,
+    pianos, planets2,
     statues,
-    supersonicJets
+    supersonicJets, theBoxesOfRelocation, theWallsOfBixtec, unknow
 } from "./upgrades/airstrikeCaller";
 import {
     ancientTechniques, brickKnuckles,
@@ -407,6 +409,16 @@ export const upgrades: { [key: string]: Upgrade } = {
     diamondBalls,
     triBalls,
     neutronBalls,
+    singularityBalls,
+    agentJohnsonIsAnIdiot,
+    theSgapangBall,
+    reaefseksCrystalBall,
+
+    magicExplodingBalls,
+    antimatterBalls,
+    hellfireBalls,
+    blackAbsorbedBalls,
+    planets,
 
     //--------------
     //Puncher & Wrecking Ball Synergy Upgrades
@@ -430,6 +442,17 @@ export const upgrades: { [key: string]: Upgrade } = {
     diamondBlades,
     adamantiumBlades,
     theMegadozer,
+    gravityAlteringEngines,
+    explosiveBlades,
+    hyzemsTablet,
+    roboticBulldozers,
+
+    phasingEngines,
+    antimatterBlades,
+    theUnstoppableForce,
+    blackEnhancedBlades,
+    indestructibleBulldozers,
+
 
     //--------------
     //Airstrike Caller Upgrades
@@ -442,6 +465,16 @@ export const upgrades: { [key: string]: Upgrade } = {
     anvilShapedBombs,
     missiles,
     nukes,
+    astralMagnets,
+    biggerEverything,
+    theWallsOfBixtec,
+    theBoxesOfRelocation,
+
+    densitySpells,
+    dimensionalPortal,
+    unknow,
+    blackMergedAnvils,
+    planets2,
 
     //--------------
     //Bulldozer & Airstrike Caller Synergy Upgrades

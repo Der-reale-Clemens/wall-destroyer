@@ -35,6 +35,8 @@ const changeBuildingName = (name) => {
         case "necromancer": return "necromancer";
         case "giant": return "titan";
         case "demon": return "demon";
+        case "compromiser": return "realityCompromiser";
+        case "lastBuilding": return "blackObliterator";
         default: return name;
     }
 }
