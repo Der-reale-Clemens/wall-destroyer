@@ -10,6 +10,7 @@ import {update} from "./functions/update";
 import {increaseMoney} from "./redux/GameSlice";
 import {addNotification, setLastUpdate} from "./redux/SystemSlice";
 import {save} from "./functions/save";
+import {NewWindow} from "./newUI/NewWindow";
 
 export const App: FC = () => {
     const dispatch = useDispatch();
@@ -26,7 +27,7 @@ export const App: FC = () => {
         dispatch(setLastUpdate(new Date().getTime()));
 
         return () => clearInterval(interval);
-    },[])
+    },[dispatch])
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -35,14 +36,14 @@ export const App: FC = () => {
         }, 60000);
 
         return () => clearInterval(interval);
-    },[])
+    },[dispatch])
 
     return (
         <ThemeProvider theme={theme}>
             <SnackbarProvider maxSnack={4}>
                 <Notifier/>
                 <CssBaseline/>
-                <Window/>
+                <NewWindow/>
             </SnackbarProvider>
         </ThemeProvider>
     )
