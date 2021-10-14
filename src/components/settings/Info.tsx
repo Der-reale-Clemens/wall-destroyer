@@ -32,8 +32,8 @@ export const Info: FC = () => {
                     IGM. This rewrite is build using typescript, react, redux toolkit, notistack and swarm-numberformat.
                     <br/>
                     This projects packed source can be found on <a href="https://github.com/Der-reale-Clemens/wall-destroyer-prod">
-                    https://github.com/Der-reale-Clemens/wall-destroyer-prod</a>, the unpacked source might be released
-                    at a later date.
+                    https://github.com/Der-reale-Clemens/wall-destroyer-prod</a>, the unpacked source can be found on <a href="https://github.com/Der-reale-Clemens/wall-destroyer">
+                    https://github.com/Der-reale-Clemens/wall-destroyer</a>.
                 </DialogContentText>
             </DialogContent>
             <DialogActions>

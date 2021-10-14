@@ -51,6 +51,12 @@ export const Changelog: FC = () => {
             <DialogTitle id="alert-dialog-title">Changelog</DialogTitle>
             <DialogContent>
                 <DialogContentText id="alert-dialog-description">
+                    v.0.17 - More upgrades v2
+                    <Divider/>
+                    Added all upgrades for the original buildings and for the brick factory, should make the game a little
+                    bit faster while I work on the next update. Also made the source public, yay! Can be found under the info
+                    tab or <a href="https://github.com/Der-reale-Clemens/wall-destroyer">here</a>.
+                    <Divider/>
                     v.0.16.3 - Bit of QoL
                     <Divider/>
                     Now the buildings show insufficient resources in red and also simplified the code surrounding this.

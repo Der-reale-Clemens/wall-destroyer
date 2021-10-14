@@ -20,6 +20,10 @@ export const prettify = (num: number): string => {
     return numberformat.format(num, {format, sigfigs: 4});
 };
 
+export const orderArray = (array: any[], order: any[]) =>
+    array.sort((a: any, b: any) =>
+        order.indexOf(a) > order.indexOf(b) ? 1 : -1);
+
 export const simpleArrayEquals = <T>(a: T[], b: T[]) => (a.length === b.length
     && a.every((val, index) => val === b[index]))
 
