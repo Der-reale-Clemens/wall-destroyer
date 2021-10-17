@@ -1,5 +1,5 @@
 import React, {FC} from "react";
-import {MenuItem, Select} from "@material-ui/core";
+import {MenuItem, Select, SelectChangeEvent} from "@mui/material";
 import {ImportButton} from "../components/settings/ImportButton";
 import {ExportButton} from "../components/settings/ExportButton";
 import {HardResetButton} from "../components/settings/HardResetButton";
@@ -17,12 +17,12 @@ export const Settings: FC = () => {
 
     const style = {paddingLeft: "10px"}
 
-    const handleFormatChange = (e: React.ChangeEvent<{value: unknown}>) => {
-        dispatch(setFormat(e.target.value as string));
+    const handleFormatChange = (e: SelectChangeEvent) => {
+        dispatch(setFormat(e.target.value));
     };
 
-    const handleThemeChange = (e: React.ChangeEvent<{value: unknown}>) => {
-        dispatch(setTheme(e.target.value as string));
+    const handleThemeChange = (e: SelectChangeEvent) => {
+        dispatch(setTheme(e.target.value));
     };
 
     return <div style={{display: "flex", justifyContent: "center"}}>

@@ -1,5 +1,5 @@
 import {FC} from "react";
-import {Grid, Paper} from "@material-ui/core";
+import {Grid, Paper} from "@mui/material";
 import {buildings} from "../constants/buildings";
 
 export const Buildings: FC = () => {

@@ -10,6 +10,7 @@ import {update} from "./functions/update";
 import {increaseMoney} from "./redux/GameSlice";
 import {addNotification, setLastUpdate} from "./redux/SystemSlice";
 import {save} from "./functions/save";
+import {NewWindow} from "./newUI/NewWindow";
 
 
 declare module '@mui/styles/defaultTheme' {

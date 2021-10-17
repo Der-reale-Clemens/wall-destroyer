@@ -1,5 +1,7 @@
 import React, {FC, useState} from "react";
-import { Box, Grid, Paper, Tab, Tabs, createStyles, makeStyles} from "@material-ui/core";
+import { Box, Grid, Paper, Tab, Tabs } from "@mui/material";
+import createStyles from '@mui/styles/createStyles';
+import makeStyles from '@mui/styles/makeStyles';
 import {Resources} from "../components/Resources";
 import {StoryDisplay} from "../components/StoryDisplay";
 import {SettingsButton} from "../components/settings/SettingsButton";
