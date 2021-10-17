@@ -1,10 +1,9 @@
 import {FC, useState} from "react";
-import {Box, makeStyles, Tab, Tabs} from "@material-ui/core";
+import {Box, Tab, Tabs} from "@material-ui/core";
 import {Upgrades} from "./Upgrades";
 import {Achievements} from "./Achievements";
 
 export const UpgradeAndAchievementTable: FC = () => {
-    const classes = useStyles();
     const [value, setValue] = useState(0);
 
     const handleChange = (event: React.ChangeEvent<{}>, newValue: number) =>
@@ -55,17 +54,3 @@ function TabPanel(props: TabPanelProps) {
         </div>
     );
 }
-
-function a11yProps(index: any) {
-    return {
-        id: `simple-tab-${index}`,
-        'aria-controls': `simple-tabpanel-${index}`,
-    };
-}
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        flexGrow: 1,
-        backgroundColor: theme.palette.background.paper,
-    },
-}));

@@ -23,12 +23,14 @@ export const StoryDialog: FC<Props> = ({story}) => {
     useEffect(() => {
         const isClosed = seenStories.includes(story);
         setClosed(isClosed);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
     useEffect(() => {
         if(seenStories.includes(story)) {
             setActivated(true);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [seenStories])
 
     const handleClose = () => {

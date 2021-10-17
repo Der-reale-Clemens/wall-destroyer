@@ -571,7 +571,3 @@ export const upgrades: { [key: string]: Upgrade } = {
 
 }
 
-const effectsAllBuildings = (power: number) => {
-
-}
-

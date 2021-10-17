@@ -29,6 +29,7 @@ export const Notifier: FC = () => {
             enqueueSnackbar(obj);
         })
         dispatch(clearNotifications());
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [achievementsState]);
 
     useEffect(() => {
@@ -40,11 +41,13 @@ export const Notifier: FC = () => {
             enqueueSnackbar(obj);
         })
         dispatch(clearNotificationsUpgrades());
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [upgradesState]);
 
     useEffect(() => {
         systemNotifications.forEach(s => enqueueSnackbar(s.message, s.options));
         dispatch(clearNotificationsSystem())
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [lastUpdate]);
 
     return null;

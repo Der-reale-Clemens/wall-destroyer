@@ -1,5 +1,5 @@
 import React, {FC} from "react";
-import {createStyles, Divider, List, makeStyles, Button} from "@material-ui/core";
+import {createStyles, Divider, List, makeStyles} from "@material-ui/core";
 import {BuildingButton} from "./BuildingButton";
 import {useSelector} from "react-redux";
 import {AppState} from "../redux/store";
@@ -17,6 +17,8 @@ const useStyles = makeStyles((theme) =>
 
 
 export const BuildingTable: FC = () => {
+    // Update when new buildings get unlocked
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const _ = useSelector((state: AppState) => state.upgrades.boughtUpgrades);
     const classes = useStyles();
 

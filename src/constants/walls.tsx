@@ -1,4 +1,3 @@
-import wallImg from "../images/walls/destroyWall.png";
 import wall4Img from "../images/walls/wall4.png";
 import wallBossImg from "../images/walls/wallBoss.png";
 

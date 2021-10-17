@@ -17,6 +17,7 @@ export const Upgrade: FC<Props> = ({name, disabled}) => (
 
 const UpgradeImg: FC<Props> = ({name, disabled}) => {
     //Hooking into redux to force re-renders
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const _ = useSelector((state: AppState) => state.system.lastUpdate);
     const dispatch = useDispatch();
     const upgrade = upgrades[name];

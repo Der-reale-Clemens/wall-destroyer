@@ -27,17 +27,17 @@ export const Resources: FC = () => {
         <Paper className={classes.paper} variant="outlined">
             <Grid container>
                 <Grid item xs={4} style={alignStyle}>
-                    <img src={moneyImg}/>
+                    <img src={moneyImg} alt="$"/>
                     {prettify(money)}
                 </Grid>
                 <Grid item xs={4} style={alignStyle}>
                     {wall >= 1 &&
-                    <><img src={brickImg}/>
+                    <><img src={brickImg} alt="Bricks"/>
                     {prettify(bricks)}</>}
                 </Grid>
                 <Grid item xs={4} style={alignStyle}>
                     {wall >= 4 &&
-                    <><img src={fourthWallBrickImg}/>
+                    <><img src={fourthWallBrickImg} alt="4th Bricks"/>
                         {prettify(fourthWallBricks)}</>}
                 </Grid>
             </Grid>

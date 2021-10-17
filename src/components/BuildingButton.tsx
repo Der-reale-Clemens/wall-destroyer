@@ -1,5 +1,5 @@
 import React, {FC} from "react";
-import {Divider, ListItem, ListItemIcon, ListItemText, Typography} from "@material-ui/core";
+import {Divider, ListItem, ListItemIcon, ListItemText} from "@material-ui/core";
 import {useDispatch, useSelector} from "react-redux";
 import {AppState} from "../redux/store";
 import {buyBuilding} from "../functions/buyBuilding";
@@ -30,6 +30,8 @@ interface PropsCore {
 
 
 const BuildingButtonCore: FC<PropsCore> = ({img, text, name}) => {
+    // Listen to format changes
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const _ = useSelector((state: AppState) => state.system.format);
     const amount = useSelector((state: AppState) => state.buildings[name])
     const dispatch = useDispatch();
