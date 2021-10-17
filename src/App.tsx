@@ -1,11 +1,15 @@
-import React, {FC} from "react";
+import React, {FC, useEffect} from "react";
 import {AppState} from "./redux/store";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import { CssBaseline, ThemeProvider, Theme, StyledEngineProvider } from "@mui/material";
 import {Window} from "./Window";
 import {themeSelection} from "./functions/themeSelection";
 import {SnackbarProvider} from "notistack";
 import {Notifier} from "./components/Notifier";
+import {update} from "./functions/update";
+import {increaseMoney} from "./redux/GameSlice";
+import {addNotification, setLastUpdate} from "./redux/SystemSlice";
+import {save} from "./functions/save";
 
 
 declare module '@mui/styles/defaultTheme' {
@@ -15,8 +19,31 @@ declare module '@mui/styles/defaultTheme' {
 
 
 export const App: FC = () => {
+    const dispatch = useDispatch();
     const themeName = useSelector((state: AppState) => state.system.theme);
     const theme = themeSelection(themeName);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            const damage = update(dispatch);
+            dispatch(increaseMoney(damage));
+        }, 100);
+
+        //set time for first load
+        dispatch(setLastUpdate(new Date().getTime()));
+
+        return () => clearInterval(interval);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[])
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            dispatch(addNotification({message:"Game Saved", options: {variant: "info"}}))
+            save();
+        }, 60000);
+
+        return () => clearInterval(interval);
+    })
 
     return (
         <StyledEngineProvider injectFirst>

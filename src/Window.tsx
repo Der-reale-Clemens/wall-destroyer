@@ -1,14 +1,9 @@
-import React, {FC, useEffect} from 'react';
+import React, {FC} from 'react';
 import { Grid, Paper } from "@mui/material";
 import createStyles from '@mui/styles/createStyles';
 import makeStyles from '@mui/styles/makeStyles';
-import {useDispatch} from "react-redux";
-import {increaseMoney} from "./redux/GameSlice";
 import {BuildingTable} from "./components/BuildingTable";
-import {update} from "./functions/update";
-import {addNotification, setLastUpdate} from "./redux/SystemSlice";
 import {SettingsButton} from "./components/settings/SettingsButton";
-import {save} from "./functions/save";
 import {DestroyWall} from "./components/DestroyWall";
 import {UpgradeAndAchievementTable} from "./components/upgradsAndAchievements/UpgradeAndAchievementTable";
 import {PunchWallButton} from "./components/PunchWallButton";
@@ -30,30 +25,7 @@ const useStyles = makeStyles((theme) =>
 );
 
 export const Window: FC = () => {
-    const dispatch = useDispatch();
     const classes = useStyles();
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            const damage = update(dispatch);
-            dispatch(increaseMoney(damage));
-        }, 100);
-
-        //set time for first load
-        dispatch(setLastUpdate(new Date().getTime()));
-
-        return () => clearInterval(interval);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    },[])
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            dispatch(addNotification({message:"Game Saved", options: {variant: "info"}}))
-            save();
-        }, 60000);
-
-        return () => clearInterval(interval);
-    })
 
     return (
         <div className={classes.root}>
