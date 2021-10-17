@@ -1,5 +1,5 @@
 import {FC} from "react";
-import {Divider} from "@material-ui/core";
+import {Divider} from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
 import {AppState} from "../redux/store";
 import {HtmlTooltip} from "./HtmlTooltip";

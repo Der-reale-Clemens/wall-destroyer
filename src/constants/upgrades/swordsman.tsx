@@ -1,6 +1,6 @@
 import {store} from "../../redux/store";
 import {decreaseBricks, decreaseFourthWallBricks, decreaseMoney} from "../../redux/GameSlice";
-import {Typography} from "@material-ui/core";
+import {Typography} from "@mui/material";
 import {prettify} from "../../constants";
 import React from "react";
 import {Upgrade} from "../upgrades";

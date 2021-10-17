@@ -2,7 +2,7 @@ import {Upgrade} from "../upgrades";
 import {prettify} from "../../constants";
 import {decreaseMoney} from "../../redux/GameSlice";
 import {store} from "../../redux/store";
-import {Typography} from "@material-ui/core";
+import {Typography} from "@mui/material";
 
 const upgrades: { [key: string]: Upgrade } = {
     wizardTranslators: {

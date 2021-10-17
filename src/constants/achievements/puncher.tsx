@@ -1,4 +1,4 @@
-import {Typography} from "@material-ui/core";
+import {Typography} from "@mui/material";
 import {store} from "../../redux/store";
 import {Achievement} from "../achievements";
 import {prettify} from "../../constants";

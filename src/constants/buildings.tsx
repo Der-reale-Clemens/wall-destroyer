@@ -13,7 +13,7 @@ import realityCompromiserImage from "../images/buildings/realityCompromiser.png"
 import blackObliteratorImage from "../images/buildings/blackObliterator.png";
 import brickFactoryImage from "../images/buildings/brickFactory.png";
 import {store} from "../redux/store";
-import {Typography} from "@material-ui/core";
+import {Typography} from "@mui/material";
 import React from "react";
 import {prettify} from "../constants";
 

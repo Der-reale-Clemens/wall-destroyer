@@ -1,13 +1,16 @@
 import React, {FC, useState} from "react";
 import {
-    Button, createStyles,
+    Button,
     Dialog,
     DialogActions,
     DialogContent,
     DialogContentText,
-    DialogTitle, Divider,
-    makeStyles
-} from "@material-ui/core";
+    DialogTitle,
+    Divider,
+} from "@mui/material";
+
+import createStyles from '@mui/styles/createStyles';
+import makeStyles from '@mui/styles/makeStyles';
 
 const useStyles = makeStyles((theme) =>
     createStyles({

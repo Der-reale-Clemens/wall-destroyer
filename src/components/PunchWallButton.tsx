@@ -1,5 +1,5 @@
 import {FC} from "react";
-import {Button} from "@material-ui/core";
+import {Button} from "@mui/material";
 import {punchWall} from "../functions/punchWall";
 import {useDispatch} from "react-redux";
 

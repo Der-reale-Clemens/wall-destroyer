@@ -1,7 +1,7 @@
 import {Upgrade} from "../upgrades";
 import {store} from "../../redux/store";
 import {decreaseBricks, decreaseMoney} from "../../redux/GameSlice";
-import {Typography} from "@material-ui/core";
+import {Typography} from "@mui/material";
 import magicMiningImg from "../../images/upgrades/magicMining.png";
 import React from "react";
 import {prettify} from "../../constants";

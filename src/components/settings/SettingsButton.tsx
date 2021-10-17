@@ -1,6 +1,6 @@
 import React, {FC} from "react";
-import {IconButton, Popover} from "@material-ui/core";
-import SettingsIcon from "@material-ui/icons/Settings";
+import {IconButton, Popover} from "@mui/material";
+import SettingsIcon from "@mui/icons-material/Settings";
 import {Settings} from "./Settings";
 
 
@@ -10,8 +10,11 @@ export const SettingsButton: FC = () => {
     const [anchorEl, setAnchorEl] = React.useState<HTMLButtonElement | null>(null);
     const open = Boolean(anchorEl);
 
-    return  (<>
-        <IconButton onClick={e => setAnchorEl(e.currentTarget)} style={{position: "fixed", bottom: 0, right: 0}}>
+    return <>
+        <IconButton
+            onClick={e => setAnchorEl(e.currentTarget)}
+            style={{position: "fixed", bottom: 0, right: 0}}
+            size="large">
             <SettingsIcon/>
         </IconButton>
         <Popover
@@ -33,5 +36,5 @@ export const SettingsButton: FC = () => {
                 <Settings/>
             </div>
         </Popover>
-        </>)
+        </>;
 }

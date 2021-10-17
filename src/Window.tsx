@@ -1,5 +1,7 @@
 import React, {FC, useEffect} from 'react';
-import {createStyles, Grid, makeStyles, Paper} from "@material-ui/core";
+import { Grid, Paper } from "@mui/material";
+import createStyles from '@mui/styles/createStyles';
+import makeStyles from '@mui/styles/makeStyles';
 import {useDispatch} from "react-redux";
 import {increaseMoney} from "./redux/GameSlice";
 import {BuildingTable} from "./components/BuildingTable";

@@ -1,6 +1,6 @@
 import {Achievement} from "../achievements";
 import {store} from "../../redux/store";
-import {Typography} from "@material-ui/core";
+import {Typography} from "@mui/material";
 import overnabImg from "../../images/achievements/overnab.png";
 import scrubImg from "../../images/achievements/scrub.png";
 import lessScrubImg from "../../images/achievements/lessScrub.png";

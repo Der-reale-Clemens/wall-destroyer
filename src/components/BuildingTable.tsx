@@ -1,5 +1,7 @@
 import React, {FC} from "react";
-import {createStyles, Divider, List, makeStyles} from "@material-ui/core";
+import { Divider, List } from "@mui/material";
+import createStyles from '@mui/styles/createStyles';
+import makeStyles from '@mui/styles/makeStyles';
 import {BuildingButton} from "./BuildingButton";
 import {useSelector} from "react-redux";
 import {AppState} from "../redux/store";

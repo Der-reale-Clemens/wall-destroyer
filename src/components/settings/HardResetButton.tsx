@@ -1,14 +1,15 @@
 import React, {FC, useState} from "react";
 import {
-    Button, createStyles,
+    Button,
     Dialog,
     DialogActions,
     DialogContent,
     DialogContentText,
     DialogTitle,
-    makeStyles
-} from "@material-ui/core";
-import DeleteIcon from "@material-ui/icons/Delete";
+} from "@mui/material";
+import createStyles from '@mui/styles/createStyles';
+import makeStyles from '@mui/styles/makeStyles';
+import DeleteIcon from "@mui/icons-material/Delete";
 import {hardReset} from "../../functions/hardReset";
 
 const useStyles = makeStyles((theme) =>

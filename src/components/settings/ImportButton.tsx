@@ -8,7 +8,7 @@ import {
     DialogContentText,
     DialogTitle,
     TextField
-} from "@material-ui/core";
+} from "@mui/material";
 
 export const ImportButton: FC = () => {
     const [importText, setImportText] = useState("");

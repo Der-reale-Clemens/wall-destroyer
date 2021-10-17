@@ -1,5 +1,5 @@
 import {Achievement} from "../achievements";
-import {Typography} from "@material-ui/core";
+import {Typography} from "@mui/material";
 import {allBuildings} from "../../constants";
 
 

@@ -1,5 +1,5 @@
 import {FC} from "react";
-import {Button} from "@material-ui/core";
+import {Button} from "@mui/material";
 import {constructSave} from "../../functions/save";
 import {useDispatch} from "react-redux";
 import {addNotification} from "../../redux/SystemSlice";

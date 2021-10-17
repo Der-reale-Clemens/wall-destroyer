@@ -1,6 +1,6 @@
 import {Achievement} from "../achievements";
 import {store} from "../../redux/store";
-import {Typography} from "@material-ui/core";
+import {Typography} from "@mui/material";
 
 const achievements: { [key: string]: Achievement } = {
     itsBack: {

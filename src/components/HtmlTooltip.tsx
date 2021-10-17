@@ -1,5 +1,7 @@
 import {FC} from "react";
-import {Tooltip, withStyles} from "@material-ui/core";
+import { Tooltip } from "@mui/material";
+
+import withStyles from '@mui/styles/withStyles';
 
 interface Props {
     children: JSX.Element;

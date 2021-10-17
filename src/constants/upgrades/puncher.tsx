@@ -1,7 +1,7 @@
 import {Upgrade} from "../upgrades";
 import {store} from "../../redux/store";
 import {decreaseBricks, decreaseFourthWallBricks, decreaseMoney} from "../../redux/GameSlice";
-import {Typography} from "@material-ui/core";
+import {Typography} from "@mui/material";
 import {prettify} from "../../constants";
 import glovesImg from "../../images/upgrades/punchUpg1.png";
 import paddedGlovesImg from "../../images/upgrades/punchUpg2.png";

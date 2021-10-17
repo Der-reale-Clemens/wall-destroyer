@@ -1,5 +1,5 @@
 import React, {FC, useState} from "react";
-import {Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle} from "@material-ui/core";
+import {Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle} from "@mui/material";
 
 export const Info: FC = () => {
     const [open, setOpen] = useState(false);

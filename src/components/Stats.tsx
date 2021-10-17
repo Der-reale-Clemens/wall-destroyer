@@ -1,5 +1,7 @@
 import {FC} from "react";
-import {createStyles, Divider, makeStyles, Paper} from "@material-ui/core";
+import { Divider, Paper } from "@mui/material";
+import createStyles from '@mui/styles/createStyles';
+import makeStyles from '@mui/styles/makeStyles';
 import {useSelector} from "react-redux";
 import {AppState} from "../redux/store";
 import {prettify} from "../constants";
@@ -8,7 +10,7 @@ import {buildings} from "../constants/buildings";
 const useStyles = makeStyles((theme) =>
     createStyles({
         paper: {
-            padding: theme.spacing(2),
+            padding: theme.spacing(1),
             textAlign: 'center',
             color: theme.palette.text.secondary,
         },
@@ -51,7 +53,7 @@ export const Stats: FC = () => {
         blackObliteratorDps,
     } = useSelector((state: AppState) => state.stats.dps);
 
-    return (<Paper className={classes.paper} variant="outlined">
+    return (<Paper className={classes.paper} style={{maxHeight: '49vh', minHeight: "49vh", overflow: 'auto'}} variant="outlined">
         Stats
         <Divider/>
         <div style={{textAlign: "center"}}>

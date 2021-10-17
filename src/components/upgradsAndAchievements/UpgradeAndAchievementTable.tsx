@@ -1,5 +1,5 @@
 import {FC, useState} from "react";
-import {Box, Tab, Tabs} from "@material-ui/core";
+import {Box, Tab, Tabs} from "@mui/material";
 import {Upgrades} from "./Upgrades";
 import {Achievements} from "./Achievements";
 

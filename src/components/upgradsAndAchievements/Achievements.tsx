@@ -1,5 +1,5 @@
 import React, {FC} from "react";
-import {Grid} from "@material-ui/core";
+import {Grid} from "@mui/material";
 import {useSelector} from "react-redux";
 import {AppState} from "../../redux/store";
 import {Achievement} from "./Achievement";
@@ -10,7 +10,7 @@ export const Achievements: FC = () => {
     return (
             <Grid container>
                 {achievements.map(a => (
-                    <Grid item xs={2}>
+                    <Grid key={a} item xs={2}>
                         <Achievement name={a}/>
                     </Grid>
                 ))}

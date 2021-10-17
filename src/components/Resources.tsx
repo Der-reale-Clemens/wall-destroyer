@@ -1,5 +1,7 @@
 import {FC} from "react";
-import {createStyles, Grid, LinearProgress, makeStyles, Paper} from "@material-ui/core";
+import { Grid, LinearProgress, Paper } from "@mui/material";
+import createStyles from '@mui/styles/createStyles';
+import makeStyles from '@mui/styles/makeStyles';
 import moneyImg from "../images/dollar.png";
 import brickImg from "../images/brick.png";
 import fourthWallBrickImg from "../images/fourthWallBrick.png";

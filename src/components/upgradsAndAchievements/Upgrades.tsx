@@ -1,5 +1,5 @@
 import React, {FC} from "react";
-import {Divider, Grid} from "@material-ui/core";
+import {Divider, Grid} from "@mui/material";
 import {Upgrade} from "./Upgrade";
 import {useSelector} from "react-redux";
 import {AppState} from "../../redux/store";

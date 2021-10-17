@@ -8,7 +8,7 @@ export const save = () => {
 
 export const importSave = (save: string) => {
     localStorage.setItem("save", save);
-    window.location.reload(true);
+    window.location.reload();
 }
 
 export const constructSave = () => {
