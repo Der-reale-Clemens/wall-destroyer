@@ -21,6 +21,7 @@ import {orderArray} from "../constants";
 
 export const NewUpgrades: FC = () => {
     return <table>
+        <tbody>
         <UpgradeRow name="Hand" upgradeOrder={handUpgrades}/>
         <UpgradeRow name="Puncher" upgradeOrder={puncherUpgrades}/>
         <UpgradeRow name="Clubber" upgradeOrder={clubberUpgrades}/>
@@ -34,6 +35,7 @@ export const NewUpgrades: FC = () => {
         <UpgradeRow name="Titan" upgradeOrder={titanUpgrades}/>
         <UpgradeRow name="Demon" upgradeOrder={demonUpgrades}/>
         <UpgradeRow name="Brick Factory" upgradeOrder={brickFactoryUpgrades}/>
+        </tbody>
     </table>
 }
 
@@ -55,7 +57,7 @@ const UpgradeRow: FC<Props> = ({name, upgradeOrder}) => {
         <th>{name}</th>
         {orderArray(upgrades, Object.keys(upgradeOrder))
             .map((u: any) => <th>
-                <Upgrade name={u}/>
+                <Upgrade key={u} name={u}/>
             </th>)}
     </tr>
 }

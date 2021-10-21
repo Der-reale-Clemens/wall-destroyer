@@ -12,7 +12,7 @@ const Building: FC = () => {
     return <Paper >
         <Grid container>
             <Grid item>
-                <img src={buildings.puncher.img}/>
+                <img src={buildings.puncher.img} alt="Puncher"/>
             </Grid>
         </Grid>
     </Paper>

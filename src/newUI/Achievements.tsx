@@ -8,10 +8,14 @@ import {Achievement} from "../components/upgradsAndAchievements/Achievement";
 export const Achievements: FC = () => {
     const achievements = useSelector((state: AppState) => state.achievements.achievements);
 
-    const a = achievements.map((a) =><td style={{display:"inline-block"}}><Achievement name={a}/></td> )
+    const a = achievements.map((a) =><td key={a} style={{display:"inline-block"}}><Achievement name={a}/></td> )
 
     return <table style={{display: "block"}}>
-        {a}
+        <tbody>
+        <tr>
+            {a}
+        </tr>
+        </tbody>
     </table>
 
     //return <table>
@@ -24,6 +28,7 @@ interface Props {
     order: any
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const AchievementsRow: FC<Props> = ({order, name}) => {
     const allAchievements = useSelector((state: AppState) => state.achievements.achievements);
 
@@ -36,7 +41,7 @@ const AchievementsRow: FC<Props> = ({order, name}) => {
         <th>{name}</th>
         {orderArray(achievements, Object.keys(order))
             .map((a: any) => <th>
-                <Achievement name={a}/>
+                <Achievement key={a} name={a}/>
             </th>)}
     </tr>
 }

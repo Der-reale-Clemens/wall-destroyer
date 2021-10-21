@@ -24,8 +24,8 @@ export const orderArray = (array: any[], order: any[]) =>
     array.sort((a: any, b: any) =>
         order.indexOf(a) > order.indexOf(b) ? 1 : -1)
 
-export const simpleArrayEquals = <T>(a: T[], b: T[]) => (a.length === b.length
+export const simpleArrayEquals = <T>(a: T[], b: T[]): boolean => (a.length === b.length
     && a.every((val, index) => val === b[index]))
 
-export const allBuildings = (): number => Object.values(store.getState().buildings)
-    .reduce((acc, b) => acc + b);
+// @ts-ignore
+export const allBuildings = (): number => Object.values(store.getState().buildings).reduce((acc, b) => acc + b);
