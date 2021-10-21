@@ -1,5 +1,5 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {AchievementKeys} from "../constants/achievements";
+import {AchievementKeys, achievements} from "../constants/achievements";
 import {simpleArrayEquals} from "../constants";
 
 const initialState = {
@@ -11,12 +11,17 @@ const achievementSlice = createSlice({
     name: "achievements",
     initialState,
     reducers: {
-        updateAchievements: (state, {payload: achievements}: PayloadAction<AchievementKeys[]>) => {
-            if(!simpleArrayEquals(state.achievements, achievements)) {
-                const newAchievements = achievements.filter(a => !state.achievements.includes(a));
-                newAchievements.forEach(a => state.notifications.push(a));
-                state.achievements = achievements;
-            }
+        //  updateAchievements: (state, {payload: achievements}: PayloadAction<AchievementKeys[]>) => {
+        //     if(!simpleArrayEquals(state.achievements, achievements)) {
+        //         const newAchievements = achievements.filter(a => !state.achievements.includes(a));
+        //         newAchievements.forEach(a => state.notifications.push(a));
+        //         state.achievements = achievements;
+        //     }
+        // },
+        setAchievements: (state, {payload: achievements}: PayloadAction<AchievementKeys[]>) => {
+            const newAchievements = achievements.filter(a => !state.achievements.includes(a));
+            newAchievements.forEach(a => state.notifications.push(a));
+            state.achievements = achievements;
         },
         clearNotifications: (state) => {
             state.notifications = [];
@@ -27,6 +32,7 @@ const achievementSlice = createSlice({
 export const achievementReducer = achievementSlice.reducer;
 
 export const {
-    updateAchievements,
+    //updateAchievements,
+    setAchievements,
     clearNotifications
 } = achievementSlice.actions;

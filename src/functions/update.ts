@@ -2,13 +2,14 @@ import {store} from "../redux/store";
 import {addSeenStories, setLastUpdate} from "../redux/SystemSlice";
 import {BuildingKeys, buildings} from "../constants/buildings";
 import {Dispatch} from "@reduxjs/toolkit";
-import {updateUnlockedUpgrades} from "../redux/UpgradeSlice";
+import {setUnlockedUpgrades} from "../redux/UpgradeSlice";
 import {upgrades} from "../constants/upgrades";
 import {achievements} from "../constants/achievements";
-import {updateAchievements} from "../redux/AchievementSlice";
+import {setAchievements} from "../redux/AchievementSlice";
 import {increaseBricks, increaseFourthWallBricks, updateDps} from "../redux/GameSlice";
 import {increaseBuildingDamage, updateBuildingDps} from "../redux/StatSlice";
 import {stories} from "../constants/stories";
+import {simpleArrayEquals} from "../constants";
 
 export const update = (dispatch: Dispatch<any>) => {
     const state = store.getState();
@@ -31,7 +32,7 @@ export const update = (dispatch: Dispatch<any>) => {
         .filter(d => d !== "hand" && d !== "brickFactory" && d !== "fourthWallBricks")
         //@ts-ignore
         .map(d => damages[d])
-        .reduce((sum, d) => sum+d);
+        .reduce((sum, d) => sum+d) + 10;
 
     //Set Dps
     dispatch(updateDps(overallDamage*(1000/deltaTime)));
@@ -44,16 +45,18 @@ export const update = (dispatch: Dispatch<any>) => {
 
 
     //Handle displayed upgrades
-    const boughtUpgrades = state.upgrades.boughtUpgrades
-    const visible = Object.keys(upgrades)
-        .filter(u => upgrades[u].isVisible())
-        .filter(u => !boughtUpgrades.includes(u));
-    dispatch(updateUnlockedUpgrades(visible));
+    // const boughtUpgrades = state.upgrades.boughtUpgrades
+    // const visible = Object.keys(upgrades)
+    //     .filter(u => upgrades[u].isVisible())
+    //     .filter(u => !boughtUpgrades.includes(u));
+    // dispatch(updateUnlockedUpgrades(visible));
+    updateUnlockedUpgrades(dispatch);
 
     //Handle achievements
-    const wonAchievements = Object.keys(achievements)
-        .filter(a => achievements[a].isUnlocked())
-    dispatch(updateAchievements(wonAchievements));
+    //const wonAchievements = Object.keys(achievements)
+    //    .filter(a => achievements[a].isUnlocked())
+    //dispatch(updateAchievements(wonAchievements));
+    updateAchievements(dispatch);
 
 
     //Handle stories
@@ -64,6 +67,33 @@ export const update = (dispatch: Dispatch<any>) => {
 
 
     return overallDamage;
+}
+
+const updateAchievements = (dispatch: Dispatch<any>) => {
+    const state = store.getState();
+
+    const wonAchievements = Object.keys(achievements)
+        .filter(a => achievements[a].isUnlocked());
+
+    //Update achievements if a new one has been earned
+    if(!simpleArrayEquals(state.achievements.achievements, wonAchievements)) {
+        dispatch(setAchievements(wonAchievements))
+    }
+}
+
+const updateUnlockedUpgrades = (dispatch: Dispatch<any>) => {
+    const state = store.getState();
+
+    const boughtUpgrades = state.upgrades.boughtUpgrades;
+    const unlockedUpgrades = Object.keys(upgrades)
+        .filter(u => upgrades[u].isVisible())
+        .filter(u => !boughtUpgrades.includes(u));
+
+    //Update upgrades if a new one has been unlocked
+    if(!simpleArrayEquals(state.upgrades.unlockedUpgrades, unlockedUpgrades)) {
+        dispatch(setUnlockedUpgrades(unlockedUpgrades));
+    }
+
 }
 
 const calculateDamages = (deltaTime: number) => {

@@ -11,28 +11,7 @@ export type AppState = ReturnType<typeof store.getState>
 
 const preloadedState = loadFromLocal();
 
-// const loadSave = {
-//     reducer: {
-//         system: systemReducer,
-//         game: gameReducer,
-//         buildings: buildingReducer,
-//         upgrades: upgradeReducer,
-//         achievements: achievementReducer,
-//         stats: statsReducer,
-//     },
-//     preloadedState
-// }
-//
-// const loadNew = {
-//     reducer: {
-//         system: systemReducer,
-//         game: gameReducer,
-//         buildings: buildingReducer,
-//         upgrades: upgradeReducer,
-//         achievements: achievementReducer,
-//         stats: statsReducer,
-//     },
-// }
+
 
 export const store = configureStore({
     reducer: {

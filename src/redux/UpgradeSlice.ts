@@ -15,12 +15,17 @@ const upgradeSlice = createSlice({
         addUpgrade: (state, {payload: upgrade}: PayloadAction<UpgradeKeys>) => {
             state.boughtUpgrades.push(upgrade);
         },
-        updateUnlockedUpgrades: (state, {payload: unlockedUpgrades}: PayloadAction<UpgradeKeys[]>) => {
-            if(!simpleArrayEquals(state.unlockedUpgrades, unlockedUpgrades)) {
-                const newUpgrades = unlockedUpgrades.filter(a => !state.unlockedUpgrades.includes(a));
-                newUpgrades.forEach(a => state.notifications.push(a));
-                state.unlockedUpgrades = unlockedUpgrades;
-            }
+        // updateUnlockedUpgrades: (state, {payload: unlockedUpgrades}: PayloadAction<UpgradeKeys[]>) => {
+        //     if(!simpleArrayEquals(state.unlockedUpgrades, unlockedUpgrades)) {
+        //         const newUpgrades = unlockedUpgrades.filter(a => !state.unlockedUpgrades.includes(a));
+        //         newUpgrades.forEach(a => state.notifications.push(a));
+        //         state.unlockedUpgrades = unlockedUpgrades;
+        //     }
+        // },
+        setUnlockedUpgrades: (state, {payload: unlockedUpgrades}: PayloadAction<UpgradeKeys[]>) => {
+            const newUpgrades = unlockedUpgrades.filter(a => !state.unlockedUpgrades.includes(a));
+            newUpgrades.forEach(a => state.notifications.push(a));
+            state.unlockedUpgrades = unlockedUpgrades;
         },
         clearNotifications: (state) => {
             state.notifications = [];
@@ -32,6 +37,7 @@ export const upgradeReducer = upgradeSlice.reducer;
 
 export const {
     addUpgrade,
-    updateUnlockedUpgrades,
+    // updateUnlockedUpgrades,
+    setUnlockedUpgrades,
     clearNotifications,
 } = upgradeSlice.actions;

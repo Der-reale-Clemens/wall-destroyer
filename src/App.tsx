@@ -2,6 +2,7 @@ import React, {FC, useEffect} from "react";
 import {AppState} from "./redux/store";
 import {useDispatch, useSelector} from "react-redux";
 import { CssBaseline, ThemeProvider, Theme, StyledEngineProvider } from "@mui/material";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import {Window} from "./Window";
 import {themeSelection} from "./functions/themeSelection";
 import {SnackbarProvider} from "notistack";
@@ -10,6 +11,7 @@ import {update} from "./functions/update";
 import {increaseMoney} from "./redux/GameSlice";
 import {addNotification, setLastUpdate} from "./redux/SystemSlice";
 import {save} from "./functions/save";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import {NewWindow} from "./newUI/NewWindow";
 
 
@@ -52,7 +54,7 @@ export const App: FC = () => {
                 <SnackbarProvider maxSnack={4}>
                     <Notifier/>
                     <CssBaseline/>
-                    <Window/>
+                    <NewWindow/>
                 </SnackbarProvider>
             </ThemeProvider>
         </StyledEngineProvider>
